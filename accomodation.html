@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Lady Margaret Hall MCR - Accommodation</title>
+        <link rel="stylesheet" href="lmh.css">
+    </head>
+    <body>
+        <div class="container">             
+            <img src="lmh_crest.png" class="crest-image">
+            <a href="index.html">
+                <button class="menu-button-home"> 
+                    <span style="font-size: 32px;">L</span>ADY <span style="font-size: 32px;">M</span>ARGARET <span style="font-size: 32px;">H</span>ALL
+                    <span style="font-size: 22px; opacity: 0.6;">M<span style="font-size: 18px;">IDDLE</span> C<span style="font-size: 18px;">OMMON</span> R<span style="font-size: 18px;">OOM</span></span>
+                </button>
+            </a>
+
+            <!-- Hamburger Menu Button -->
+            <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+
+            <!-- Navigation Menu -->
+            <nav>
+                <ul class="menu">
+                    <li class="dropdown">Committee
+                        <ul class="submenu">
+                            <li><a href="executives.html">Executives</a></li>
+                            <li><a href="representatives.html">Representives</a></li>
+                            <li><a href="constitution.html">Constitution</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="dropdown">Facilities
+                        <ul class="submenu">
+                            <li><a href="mcr.html">MCR</a></li>
+                            <li><a href="tv-room.html">TV Room</a></li>
+                            <li><a href="kitchen.html">Kitchen</a></li>
+                            <li><a href="gym.html">Gym</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="dropdown">College Life
+                        <ul class="submenu">
+                            <li><a href="accomodation.html">Accomodation</a></li>
+                            <li><a href="hall.html">Hall</a></li>
+                            <li><a href="social-events.html">Social Events</a></li>
+                            <li><a href="library.html">Library</a></li>
+                            <li><a href="sports.html">Sports</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="dropdown">Resources
+                        <ul class="submenu">
+                            <li><a href="academicsupport.html">Academic Support</a></li>
+                            <li><a href="mentalhealth.html">Mental Health</a></li>
+                            <li><a href="careerservices.html">Career Services</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="dropdown">Freshers
+                        <ul class="submenu">
+                            <li><a href="welcome-events.html">Welcome Events</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+
+        <hr>
+
+        <!-- Accommodation Section -->
+        <div style="padding: 0 5%; box-sizing: border-box;">
+            <h1 style="font-size: 42px; text-align: center; margin: 50px 0;">Accommodation</h1>
+
+            <div style="display: flex; flex-wrap: wrap; align-items: flex-start; gap: 40px;">
+                <!-- Left content -->
+                <div style="flex: 1 1 300px; min-width: 300px; font-size: 18px; line-height: 1.7;">
+                    <p style="text-align: left;">LMH provides graduate accommodation in single study bedrooms across several College buildings. The Clore Graduate Centre houses over 30 bedrooms and the Middle Common Room (MCR) within the same building. Other graduate rooms are located in historic College buildings such as Old Old Hall, New Old Hall, Fyfield Road, and The Cottage.</p>
+
+                    <p style="text-align: left;">Rooms vary in size and design and are offered at four price bands for 2025/26, ranging from £148.04 to £209.50 per week. All en-suite rooms are located in the Clore Graduate Centre at the highest A+ price band. Rent includes utility bills and limited cleaning services, and rooms are furnished with standard furniture, College ethernet, and wireless connectivity.</p>
+
+                    <p style="text-align: left;">Standard graduate accommodation agreements run for 39 weeks with the option to extend up to 51 weeks. College accommodation is prioritised for full-time students, with particular consideration for international students and those with disabilities.</p>
+
+                </div>
+
+                <!-- Right image -->
+                <div style="flex: 1 1 300px; min-width: 300px;">
+                    <img src="room.jpeg" alt="Graduate Room" style="width: 100%; height: auto; border-radius: 35px;">
+                    <p style="font-size: 16px; opacity: 0.7; margin-top: 8px; text-align: center;">Example of a grade A room in Old Old Hall</p>
+                </div>
+            </div>
+        </div>
+
+        <script>
+            function toggleMenu() {
+                const menu = document.querySelector(".menu");
+                menu.classList.toggle("show");
+            }
+
+            document.addEventListener("DOMContentLoaded", function () {
+                const dropdowns = document.querySelectorAll(".dropdown");
+
+                dropdowns.forEach(dropdown => {
+                    dropdown.addEventListener("click", function () {
+                        this.classList.toggle("active");
+                    });
+
+                    document.addEventListener("click", function (event) {
+                        if (!dropdown.contains(event.target)) {
+                            dropdown.classList.remove("active");
+                        }
+                    });
+                });
+            });
+        </script>
+    </body>
+</html>

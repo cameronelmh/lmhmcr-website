@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewpoint" content="width=device-width, initial-scale=1">
+        <title>Lady Margaret Hall MCR</title>
+        <link rel="stylesheet" href="lmh.css">
+    </head>
+    <body>
+        <div class="container">             
+            <img src="lmh_crest.png" class="crest-image">
+            <a href="index.html">
+                <button class="menu-button-home"> 
+                    <span style="font-size: 32px;">L</span>ADY <span style="font-size: 32px;">M</span>ARGARET <span style="font-size: 32px;">H</span>ALL
+                    <span style="font-size: 22px; opacity: 0.6;">M<span style="font-size: 18px;">IDDLE</span> C<span style="font-size: 18px;">OMMON</span> R<span style="font-size: 18px;">OOM</span></span>
+                </button>
+            </a>
+    
+            <!-- Hamburger Menu Button -->
+            <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+    
+            <!-- Navigation Menu -->
+            <nav>
+                <ul class="menu">
+                    <li class="dropdown">Committee
+                        <ul class="submenu">
+                            <li><a href="executives.html">Executives</a></li>
+                            <li><a href="representatives.html">Representives</a></li>
+                            <li><a href="constitution.html">Constitution</a></li>
+                        </ul>
+                    </li>
+            
+                    <li class="dropdown">Facilities
+                        <ul class="submenu">
+                            <li><a href="mcr.html">MCR</a></li>
+                            <li><a href="tv-room.html">TV Room</a></li>
+                            <li><a href="kitchen.html">Kitchen</a></li>
+                            <li><a href="gym.html">Gym</a></li>
+                        </ul>
+                    </li>
+            
+                    <li class="dropdown">College Life
+                        <ul class="submenu">
+                            <li><a href="accomodation.html">Accomodation</a></li>
+                            <li><a href="hall.html">Hall</a></li>
+                            <li><a href="social-events.html">Social Events</a></li>
+                            <li><a href="library.html">Library</a></li>
+                            <li><a href="sports.html">Sports</a></li>
+                        </ul>
+                    </li>
+            
+                    <li class="dropdown">Resources
+                        <ul class="submenu">
+                           <li><a href="academicsupport.html">Academic Support</a></li>
+                    <li><a href="mentalhealth.html">Mental Health</a></li>
+                    <li><a href="careerservices.html">Career Services</a></li>
+                        </ul>
+                    </li>
+            
+                    <li class="dropdown">Freshers
+                        <ul class="submenu">
+                            <li><a href="welcome-events.html">Welcome Events</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+            
+            
+        </div>
+<hr>
+<div style="padding: 0 5%; box-sizing: border-box;">
+
+    <!-- Page Title -->
+    <h1 style="font-size: 42px; text-align: center; margin: 50px 0;">
+        TV Room
+    </h1>
+
+    <!-- Image + Text Section -->
+    <div style="display: flex; flex-direction: column; align-items: center; gap: 40px;">
+
+        <!-- Image -->
+        <div style="width: 100%; max-width: 800px;">
+            <img src="tv2.jpeg" alt="TV Room" style="width: 100%; height: auto; border-radius: 35px;">
+        </div>
+
+        <!-- Text -->
+        <div style="max-width: 800px; font-size: 18px; line-height: 1.7;">
+            <p style="margin: 0 0 16px 0; display: block; width: 100%; text-align: left !important;">
+                The TV Room is located in the Clore Graduate Centre and provides a relaxed space for watching films, sports, or playing video games with other MCR members.
+            </p>
+
+            <p style="margin: 0 0 16px 0; display: block; width: 100%; text-align: left !important;">
+                The room is equipped with a large-screen television and a range of streaming and sports services, including Netflix and Sky Sports. A console is also available for multiplayer games.
+            </p>
+
+            <p style="margin: 0; display: block; width: 100%; text-align: left !important;">
+                It’s also a popular spot during major sporting events!
+            </p>
+        </div>
+
+    </div>
+</div>
+        <script>
+            function toggleMenu() {
+                const menu = document.querySelector(".menu");
+                menu.classList.toggle("show");
+            }
+
+            document.addEventListener("DOMContentLoaded", function () {
+                const dropdowns = document.querySelectorAll(".dropdown");
+
+                dropdowns.forEach(dropdown => {
+                    dropdown.addEventListener("click", function () {
+                        this.classList.toggle("active");
+                });
+
+                    // Close the dropdown when clicking outside
+                    document.addEventListener("click", function (event) {
+                        if (!dropdown.contains(event.target)) {
+                            dropdown.classList.remove("active");
+                        }
+                    });
+                });
+            });
+        </script>
+        
+    </body>    
+</html>

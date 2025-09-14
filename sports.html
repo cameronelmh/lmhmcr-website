@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewpoint" content="width=device-width, initial-scale=1">
+        <title>Lady Margaret Hall MCR</title>
+        <link rel="stylesheet" href="lmh.css">
+    </head>
+    <body>
+        <div class="container">             
+            <img src="lmh_crest.png" class="crest-image">
+            <a href="index.html">
+                <button class="menu-button-home"> 
+                    <span style="font-size: 32px;">L</span>ADY <span style="font-size: 32px;">M</span>ARGARET <span style="font-size: 32px;">H</span>ALL
+                    <span style="font-size: 22px; opacity: 0.6;">M<span style="font-size: 18px;">IDDLE</span> C<span style="font-size: 18px;">OMMON</span> R<span style="font-size: 18px;">OOM</span></span>
+                </button>
+            </a>
+    
+            <!-- Hamburger Menu Button -->
+            <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+    
+            <!-- Navigation Menu -->
+            <nav>
+                <ul class="menu">
+                    <li class="dropdown">Committee
+                        <ul class="submenu">
+                            <li><a href="executives.html">Executives</a></li>
+                            <li><a href="representatives.html">Representives</a></li>
+                            <li><a href="constitution.html">Constitution</a></li>
+                        </ul>
+                    </li>
+            
+                    <li class="dropdown">Facilities
+                        <ul class="submenu">
+                            <li><a href="mcr.html">MCR</a></li>
+                            <li><a href="tv-room.html">TV Room</a></li>
+                            <li><a href="kitchen.html">Kitchen</a></li>
+                            <li><a href="gym.html">Gym</a></li>
+                        </ul>
+                    </li>
+            
+                    <li class="dropdown">College Life
+                        <ul class="submenu">
+                            <li><a href="accomodation.html">Accomodation</a></li>
+                            <li><a href="hall.html">Hall</a></li>
+                            <li><a href="social-events.html">Social Events</a></li>
+                            <li><a href="library.html">Library</a></li>
+                            <li><a href="sports.html">Sports</a></li>
+                        </ul>
+                    </li>
+            
+                    <li class="dropdown">Resources
+                        <ul class="submenu">
+                            <li><a href="#">Academic Support</a></li>
+                            <li><a href="#">Mental Health</a></li>
+                            <li><a href="#">Career Services</a></li>
+                        </ul>
+                    </li>
+            
+                    <li class="dropdown">Freshers
+                        <ul class="submenu">
+                            <li><a href="welcome-events.html">Welcome Events</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+            
+            
+        </div>
+    
+        <hr>
+<!-- General College Sports Section -->
+<div style="padding: 0 5%; box-sizing: border-box;">
+
+    <!-- Page Title -->
+    <h1 style="font-size: 42px; text-align: center; margin: 50px 0;">
+        Sports
+    </h1>
+
+    <!-- Image + Text Section -->
+    <div style="display: flex; flex-direction: column; align-items: center; gap: 40px; width: 100%;">
+
+        <!-- Image -->
+        <div style="width: 100%; max-width: 800px;">
+            <img src="5aside.jpeg" alt="College Sports" style="width: 100%; height: auto; border-radius: 35px;">
+        </div>
+
+        <!-- Text -->
+       <!-- Text -->
+        <div style="max-width: 800px; font-size: 18px; line-height: 1.7;">
+            <p style="margin: 0 0 16px 0; display: block; width: 100%; text-align: left !important;">
+                Sport is a big part of life at college, and there’s loads to get involved in whether you’re keen to join a team or just want something fun and social to do in your spare time.
+            </p>
+
+            <p style="margin: 0 0 16px 0; display: block; width: 100%; text-align: left !important;">
+                We’ve got <strong>tennis courts</strong> for anyone who fancies a hit, and the MCR runs a friendly <strong>five-a-side football game on Monday evenings</strong> that’s very relaxed and open to everyone.
+            </p>
+
+            <p style="margin: 0 0 16px 0; display: block; width: 100%; text-align: left !important;">
+                You’ll also find plenty of more casual options, like <strong>spike ball</strong> on the lawn and a welcoming <strong>running club</strong> where people of all speeds and experience levels join in.
+            </p>
+
+            <p style="margin: 0 0 0 0; display: block; width: 100%; text-align: left !important;">
+                If you’re after something more competitive, there are college teams in <strong>football, rugby, and cricket</strong>, always looking for fresh faces. Whether you want a bit of exercise, to try something new, or to get properly stuck into sport, there’s a way to get involved.
+            </p>
+        </div>
+    </div>
+</div>
+        <script>
+            function toggleMenu() {
+                const menu = document.querySelector(".menu");
+                menu.classList.toggle("show");
+            }
+
+            document.addEventListener("DOMContentLoaded", function () {
+                const dropdowns = document.querySelectorAll(".dropdown");
+
+                dropdowns.forEach(dropdown => {
+                    dropdown.addEventListener("click", function () {
+                        this.classList.toggle("active");
+                });
+
+                    // Close the dropdown when clicking outside
+                    document.addEventListener("click", function (event) {
+                        if (!dropdown.contains(event.target)) {
+                            dropdown.classList.remove("active");
+                        }
+                    });
+                });
+            });
+        </script>
+        
+    </body>    
+</html>

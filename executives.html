@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewpoint" content="width=device-width, initial-scale=1">
+        <title>Lady Margaret Hall MCR</title>
+        <link rel="stylesheet" href="lmh.css">
+    </head>
+    <body>
+        <div class="container">             
+            <img src="lmh_crest.png" class="crest-image">
+            <a href="index.html">
+                <button class="menu-button-home"> 
+                    <span style="font-size: 32px;">L</span>ADY <span style="font-size: 32px;">M</span>ARGARET <span style="font-size: 32px;">H</span>ALL
+                    <span style="font-size: 22px; opacity: 0.6;">M<span style="font-size: 18px;">IDDLE</span> C<span style="font-size: 18px;">OMMON</span> R<span style="font-size: 18px;">OOM</span></span>
+                </button>
+            </a>
+    
+            <!-- Hamburger Menu Button -->
+            <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+    
+            <!-- Navigation Menu -->
+            <nav>
+                <ul class="menu">
+                    <li class="dropdown">Committee
+                        <ul class="submenu">
+                            <li><a href="executives.html">Executives</a></li>
+                            <li><a href="representatives.html">Representives</a></li>
+                            <li><a href="constitution.html">Constitution</a></li>
+                        </ul>
+                    </li>
+            
+                    <li class="dropdown">Facilities
+                        <ul class="submenu">
+                            <li><a href="mcr.html">MCR</a></li>
+                            <li><a href="tv-room.html">TV Room</a></li>
+                            <li><a href="kitchen.html">Kitchen</a></li>
+                            <li><a href="gym.html">Gym</a></li>
+                        </ul>
+                    </li>
+            
+                    <li class="dropdown">College Life
+                        <ul class="submenu">
+                            <li><a href="accomodation.html">Accomodation</a></li>
+                            <li><a href="hall.html">Hall</a></li>
+                            <li><a href="social-events.html">Social Events</a></li>
+                            <li><a href="library.html">Library</a></li>
+                            <li><a href="sports.html">Sports</a></li>
+                        </ul>
+                    </li>
+            
+                    <li class="dropdown">Resources
+                        <ul class="submenu">
+                          <li><a href="academicsupport.html">Academic Support</a></li>
+                    <li><a href="mentalhealth.html">Mental Health</a></li>
+                    <li><a href="careerservices.html">Career Services</a></li>
+                        </ul>
+                    </li>
+            
+                    <li class="dropdown">Freshers
+                        <ul class="submenu">
+                            <li><a href="welcome-events.html">Welcome Events</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+            
+            
+        </div>
+        <hr>
+<!-- EXECUTIVE COMMITTEE SECTION START --><!-- EXECUTIVE COMMITTEE SECTION START -->
+<style>
+  .exec-container {
+    padding: 0 5%;
+    box-sizing: border-box;
+  }
+
+  .exec-title {
+    font-size: 42px;
+    text-align: center;
+    margin: 100px 0 60px 0;
+  }
+
+  .exec-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+    justify-content: space-between;
+  }
+
+  .exec-card {
+    flex: 1 1 30%;
+    min-width: 280px;
+    background-color: #f5f5f5;
+    padding: 20px;
+    border-radius: 20px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .exec-img-wrapper {
+    width: 200px;
+    height: 200px;
+    background-color: #ddd;
+    border-radius: 20px;
+    overflow: hidden;
+    margin-bottom: 20px;
+  }
+
+  .exec-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 20px;
+  }
+
+  .exec-name {
+    margin: 0;
+    font-size: 28px;
+  }
+
+  .exec-role {
+    margin-top: 8px;
+    font-size: 22px;
+    font-weight: bold;
+  }
+
+  @media (max-width: 768px) {
+    .exec-grid {
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .exec-card {
+      flex: 1 1 100%;
+    }
+  }
+</style>
+
+<div class="exec-container">
+  <h1 class="exec-title">Executive Committee</h1>
+
+  <div class="exec-grid">
+
+    <!-- Hiba -->
+    <div class="exec-card">
+      <div class="exec-img-wrapper">
+        <img src="hiba.jpeg" alt="Hiba Sohail" class="exec-img">
+      </div>
+      <h3 class="exec-name">Hiba Sohail</h3>
+      <p class="exec-role">Co-president</p>
+    </div>
+
+    <!-- Syed -->
+    <div class="exec-card">
+      <div class="exec-img-wrapper">
+        <img src="syed.jpeg" alt="Syed Adil" class="exec-img">
+      </div>
+      <h3 class="exec-name">Syed Adil</h3>
+      <p class="exec-role">Co-president</p>
+    </div>
+
+    <!-- Connor -->
+    <div class="exec-card">
+      <div class="exec-img-wrapper">
+        <img src="connor.jpeg" alt="Connor McAllister" class="exec-img">
+      </div>
+      <h3 class="exec-name">Connor McAllister</h3>
+      <p class="exec-role">Treasurer</p>
+    </div>
+
+    <!-- Chris -->
+    <div class="exec-card">
+      <div class="exec-img-wrapper">
+        <img src="chris.jpeg" alt="Chris Warwick" class="exec-img">
+      </div>
+      <h3 class="exec-name">Chris Warwick</h3>
+      <p class="exec-role">Secretary</p>
+    </div>
+
+    <!-- Andrei -->
+    <div class="exec-card">
+      <div class="exec-img-wrapper">
+        <img src="andrei.jpeg" alt="Andrei Enoae" class="exec-img">
+      </div>
+      <h3 class="exec-name">Andrei Enoae</h3>
+      <p class="exec-role">Social Secretary / Exchange Representative</p>
+    </div>
+
+    <!-- Fabian -->
+    <div class="exec-card">
+      <div class="exec-img-wrapper">
+        <img src="fabian.jpeg" alt="Fabian Dopf" class="exec-img">
+      </div>
+      <h3 class="exec-name">Fabian Dopf</h3>
+      <p class="exec-role">Social Secretary</p>
+    </div>
+
+    <!-- Anna -->
+    <div class="exec-card">
+      <div class="exec-img-wrapper">
+        <img src="anna.jpeg" alt="Anna Schwarzenbach" class="exec-img">
+      </div>
+      <h3 class="exec-name">Anna Schwarzenbach</h3>
+      <p class="exec-role">Welfare Officer</p>
+    </div>
+
+    <!-- Cameron -->
+    <div class="exec-card">
+      <div class="exec-img-wrapper">
+        <img src="cameron.png" alt="Cameron Etherton" class="exec-img">
+      </div>
+      <h3 class="exec-name">Cameron Etherton</h3>
+      <p class="exec-role">Welfare Officer</p>
+    </div>
+
+    <!-- Charlotte -->
+    <div class="exec-card">
+      <div class="exec-img-wrapper">
+        <img src="charlotte.jpeg" alt="Charlotte Evans" class="exec-img">
+      </div>
+      <h3 class="exec-name">Charlotte Evans</h3>
+      <p class="exec-role">Welfare Officer</p>
+    </div>
+
+    <!-- Martje -->
+    <div class="exec-card">
+      <div class="exec-img-wrapper">
+        <img src="Martje.jpeg" alt="Martje Köppen" class="exec-img">
+      </div>
+      <h3 class="exec-name">Martje Köppen</h3>
+      <p class="exec-role">Welfare Officer</p>
+    </div>
+
+  </div>
+</div>
+<!-- EXECUTIVE COMMITTEE SECTION END -->
+        <script>
+            function toggleMenu() {
+                const menu = document.querySelector(".menu");
+                menu.classList.toggle("show");
+            }
+
+            document.addEventListener("DOMContentLoaded", function () {
+                const dropdowns = document.querySelectorAll(".dropdown");
+
+                dropdowns.forEach(dropdown => {
+                    dropdown.addEventListener("click", function () {
+                        this.classList.toggle("active");
+                });
+
+                    // Close the dropdown when clicking outside
+                    document.addEventListener("click", function (event) {
+                        if (!dropdown.contains(event.target)) {
+                            dropdown.classList.remove("active");
+                        }
+                    });
+                });
+            });
+        </script>
+        
+    </body>    
+</html>

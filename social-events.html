@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewpoint" content="width=device-width, initial-scale=1">
+    <title>Lady Margaret Hall MCR - Social Events</title>
+    <link rel="stylesheet" href="lmh.css">
+</head>
+<body>
+    <div class="container">             
+        <img src="lmh_crest.png" class="crest-image">
+        <a href="index.html">
+            <button class="menu-button-home"> 
+                <span style="font-size: 32px;">L</span>ADY <span style="font-size: 32px;">M</span>ARGARET <span style="font-size: 32px;">H</span>ALL
+                <span style="font-size: 22px; opacity: 0.6;">M<span style="font-size: 18px;">IDDLE</span> C<span style="font-size: 18px;">OMMON</span> R<span style="font-size: 18px;">OOM</span></span>
+            </button>
+        </a>
+
+        <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+
+        <nav>
+            <ul class="menu">
+                <li class="dropdown">Committee
+                    <ul class="submenu">
+                        <li><a href="executives.html">Executives</a></li>
+                        <li><a href="representatives.html">Representives</a></li>
+                        <li><a href="constitution.html">Constitution</a></li>
+                    </ul>
+                </li>
+        
+                <li class="dropdown">Facilities
+                    <ul class="submenu">
+                        <li><a href="mcr.html">MCR</a></li>
+                        <li><a href="tv-room.html">TV Room</a></li>
+                        <li><a href="kitchen.html">Kitchen</a></li>
+                        <li><a href="gym.html">Gym</a></li>
+                    </ul>
+                </li>
+        
+                <li class="dropdown">College Life
+                    <ul class="submenu">
+                        <li><a href="accomodation.html">Accomodation</a></li>
+                        <li><a href="hall.html">Hall</a></li>
+                        <li><a href="social-events.html">Social Events</a></li>
+                        <li><a href="library.html">Library</a></li>
+                        <li><a href="sports.html">Sports</a></li>
+                    </ul>
+                </li>
+        
+                <li class="dropdown">Resources
+                    <ul class="submenu">
+                        <li><a href="academicsupport.html">Academic Support</a></li>
+                    <li><a href="mentalhealth.html">Mental Health</a></li>
+                    <li><a href="careerservices.html">Career Services</a></li>
+                    </ul>
+                </li>
+        
+                <li class="dropdown">Freshers
+                    <ul class="submenu">
+                        <li><a href="welcome-events.html">Welcome Events</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+    </div>
+
+<hr>
+
+<div style="padding: 0 5%; box-sizing: border-box;">
+  <h1 style="font-size: 42px; text-align: center; margin: 100px 0;">Social Events</h1>
+
+  <div style="display: flex; flex-wrap: wrap; align-items: flex-start; gap: 40px;">
+    <div style="flex: 1 1 300px; min-width: 300px; text-align: left; font-size: 18px; line-height: 1.7;">
+
+      <h2 style="font-size: 24px; margin-bottom: 24px;">BOPs</h2>
+      <p style="margin: 0 0 16px 0; text-align: left;">
+        BOPs (Big Organised Parties) are the MCR’s main parties of the term. They usually take place in the MCR or college grounds, bringing together students from across the college. Expect music, drinks, and a lively atmosphere.
+      </p>
+
+      <h2 style="font-size: 24px; margin-bottom: 24px;">Formal Exchanges</h2>
+      <p style="margin: 0 0 16px 0; text-align: left;">
+        Formal Exchanges are structured dinners with other colleges. Attendees dress smartly, follow traditional dining etiquette, and enjoy a three-course meal. 
+      </p>
+
+      <h2 style="font-size: 24px; margin-bottom: 24px;">Wine & Cheese</h2>
+      <p style="margin: 0 0 16px 0; text-align: left;">
+        Wine & Cheese evenings are semi-formal gatherings designed for conversation and socialising.
+      </p>
+
+      <h2 style="font-size: 24px; margin-bottom: 24px;">Pub Crawls</h2>
+      <p style="margin: 0 0 16px 0; text-align: left;">
+        Pub Crawls are organised trips to local pubs with other students. They are casual events, perfect for exploring Oxford’s nightlife in a safe, group setting. They offer a fun way to socialise outside college, while discovering some of the city’s favourite pubs.
+      </p>
+
+      <h2 style="font-size: 24px; margin-bottom: 24px;">Welfare Brunches and Tea & Desserts</h2>
+      <p style="margin: 0 0 16px 0; text-align: left;">
+        Welfare Brunches and Tea & Desserts events take place on weekends, offering food and refreshments in a calm environment. They are focused on wellbeing, providing an opportunity to rest and socialise at a slower pace.
+      </p>
+
+    </div>
+
+    <div style="flex: 1 1 300px; min-width: 300px; margin-top: 40px;">
+      <img src="bop.jpeg" alt="Social Event" style="width: 100%; height: auto; border-radius: 35px;">
+    </div>
+  </div>
+</div>
+
+<script>
+    function toggleMenu() {
+        const menu = document.querySelector(".menu");
+        menu.classList.toggle("show");
+    }
+
+    document.addEventListener("DOMContentLoaded", function () {
+        const dropdowns = document.querySelectorAll(".dropdown");
+
+        dropdowns.forEach(dropdown => {
+            dropdown.addEventListener("click", function () {
+                this.classList.toggle("active");
+            });
+
+            document.addEventListener("click", function (event) {
+                if (!dropdown.contains(event.target)) {
+                    dropdown.classList.remove("active");
+                }
+            });
+        });
+    });
+</script>
+
+</body>
+</html>

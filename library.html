@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewpoint" content="width=device-width, initial-scale=1">
+        <title>Lady Margaret Hall MCR</title>
+        <link rel="stylesheet" href="lmh.css">
+    </head>
+    <body>
+        <div class="container">             
+            <img src="lmh_crest.png" class="crest-image">
+            <a href="index.html">
+                <button class="menu-button-home"> 
+                    <span style="font-size: 32px;">L</span>ADY <span style="font-size: 32px;">M</span>ARGARET <span style="font-size: 32px;">H</span>ALL
+                    <span style="font-size: 22px; opacity: 0.6;">M<span style="font-size: 18px;">IDDLE</span> C<span style="font-size: 18px;">OMMON</span> R<span style="font-size: 18px;">OOM</span></span>
+                </button>
+            </a>
+    
+            <!-- Hamburger Menu Button -->
+            <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+    
+            <!-- Navigation Menu -->
+            <nav>
+                <ul class="menu">
+                    <li class="dropdown">Committee
+                        <ul class="submenu">
+                            <li><a href="executives.html">Executives</a></li>
+                            <li><a href="representatives.html">Representives</a></li>
+                            <li><a href="constitution.html">Constitution</a></li>
+                        </ul>
+                    </li>
+            
+                    <li class="dropdown">Facilities
+                        <ul class="submenu">
+                            <li><a href="mcr.html">MCR</a></li>
+                            <li><a href="tv-room.html">TV Room</a></li>
+                            <li><a href="kitchen.html">Kitchen</a></li>
+                            <li><a href="gym.html">Gym</a></li>
+                        </ul>
+                    </li>
+            
+                    <li class="dropdown">College Life
+                        <ul class="submenu">
+                            <li><a href="accomodation.html">Accomodation</a></li>
+                            <li><a href="hall.html">Hall</a></li>
+                            <li><a href="social-events.html">Social Events</a></li>
+                            <li><a href="library.html">Library</a></li>
+                            <li><a href="sports.html">Sports</a></li>
+                        </ul>
+                    </li>
+            
+                    <li class="dropdown">Resources
+                        <ul class="submenu">
+                           <li><a href="academicsupport.html">Academic Support</a></li>
+                    <li><a href="mentalhealth.html">Mental Health</a></li>
+                    <li><a href="careerservices.html">Career Services</a></li>
+                        </ul>
+                    </li>
+            
+                    <li class="dropdown">Freshers
+                        <ul class="submenu">
+                            <li><a href="welcome-events.html">Welcome Events</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+            
+            
+        </div>
+        <hr>
+<!-- Library Section -->
+<div style="padding: 0 5%; box-sizing: border-box;">
+
+  <!-- Page Title -->
+  <h1 style="font-size: 42px; text-align: center; margin: 60px 0;">
+    Library
+  </h1>
+
+  <!-- Image in the Center -->
+  <div style="width: 100%; max-width: 800px; margin: 0 auto 40px auto;">
+    <img src="lib.jpeg" alt="Library" style="width: 100%; height: auto; border-radius: 35px;">
+  </div>
+
+  <!-- Text Content -->
+  <div style="max-width: 800px; margin: 0 auto; font-size: 18px; line-height: 1.7; text-align: left;">
+    <h2 style="font-size: 30px; margin-bottom: 16px;">Study Space</h2>
+    <p style="margin: 0 0 16px 0; text-align: left;">
+      The LMH Library is open 24/7, giving students a quiet and welcoming place to work at any time of day or night. 
+      It’s one of the best-loved spaces in college, offering a blend of modern facilities and historic charm.
+    </p> 
+
+    <h2 style="font-size: 30px; margin-bottom: 16px;">Support</h2>
+    <p style="margin: 0 0 16px 0; display: block; width: 100%; text-align: left !important;">
+                For any library-related enquiries, contact the college librarian Jamie: <a href="mailto:librarian@lmh.ox.ac.uk">librarian@lmh.ox.ac.uk</a> </p>
+
+    <!-- Cat Highlight Box -->
+    <div style="margin-top: 40px; padding: 20px; border-radius: 20px; background-color: #f9f9f9; box-shadow: 0 4px 10px rgba(0,0,0,0.1); text-align: left;">
+      <h3 style="font-size: 24px; margin-bottom: 12px;">🐾 Meet Isambard Kitty Brunel</h3>
+      <p style="margin: 0 0 16px 0; text-align: left;">
+        The library is home to our resident (hypoallergenic) cat, Issy, who loves to keep students company while they study. Don’t be surprised if he curls up near your desk!
+      </p>
+      <div style="margin-top: 20px; text-align: center;">
+        <img src="cat.jpeg" alt="Isambard Kitty Brunel" style="max-width: 100%; height: auto; border-radius: 20px; box-shadow: 0 2px 6px rgba(0,0,0,0.2);">
+      </div>
+    </div>
+  </div>
+</div>
+        <script>
+            function toggleMenu() {
+                const menu = document.querySelector(".menu");
+                menu.classList.toggle("show");
+            }
+
+            document.addEventListener("DOMContentLoaded", function () {
+                const dropdowns = document.querySelectorAll(".dropdown");
+
+                dropdowns.forEach(dropdown => {
+                    dropdown.addEventListener("click", function () {
+                        this.classList.toggle("active");
+                });
+
+                    // Close the dropdown when clicking outside
+                    document.addEventListener("click", function (event) {
+                        if (!dropdown.contains(event.target)) {
+                            dropdown.classList.remove("active");
+                        }
+                    });
+                });
+            });
+        </script>
+        
+    </body>    
+</html>

@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lady Margaret Hall MCR</title>
+<link rel="stylesheet" href="lmh.css">
+<style>
+.carousel-container {
+    max-width: 1000px;
+    margin: 0 auto 30px;
+    position: relative;
+}
+
+.carousel-container img {
+    width: 100%;
+    border-radius: 35px;
+    display: block;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.carousel-container img.active {
+    opacity: 1;
+    position: relative; /* ensures container keeps height */
+}
+
+.image-container {
+    padding: 0 5%;
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+    <img src="lmh_crest.png" class="crest-image">
+    <a href="index.html">
+        <button class="menu-button-home">
+            <span style="font-size:32px;">L</span>ADY <span style="font-size:32px;">M</span>ARGARET <span style="font-size:32px;">H</span>ALL
+            <span style="font-size:22px;opacity:0.6;">M<span style="font-size:18px;">IDDLE</span> C<span style="font-size:18px;">OMMON</span> R<span style="font-size:18px;">OOM</span></span>
+        </button>
+    </a>
+
+    <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+
+    <nav>
+        <ul class="menu">
+            <li class="dropdown">Committee
+                <ul class="submenu">
+                    <li><a href="executives.html">Executives</a></li>
+                    <li><a href="representatives.html">Representives</a></li>
+                    <li><a href="constitution.html">Constitution</a></li>
+                </ul>
+            </li>
+            <li class="dropdown">Facilities
+                <ul class="submenu">
+                    <li><a href="mcr.html">MCR</a></li>
+                    <li><a href="tv-room.html">TV Room</a></li>
+                    <li><a href="kitchen.html">Kitchen</a></li>
+                    <li><a href="gym.html">Gym</a></li>
+                </ul>
+            </li>
+            <li class="dropdown">College Life
+                <ul class="submenu">
+                    <li><a href="accomodation.html">Accomodation</a></li>
+                    <li><a href="hall.html">Hall</a></li>
+                    <li><a href="social-events.html">Social Events</a></li>
+                    <li><a href="library.html">Library</a></li>
+                    <li><a href="sports.html">Sports</a></li>
+                </ul>
+            </li>
+            <li class="dropdown">Resources
+                <ul class="submenu">
+                    <li><a href="academicsupport.html">Academic Support</a></li>
+                    <li><a href="mentalhealth.html">Mental Health</a></li>
+                    <li><a href="careerservices.html">Career Services</a></li>
+                </ul>
+            </li>
+            <li class="dropdown">Freshers
+                <ul class="submenu">
+                    <li><a href="welcome-events.html">Welcome Events</a></li>
+                </ul>
+            </li>
+        </ul>
+    </nav>
+</div>
+
+<hr>
+
+<div class="image-container">
+    <div class="carousel-container" id="carousel">
+        <img src="title.jpeg" class="active" alt="">
+        <img src="deneke.jpeg" alt="">
+        <img src="punt.jpeg" alt="">
+        <img src="lib.jpeg" alt="">
+        <img src="mcr.jpeg" alt="">
+        <img src="pool.jpeg" alt="">
+        <img src="bench.jpeg" alt="">
+        <img src="cat.jpeg" alt="">
+        <img src="bench2.jpeg" alt="">
+        <img src="garden.jpeg" alt="">
+        <img src="sit.jpeg" alt="">
+    </div>
+</div>
+
+<p>
+    The Middle Common Room refers to the body of graduate students at Lady Margaret Hall, in addition to a physical space within the college grounds. We have over 200 members who collectively create our community's, much envied, vibrant and friendly atmosphere.
+</p>
+
+<script>
+function toggleMenu() {
+    const menu = document.querySelector(".menu");
+    menu.classList.toggle("show");
+}
+
+document.addEventListener("DOMContentLoaded", function() {
+    const dropdowns = document.querySelectorAll(".dropdown");
+    dropdowns.forEach(dd => {
+        dd.addEventListener("click", () => dd.classList.toggle("active"));
+        document.addEventListener("click", e => {
+            if (!dd.contains(e.target)) dd.classList.remove("active");
+        });
+    });
+
+    const images = document.querySelectorAll('#carousel img');
+    let index = 0;
+
+    setInterval(() => {
+        images[index].classList.remove('active');
+        index = (index + 1) % images.length;
+        images[index].classList.add('active');
+    }, 5000);
+});
+</script>
+
+</body>
+</html>
