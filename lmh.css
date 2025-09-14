@@ -5,10 +5,9 @@
     width: auto;
     height: 70px;
     position: relative;
-    z-index: 10; /* below dropdowns */
+    z-index: 10;
     margin-top: 5px;
     margin-left: 10%;
-
 }
 
 .container {
@@ -21,7 +20,7 @@
     margin-top: 10px;
     padding: 10px 0;
     flex-wrap: wrap;
-    position: relative; /* reference for dropdowns */
+    position: relative;
     z-index: 10;
 }
 
@@ -55,8 +54,6 @@
 .menu-button-home:active {
     opacity: 0.3;
 }
-
-
 
 /* Hamburger Menu */
 .menu-toggle {
@@ -102,22 +99,25 @@
     position: relative; /* needed for submenu */
     cursor: pointer;
     color: rgb(4, 4, 135);
-    z-index: 20; /* above container and carousel */
+    z-index: 20;
 }
 
+/* ======================== */
+/* Submenu */
 .submenu {
     display: none;
     position: absolute;
-    top: 100%; /* directly below parent */
-    left: 0;
+    top: 100%;       /* directly below parent */
+    left: 0;         /* align left edge with parent */
+    right: auto;     /* reset any previous right settings */
     background-color: white;
     list-style: none;
     padding: 0;
     margin: 0;
     box-shadow: 0px 4px 6px rgba(0,0,0,0.1);
-    width: 150px;
+    min-width: 180px;
     border-radius: 5px;
-    z-index: 1000; /* above everything else */
+    z-index: 1000;
 }
 
 .submenu li {
@@ -137,33 +137,31 @@
     display: block;
 }
 
-/* Mobile Menu */
+/* ======================== */
+/* Mobile Menu Adjustments */
 @media (max-width: 1000px) {
     .menu {
-        display: none;
+        display: none; 
         flex-direction: column;
         position: absolute;
         top: 70px;
-        right: 0;
+        right: 10px;
         background-color: white;
-        width: 200px;
-        box-shadow: -2px 4px 6px rgba(0,0,0,0.1);
-        padding: 15px;
+        width: 90%;
+        max-width: 300px;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        padding: 10px 0;
         border-radius: 5px;
-        z-index: 100;
+        z-index: 1000;
     }
 
     .menu.show {
         display: flex;
     }
 
-    .menu-toggle {
-        display: block;
-    }
-
     .menu li {
-        padding: 12px;
-        text-align: right;
+        padding: 12px 15px;
+        text-align: left;
         border-bottom: 1px solid rgba(0,0,0,0.1);
     }
 
@@ -171,12 +169,38 @@
         border-bottom: none;
     }
 
+    /* Mobile submenu expands below parent */
     .submenu {
-        top: 0;
-        right: 100%;
-        width: 180px;
-        text-align: left;
-        box-shadow: -4px 4px 6px rgba(0,0,0,0.1);
+        position: static;  /* ignore absolute positioning */
+        width: 100%;
+        box-shadow: none;
+        border-radius: 0;
+        padding-left: 15px;
+    }
+
+    .submenu li {
+        padding: 10px 0;
+    }
+
+    .dropdown.active .submenu {
+        display: block;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+}
+
+/* Optional: very small screens */
+@media (max-width: 600px) {
+    .menu li, .submenu li {
+        font-size: 14px;
+        padding: 8px 12px;
+    }
+
+    .menu-button-home {
+        font-size: 22px;
+        max-width: 200px;
     }
 }
 
@@ -192,24 +216,39 @@ hr {
 /* Carousel / Images */
 .image-container {
     position: relative;
-    width: 1000px;
-    height: auto;
-    margin: 2px auto;
-    margin-top: 45px;
+    width: 100%;
+    max-width: 1000px;
+    margin: 45px auto 2px;
     overflow: hidden;
-    z-index: 1; /* behind dropdowns */
+    z-index: 1;
+    padding: 0 5%;
+    box-sizing: border-box;
 }
 
-.carousel-images {
-    display: flex;
-    transition: transform 0.5s ease-in-out;
+.carousel-container {
+    position: relative;
     width: 100%;
+    aspect-ratio: 16 / 9;
+    border-radius: 35px;
+    overflow: hidden;
+    max-width: 1000px;
+    margin: 0 auto;
 }
 
-.carousel-images img {
+.carousel-container img {
     width: 100%;
     height: auto;
-    flex-shrink: 0;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+}
+
+.carousel-container img.active {
+    opacity: 1;
+    position: relative;
 }
 
 .buttons {
@@ -219,7 +258,7 @@ hr {
     display: flex;
     justify-content: space-between;
     transform: translateY(-50%);
-    z-index: 5; /* above carousel but below dropdowns */
+    z-index: 5;
 }
 
 .buttons button {
@@ -267,80 +306,29 @@ h1 {
     font-size: 30px;
     font-family: 'Roboto';
 }
-
-/* ======================== */
-/* Mobile Menu Adjustments */
-/* ======================== */
-@media (max-width: 1000px) {
-    /* Make main menu vertical & visible only when toggled */
-    .menu {
-        display: none; /* hidden by default */
-        flex-direction: column;
-        position: absolute;
-        top: 70px;
-        right: 10px; /* keep it aligned to right */
-        background-color: white;
-        width: 90%; /* use relative width for mobile */
-        max-width: 300px; /* prevent it from being too wide */
-        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-        padding: 10px 0;
-        border-radius: 5px;
-        z-index: 1000; /* above images */
-    }
-
-    /* Show menu when toggled */
-    .menu.show {
-        display: flex;
-    }
-
-    /* Menu items stacked vertically */
-    .menu li {
-        padding: 12px 15px;
-        text-align: left;
-        border-bottom: 1px solid rgba(0,0,0,0.1);
-    }
-
-    .menu li:last-child {
-        border-bottom: none;
-    }
-
-    /* Submenu adjustments */
-    .submenu {
-        top: 0; /* align with parent */
-        left: 100%; /* move submenu to the right of parent */
-        width: 180px;
-        background-color: white;
-        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-        border-radius: 5px;
-        display: none;
-        z-index: 1001; /* above main menu */
-    }
-
-    .dropdown.active .submenu {
-        display: block;
-    }
-
-    /* Ensure submenu items fit mobile screen */
-    .submenu li {
-        padding: 10px;
-        font-size: 16px;
-    }
-
-    /* Hamburger button visible */
-    .menu-toggle {
-        display: block;
-    }
+/* Hide short version by default */
+.menu-button-home .short-version {
+    display: none;
 }
 
-/* Optional: adjust font size for very small screens */
-@media (max-width: 600px) {
-    .menu li, .submenu li {
-        font-size: 14px;
-        padding: 8px 12px;
+/* Hide full version and show short version when narrow */
+@media (max-width: 400px) {
+    .menu-button-home .full-version {
+        display: none;
     }
-
-    .menu-button-home {
-        font-size: 22px;
-        max-width: 200px;
+    .menu-button-home .short-version {
+        display: inline-flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+    .menu-button-home .short-version .main-title {
+        font-size: 28px;
+        line-height: 1.2;
+    }
+    .menu-button-home .short-version .subtitle {
+        font-size: 18px;
+        opacity: 0.6;
+        line-height: 1.2;
     }
 }
