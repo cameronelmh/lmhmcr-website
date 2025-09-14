@@ -1,0 +1,346 @@
+/* ======================== */
+/* Crest Image & Header */
+/* ======================== */
+.crest-image {
+    width: auto;
+    height: 70px;
+    position: relative;
+    z-index: 10; /* below dropdowns */
+    margin-top: 5px;
+    margin-left: 10%;
+
+}
+
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1px;
+    width: 90%;
+    background-color: rgb(255, 255, 255);
+    margin-top: 10px;
+    padding: 10px 0;
+    flex-wrap: wrap;
+    position: relative; /* reference for dropdowns */
+    z-index: 10;
+}
+
+.menu-button-home {
+    padding: 10px 10px;
+    border: none;
+    cursor: pointer;
+    font-size: 25px;
+    color: rgb(4, 4, 135);
+    background-color: white;
+    text-align: center;
+    display: inline-block;
+    width: max-content;
+    max-width: 400px;
+    white-space: normal;
+    line-height: 1.2;
+    word-wrap: break-word;
+    font-family: 'Roboto';
+    letter-spacing: 2px;
+    opacity: 0.9;
+}
+
+@media (max-width: 800px) {
+    .menu-button-home {
+        font-size: 28px;
+        max-width: 280px;
+    }
+}
+
+.menu-button-home:hover,
+.menu-button-home:active {
+    opacity: 0.3;
+}
+
+
+
+/* Hamburger Menu */
+.menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 30px;
+    cursor: pointer;
+    color: rgb(4, 4, 135);
+    position: absolute;
+    right: 20px;
+    top: 20px;
+}
+
+/* ======================== */
+/* Menu & Dropdowns */
+/* ======================== */
+.menu {
+    display: flex;
+    gap: 10px;
+    list-style: none;
+    padding-left: 70px;
+    background-color: white;
+    font-family: 'Roboto';
+    margin-left: auto;
+}
+
+.menu li {
+    padding: 10px 10px;
+    background-color: white;
+    color: rgb(4, 4, 135);
+    font-size: 18px;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+    cursor: pointer;
+}
+
+.menu li:hover {
+    opacity: 0.8;
+}
+
+.dropdown {
+    position: relative; /* needed for submenu */
+    cursor: pointer;
+    color: rgb(4, 4, 135);
+    z-index: 20; /* above container and carousel */
+}
+
+.submenu {
+    display: none;
+    position: absolute;
+    top: 100%; /* directly below parent */
+    left: 0;
+    background-color: white;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    box-shadow: 0px 4px 6px rgba(0,0,0,0.1);
+    width: 150px;
+    border-radius: 5px;
+    z-index: 1000; /* above everything else */
+}
+
+.submenu li {
+    padding: 10px;
+    font-size: 16px;
+    color: rgb(4, 4, 135);
+    background-color: white;
+    border-bottom: 1px solid rgba(0,0,0,0.1);
+    transition: opacity 0.3s, background-color 0.3s;
+}
+
+.submenu li:hover {
+    background-color: #f1f1f1;
+}
+
+.dropdown.active .submenu {
+    display: block;
+}
+
+/* Mobile Menu */
+@media (max-width: 1000px) {
+    .menu {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 70px;
+        right: 0;
+        background-color: white;
+        width: 200px;
+        box-shadow: -2px 4px 6px rgba(0,0,0,0.1);
+        padding: 15px;
+        border-radius: 5px;
+        z-index: 100;
+    }
+
+    .menu.show {
+        display: flex;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+
+    .menu li {
+        padding: 12px;
+        text-align: right;
+        border-bottom: 1px solid rgba(0,0,0,0.1);
+    }
+
+    .menu li:last-child {
+        border-bottom: none;
+    }
+
+    .submenu {
+        top: 0;
+        right: 100%;
+        width: 180px;
+        text-align: left;
+        box-shadow: -4px 4px 6px rgba(0,0,0,0.1);
+    }
+}
+
+/* ======================== */
+/* Divider */
+hr {
+    color: rgb(4, 4, 135);
+    background-color: rgb(4, 4, 135);
+    height: 1px;
+}
+
+/* ======================== */
+/* Carousel / Images */
+.image-container {
+    position: relative;
+    width: 1000px;
+    height: auto;
+    margin: 2px auto;
+    margin-top: 45px;
+    overflow: hidden;
+    z-index: 1; /* behind dropdowns */
+}
+
+.carousel-images {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+    width: 100%;
+}
+
+.carousel-images img {
+    width: 100%;
+    height: auto;
+    flex-shrink: 0;
+}
+
+.buttons {
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    transform: translateY(-50%);
+    z-index: 5; /* above carousel but below dropdowns */
+}
+
+.buttons button {
+    background-color: rgba(0,0,0,0.5);
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+}
+
+/* ======================== */
+/* Paragraphs & Links */
+p {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: black;
+    margin-left: 18%;
+    margin-right: 18%;
+    text-align: center;
+    font-size: 18px;
+    font-family: 'Roboto';
+}
+
+a {
+    text-decoration: none;
+}
+
+.menu li,
+.menu a {
+    color: rgb(4, 4, 135) !important;
+    text-decoration: none;
+}
+
+/* ======================== */
+/* Headers */
+h1 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: black;
+    margin-left: 18%;
+    margin-right: 18%;
+    text-align: center;
+    font-size: 30px;
+    font-family: 'Roboto';
+}
+
+/* ======================== */
+/* Mobile Menu Adjustments */
+/* ======================== */
+@media (max-width: 1000px) {
+    /* Make main menu vertical & visible only when toggled */
+    .menu {
+        display: none; /* hidden by default */
+        flex-direction: column;
+        position: absolute;
+        top: 70px;
+        right: 10px; /* keep it aligned to right */
+        background-color: white;
+        width: 90%; /* use relative width for mobile */
+        max-width: 300px; /* prevent it from being too wide */
+        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        padding: 10px 0;
+        border-radius: 5px;
+        z-index: 1000; /* above images */
+    }
+
+    /* Show menu when toggled */
+    .menu.show {
+        display: flex;
+    }
+
+    /* Menu items stacked vertically */
+    .menu li {
+        padding: 12px 15px;
+        text-align: left;
+        border-bottom: 1px solid rgba(0,0,0,0.1);
+    }
+
+    .menu li:last-child {
+        border-bottom: none;
+    }
+
+    /* Submenu adjustments */
+    .submenu {
+        top: 0; /* align with parent */
+        left: 100%; /* move submenu to the right of parent */
+        width: 180px;
+        background-color: white;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        border-radius: 5px;
+        display: none;
+        z-index: 1001; /* above main menu */
+    }
+
+    .dropdown.active .submenu {
+        display: block;
+    }
+
+    /* Ensure submenu items fit mobile screen */
+    .submenu li {
+        padding: 10px;
+        font-size: 16px;
+    }
+
+    /* Hamburger button visible */
+    .menu-toggle {
+        display: block;
+    }
+}
+
+/* Optional: adjust font size for very small screens */
+@media (max-width: 600px) {
+    .menu li, .submenu li {
+        font-size: 14px;
+        padding: 8px 12px;
+    }
+
+    .menu-button-home {
+        font-size: 22px;
+        max-width: 200px;
+    }
+}
