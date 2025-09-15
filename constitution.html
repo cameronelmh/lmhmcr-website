@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Lady Margaret Hall MCR - Constitution</title>
+    <title>Lady Margaret Hall MCR - Alternative Guide</title>
     <link rel="stylesheet" href="lmh.css">
 
     <!-- ✅ Favicon -->
@@ -338,100 +338,72 @@
                 <ul class="submenu">
                     <li><a href="academicsupport.html">Academic Support</a></li>
                     <li><a href="mentalhealth.html">Mental Health</a></li>
-                    <li><a href="careerservices.html">Career Services</a></li>
                 </ul>
             </li>
             <li class="dropdown">Freshers
                 <ul class="submenu">
                     <li><a href="welcome-events.html">Welcome Events</a></li>
+                    <li><a href="alternativeguide.html">Alternative Guide</a></li>
                 </ul>
             </li>
         </ul>
     </nav>
 </div>
-        <hr>
-  <!-- Main content area -->
-<div class="main-content">
+
+  <hr>
+
+  <div class="main-content">
     <p>View the LMH MCR Constitution and Bye-Laws below:</p>
-    <iframe src="mcr-constitution-bye-laws.pdf" width="100%" height="600px" style="border: 1px solid #ccc;">
+
+    <div class="pdf-container" id="pdfContainer">
+      <iframe id="pdfFrame" src="mcr-constitution-bye-laws.pdf">
         This browser does not support PDFs. Please <a href="mcr-constitution-bye-laws.pdf" target="_blank">download the PDF</a> to view it.
-    </iframe>
-</div>
-        <script>
-            function toggleMenu() {
-                const menu = document.querySelector(".menu");
-                menu.classList.toggle("show");
-            }
-
-            document.addEventListener("DOMContentLoaded", function () {
-                const dropdowns = document.querySelectorAll(".dropdown");
-
-                dropdowns.forEach(dropdown => {
-                    dropdown.addEventListener("click", function () {
-                        this.classList.toggle("active");
-                });
-
-                    // Close the dropdown when clicking outside
-                    document.addEventListener("click", function (event) {
-                        if (!dropdown.contains(event.target)) {
-                            dropdown.classList.remove("active");
-                        }
-                    });
-                });
-            });
-        </script>
-        <!-- ✅ Footer -->
-<footer>
-  <div class="footer-container">
-    <p>&copy; 2025 Lady Margaret Hall MCR | University of Oxford</p>
-    <p>
-      <a href="mailto:secretary-mcr@lmh.ox.ac.uk">secretary-mcr@lmh.ox.ac.uk</a> &nbsp; | &nbsp; 
-      <a href="https://www.instagram.com/lmh_mcr/" target="_blank">
-        <i class="fab fa-instagram"></i> lmh_mcr
-      </a> &nbsp; | &nbsp;
-      <a href="https://www.lmh.ox.ac.uk/" target="_blank">LMH Website</a>
-      
-    </p>
+      </iframe>
+    </div>
   </div>
-</footer>
 
-<!-- ✅ Font Awesome (for Instagram icon) -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <footer>
+    <div class="footer-container">
+      <p>&copy; 2025 Lady Margaret Hall MCR | University of Oxford</p>
+      <p>
+        <a href="mailto:secretary-mcr@lmh.ox.ac.uk">secretary-mcr@lmh.ox.ac.uk</a> &nbsp; | &nbsp; 
+        <a href="https://www.instagram.com/lmh_mcr/" target="_blank">
+          <i class="fab fa-instagram"></i> lmh_mcr
+        </a> &nbsp; | &nbsp;
+        <a href="https://www.lmh.ox.ac.uk/" target="_blank">LMH Website</a>
+      </p>
+    </div>
+  </footer>
 
-<style>
-  footer {
-    background-color: #f8f8f8;
-    border-top: 2px solid #003366; /* LMH/Oxford blue */
-    margin-top: 40px;
-    padding: 20px 10px;
-    text-align: center;
-    font-size: 14px;
-    color: #444;
-  }
+  <script>
+    function toggleMenu() {
+      const menu = document.querySelector(".menu");
+      menu.classList.toggle("show");
+    }
 
-  footer a {
-    color: #444;
-    text-decoration: none;
-    transition: color 0.3s ease;
-  }
+    document.addEventListener("DOMContentLoaded", function () {
+      // Handle dropdowns
+      const dropdowns = document.querySelectorAll(".dropdown");
+      dropdowns.forEach(dropdown => {
+        dropdown.addEventListener("click", function () {
+          this.classList.toggle("active");
+        });
 
-  footer a:hover {
-    color: #900; /* LMH red accent */
-  }
+        document.addEventListener("click", function (event) {
+          if (!dropdown.contains(event.target)) {
+            dropdown.classList.remove("active");
+          }
+        });
+      });
 
-  footer i {
-    margin-right: 5px;
-    color: #444;
-  }
-
-  footer a:hover i {
-    color: #900; /* Match hover effect */
-  }
-
-  .footer-container {
-    max-width: 1000px;
-    margin: 0 auto;
-  }
-</style>
-    </body>    
+      // Mobile fallback for PDF viewing
+      const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+      if (isMobile) {
+        document.getElementById('pdfContainer').innerHTML = `
+          <p><a href="mcr-constitution-bye-laws.pdf" target="_blank">Click here to view the constitution on mobile.</a></p>
+        `;
+      }
+    });
+  </script>
+</body>
 </html>
