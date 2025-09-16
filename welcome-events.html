@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="lmh.css">
     
     <!-- ✅ Favicon -->
-  <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
 
     <!-- Font Awesome for footer icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -63,9 +63,6 @@
             opacity: 0.3;
         }
 
-        /* ======================== */
-        /* Hamburger Menu */
-        /* ======================== */
         .menu-toggle {
             display: none;
             background: none;
@@ -78,9 +75,6 @@
             top: 20px;
         }
 
-        /* ======================== */
-        /* Menu & Dropdowns */
-        /* ======================== */
         .menu {
             display: flex;
             gap: 10px;
@@ -207,8 +201,6 @@
             }
         }
 
-        /* ======================== */
-        /* Short / Full header switch */
         .menu-button-home .short-version {
             display: none;
         }
@@ -234,16 +226,12 @@
             }
         }
 
-        /* ======================== */
-        /* Divider */
         hr {
             color: rgb(4, 4, 135);
             background-color: rgb(4, 4, 135);
             height: 1px;
         }
 
-        /* ======================== */
-        /* Footer */
         footer {
             background-color: #f8f8f8;
             border-top: 2px solid #003366;
@@ -281,12 +269,12 @@
 </head>
 <body>
 
+<!-- ✅ Header and Navigation -->
 <div class="container">
     <img src="lmh_crest.png" class="crest-image">
 
     <a href="index.html">
         <button class="menu-button-home">
-            <!-- Full version -->
             <span class="full-version">
                 <span class="main-title">
                     <span style="font-size:32px;">L</span>ADY 
@@ -298,7 +286,6 @@
                 </span>
             </span>
 
-            <!-- Short version -->
             <span class="short-version">
                 <span class="main-title">LMH</span>
                 <span class="subtitle">MCR</span>
@@ -313,7 +300,7 @@
             <li class="dropdown">Committee
                 <ul class="submenu">
                     <li><a href="executives.html">Executives</a></li>
-                    <li><a href="representatives.html">Representives</a></li>
+                    <li><a href="representatives.html">Representatives</a></li>
                     <li><a href="constitution.html">Constitution</a></li>
                 </ul>
             </li>
@@ -327,7 +314,7 @@
             </li>
             <li class="dropdown">College Life
                 <ul class="submenu">
-                    <li><a href="accomodation.html">Accomodation</a></li>
+                    <li><a href="accomodation.html">Accommodation</a></li>
                     <li><a href="hall.html">Hall</a></li>
                     <li><a href="social-events.html">Social Events</a></li>
                     <li><a href="library.html">Library</a></li>
@@ -350,84 +337,49 @@
     </nav>
 </div>
 
-    
-        <hr>
-<p>Check back soon!</p>
-        <script>
-            function toggleMenu() {
-                const menu = document.querySelector(".menu");
-                menu.classList.toggle("show");
-            }
+<hr>
 
-            document.addEventListener("DOMContentLoaded", function () {
-                const dropdowns = document.querySelectorAll(".dropdown");
+<!-- ✅ Centered Image -->
+<div style="display: flex; justify-content: center; width: 100%; margin-top: 30px;">
+    <img src="freshersweektimetable.jpeg" alt="Fresher's Week Timetable" style="width: 80%; max-width: 1100px; height: auto; border-radius: 35px;">
+</div>
 
-                dropdowns.forEach(dropdown => {
-                    dropdown.addEventListener("click", function () {
-                        this.classList.toggle("active");
-                });
+<script>
+    function toggleMenu() {
+        const menu = document.querySelector(".menu");
+        menu.classList.toggle("show");
+    }
 
-                    // Close the dropdown when clicking outside
-                    document.addEventListener("click", function (event) {
-                        if (!dropdown.contains(event.target)) {
-                            dropdown.classList.remove("active");
-                        }
-                    });
-                });
+    document.addEventListener("DOMContentLoaded", function () {
+        const dropdowns = document.querySelectorAll(".dropdown");
+
+        dropdowns.forEach(dropdown => {
+            dropdown.addEventListener("click", function () {
+                this.classList.toggle("active");
             });
-        </script>
-        <!-- ✅ Footer -->
+
+            document.addEventListener("click", function (event) {
+                if (!dropdown.contains(event.target)) {
+                    dropdown.classList.remove("active");
+                }
+            });
+        });
+    });
+</script>
+
+<!-- ✅ Footer -->
 <footer>
-  <div class="footer-container">
-    <p>&copy; 2025 Lady Margaret Hall MCR | University of Oxford</p>
-    <p>
-      <a href="mailto:secretary-mcr@lmh.ox.ac.uk">secretary-mcr@lmh.ox.ac.uk</a> &nbsp; | &nbsp; 
-      <a href="https://www.instagram.com/lmh_mcr/" target="_blank">
-        <i class="fab fa-instagram"></i> lmh_mcr
-      </a> &nbsp; | &nbsp;
-      <a href="https://www.lmh.ox.ac.uk/" target="_blank">LMH Website</a>
-      
-    </p>
-  </div>
+    <div class="footer-container">
+        <p>&copy; 2025 Lady Margaret Hall MCR | University of Oxford</p>
+        <p>
+            <a href="mailto:secretary-mcr@lmh.ox.ac.uk">secretary-mcr@lmh.ox.ac.uk</a> &nbsp; | &nbsp; 
+            <a href="https://www.instagram.com/lmh_mcr/" target="_blank">
+                <i class="fab fa-instagram"></i> lmh_mcr
+            </a> &nbsp; | &nbsp;
+            <a href="https://www.lmh.ox.ac.uk/" target="_blank">LMH Website</a>
+        </p>
+    </div>
 </footer>
 
-<!-- ✅ Font Awesome (for Instagram icon) -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
-<style>
-  footer {
-    background-color: #f8f8f8;
-    border-top: 2px solid #003366; /* LMH/Oxford blue */
-    margin-top: 40px;
-    padding: 20px 10px;
-    text-align: center;
-    font-size: 14px;
-    color: #444;
-  }
-
-  footer a {
-    color: #444;
-    text-decoration: none;
-    transition: color 0.3s ease;
-  }
-
-  footer a:hover {
-    color: #900; /* LMH red accent */
-  }
-
-  footer i {
-    margin-right: 5px;
-    color: #444;
-  }
-
-  footer a:hover i {
-    color: #900; /* Match hover effect */
-  }
-
-  .footer-container {
-    max-width: 1000px;
-    margin: 0 auto;
-  }
-</style>
-    </body>    
+</body>
 </html>
