@@ -1,6 +1,6 @@
 # LMH MCR Website
 
-Official website for LMH MCR.  
+Official website for LMH MCR.  (If the deployment history is looking a bit funny, it's because I'm doing a clean up!)
 This repository contains the source code, styles, assets, and configuration for the site. It's maintained by the LMH Secretary. 
 
 Currently, the project is being cleaned up to improve structure, maintainability, and collaboration practices.
