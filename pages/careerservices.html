@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Lady Margaret Hall MCR - Career Services</title>
+    <link rel="stylesheet" href="lmh.css">
+
+    <!-- ✅ Favicon -->
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
+    
+    <!-- Font Awesome for footer icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        /* ======================== */
+        /* Crest Image & Header */
+        /* ======================== */
+        .crest-image {
+            width: auto;
+            height: 70px;
+            position: relative;
+            z-index: 10;
+            margin-top: 5px;
+            margin-left: 10%;
+        }
+
+        .container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1px;
+            width: 90%;
+            background-color: white;
+            margin-top: 10px;
+            padding: 10px 0;
+            flex-wrap: wrap;
+            position: relative;
+            z-index: 10;
+        }
+
+        .menu-button-home {
+            padding: 10px 10px;
+            border: none;
+            cursor: pointer;
+            font-size: 25px;
+            color: rgb(4, 4, 135);
+            background-color: white;
+            text-align: center;
+            display: inline-block;
+            width: max-content;
+            max-width: 400px;
+            white-space: normal;
+            line-height: 1.2;
+            word-wrap: break-word;
+            font-family: 'Roboto';
+            letter-spacing: 2px;
+            opacity: 0.9;
+        }
+
+        .menu-button-home:hover,
+        .menu-button-home:active {
+            opacity: 0.3;
+        }
+
+        /* ======================== */
+        /* Hamburger Menu */
+        /* ======================== */
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 30px;
+            cursor: pointer;
+            color: rgb(4, 4, 135);
+            position: absolute;
+            right: 20px;
+            top: 20px;
+        }
+
+        /* ======================== */
+        /* Menu & Dropdowns */
+        /* ======================== */
+        .menu {
+            display: flex;
+            gap: 10px;
+            list-style: none;
+            padding-left: 70px;
+            background-color: white;
+            font-family: 'Roboto';
+            margin-left: auto;
+        }
+
+        .menu li {
+            padding: 10px 10px;
+            background-color: white;
+            color: rgb(4, 4, 135);
+            font-size: 18px;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+            cursor: pointer;
+        }
+
+        .menu li:hover {
+            opacity: 0.8;
+        }
+
+        .dropdown {
+            position: relative;
+            cursor: pointer;
+            color: rgb(4, 4, 135);
+            z-index: 20;
+        }
+
+        .submenu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: white;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            box-shadow: 0px 4px 6px rgba(0,0,0,0.1);
+            min-width: 180px;
+            border-radius: 5px;
+            z-index: 1000;
+        }
+
+        .submenu li {
+            padding: 10px;
+            font-size: 16px;
+            color: rgb(4, 4, 135);
+            background-color: white;
+            border-bottom: 1px solid rgba(0,0,0,0.1);
+            transition: opacity 0.3s, background-color 0.3s;
+        }
+
+        .submenu li:hover {
+            background-color: #f1f1f1;
+        }
+
+        .dropdown.active .submenu {
+            display: block;
+        }
+
+        @media (max-width: 1000px) {
+            .menu {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 70px;
+                right: 10px;
+                background-color: white;
+                width: 90%;
+                max-width: 300px;
+                box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+                padding: 10px 0;
+                border-radius: 5px;
+                z-index: 1000;
+            }
+
+            .menu.show {
+                display: flex;
+            }
+
+            .menu li {
+                padding: 12px 15px;
+                text-align: left;
+                border-bottom: 1px solid rgba(0,0,0,0.1);
+            }
+
+            .menu li:last-child {
+                border-bottom: none;
+            }
+
+            .submenu {
+                position: static;
+                width: 100%;
+                box-shadow: none;
+                border-radius: 0;
+                padding-left: 15px;
+            }
+
+            .submenu li {
+                padding: 10px 0;
+            }
+
+            .dropdown.active .submenu {
+                display: block;
+            }
+
+            .menu-toggle {
+                display: block;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .menu li, .submenu li {
+                font-size: 14px;
+                padding: 8px 12px;
+            }
+
+            .menu-button-home {
+                font-size: 22px;
+                max-width: 200px;
+            }
+        }
+
+        /* ======================== */
+        /* Short / Full header switch */
+        .menu-button-home .short-version {
+            display: none;
+        }
+
+        @media (max-width: 600px) {
+            .menu-button-home .full-version {
+                display: none;
+            }
+            .menu-button-home .short-version {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+            .menu-button-home .short-version .main-title {
+                font-size: 28px;
+                line-height: 1.2;
+            }
+            .menu-button-home .short-version .subtitle {
+                font-size: 18px;
+                opacity: 0.6;
+                line-height: 1.2;
+            }
+        }
+
+        /* ======================== */
+        /* Divider */
+        hr {
+            color: rgb(4, 4, 135);
+            background-color: rgb(4, 4, 135);
+            height: 1px;
+        }
+
+        /* ======================== */
+        /* Footer */
+        footer {
+            background-color: #f8f8f8;
+            border-top: 2px solid #003366;
+            margin-top: 40px;
+            padding: 20px 10px;
+            text-align: center;
+            font-size: 14px;
+            color: #444;
+        }
+
+        footer a {
+            color: #444;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        footer a:hover {
+            color: #900;
+        }
+
+        footer i {
+            margin-right: 5px;
+            color: #444;
+        }
+
+        footer a:hover i {
+            color: #900;
+        }
+
+        .footer-container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <img src="lmh_crest.png" class="crest-image">
+
+    <a href="index.html">
+        <button class="menu-button-home">
+            <!-- Full version -->
+            <span class="full-version">
+                <span class="main-title">
+                    <span style="font-size:32px;">L</span>ADY 
+                    <span style="font-size:32px;">M</span>ARGARET 
+                    <span style="font-size:32px;">H</span>ALL
+                </span>
+                <span class="subtitle">
+                    M<span style="font-size:18px;">IDDLE</span> C<span style="font-size:18px;">OMMON</span> R<span style="font-size:18px;">OOM</span>
+                </span>
+            </span>
+
+            <!-- Short version -->
+            <span class="short-version">
+                <span class="main-title">LMH</span>
+                <span class="subtitle">MCR</span>
+            </span>
+        </button>
+    </a>
+
+    <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+
+    <nav>
+        <ul class="menu">
+            <li class="dropdown">Committee
+                <ul class="submenu">
+                    <li><a href="executives.html">Executives</a></li>
+                    <li><a href="representatives.html">Representives</a></li>
+                    <li><a href="constitution.html">Constitution</a></li>
+                </ul>
+            </li>
+            <li class="dropdown">Facilities
+                <ul class="submenu">
+                    <li><a href="mcr.html">MCR</a></li>
+                    <li><a href="tv-room.html">TV Room</a></li>
+                    <li><a href="kitchen.html">Kitchen</a></li>
+                    <li><a href="gym.html">Gym</a></li>
+                </ul>
+            </li>
+            <li class="dropdown">College Life
+                <ul class="submenu">
+                    <li><a href="accomodation.html">Accomodation</a></li>
+                    <li><a href="hall.html">Hall</a></li>
+                    <li><a href="social-events.html">Social Events</a></li>
+                    <li><a href="library.html">Library</a></li>
+                    <li><a href="sports.html">Sports</a></li>
+                </ul>
+            </li>
+            <li class="dropdown">Resources
+                <ul class="submenu">
+                    <li><a href="academicsupport.html">Academic Support</a></li>
+                    <li><a href="mentalhealth.html">Mental Health</a></li>
+                    <li><a href="careerservices.html">Career Services</a></li>
+                </ul>
+            </li>
+            <li class="dropdown">Freshers
+                <ul class="submenu">
+                    <li><a href="welcome-events.html">Welcome Events</a></li>
+                </ul>
+            </li>
+        </ul>
+    </nav>
+</div>
+
+        <hr>
+<p>Coming soon.</p>
+        <script>
+            function toggleMenu() {
+                const menu = document.querySelector(".menu");
+                menu.classList.toggle("show");
+            }
+
+            document.addEventListener("DOMContentLoaded", function () {
+                const dropdowns = document.querySelectorAll(".dropdown");
+
+                dropdowns.forEach(dropdown => {
+                    dropdown.addEventListener("click", function () {
+                        this.classList.toggle("active");
+                });
+
+                    // Close the dropdown when clicking outside
+                    document.addEventListener("click", function (event) {
+                        if (!dropdown.contains(event.target)) {
+                            dropdown.classList.remove("active");
+                        }
+                    });
+                });
+            });
+        </script>
+        <!-- ✅ Footer -->
+<footer>
+  <div class="footer-container">
+    <p>&copy; 2025 Lady Margaret Hall MCR | University of Oxford</p>
+    <p>
+      <a href="mailto:secretary-mcr@lmh.ox.ac.uk">secretary-mcr@lmh.ox.ac.uk</a> &nbsp; | &nbsp; 
+      <a href="https://www.instagram.com/lmh_mcr/" target="_blank">
+        <i class="fab fa-instagram"></i> lmh_mcr
+      </a> &nbsp; | &nbsp;
+      <a href="https://www.lmh.ox.ac.uk/" target="_blank">LMH Website</a>
+      
+    </p>
+  </div>
+</footer>
+
+<!-- ✅ Font Awesome (for Instagram icon) -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+<style>
+  footer {
+    background-color: #f8f8f8;
+    border-top: 2px solid #003366; /* LMH/Oxford blue */
+    margin-top: 40px;
+    padding: 20px 10px;
+    text-align: center;
+    font-size: 14px;
+    color: #444;
+  }
+
+  footer a {
+    color: #444;
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+
+  footer a:hover {
+    color: #900; /* LMH red accent */
+  }
+
+  footer i {
+    margin-right: 5px;
+    color: #444;
+  }
+
+  footer a:hover i {
+    color: #900; /* Match hover effect */
+  }
+
+  .footer-container {
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+</style>
+    </body>    
+</html>
