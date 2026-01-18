@@ -37,13 +37,16 @@ By the end of the clean up, I'm hoping it will look like:
 
 ```
 /assets        Images, fonts, icons
-/styles        CSS files
-/scripts       JavaScript files
-/public        Static public files
-/src           Main site files
+/css           css styling sheets
+/scripts       JavaScript files (Currently there are no scripts but I plan to make some!)
+/pages         Individual html pages
+README         This README
+favicon.ico    
+site.webmanifest
+CNAME
 ```
 
-Will come back to this
+
 
 ## Deployment & License
 
