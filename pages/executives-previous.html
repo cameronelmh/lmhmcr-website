@@ -85,19 +85,21 @@
     }
 
     .exec-img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display:block;
-      transition: transform 350ms ease;
-    }
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display:block;
+  transition: transform 350ms ease;
+  position: relative;
+  z-index: 1;
+}
 
     /* Overlay that appears on hover/focus/tap */
     .overlay {
       position: absolute;
       left: 50%;
-      top: 54px; /* aligns to top of image wrapper (adjust) */
-      transform: translateX(-50%);
+      top: 0px; /* aligns to top of image wrapper (adjust) */
+      
       width: 180px;
       height: 180px;
       border-radius: 12px;
@@ -112,6 +114,7 @@
       opacity: 0;
       transition: opacity 260ms ease, transform 260ms ease;
       box-sizing: border-box;
+      z-index:5;
     }
 
     /* The visible "hover card" state */
@@ -124,12 +127,12 @@
     }
 
     /* Slight image zoom on hover for effect */
-    .exec-card.show-overlay .exec-img,
-    .exec-card:hover .exec-img,
-    .exec-card:focus-within .exec-img {
-      transform: scale(1.06);
+    .exec-card.show-overlay .overlay,
+    .exec-card:hover .overlay,
+    .exec-card:focus-within .overlay {
+      opacity: 1;
+      pointer-events: auto;
     }
-
     .exec-name {
       margin: 6px 0 0;
       font-size: 20px;
@@ -177,7 +180,7 @@
     /* responsive tweaks */
     @media (max-width: 700px) {
       .exec-title { margin-top: 40px; font-size: 36px; }
-      .overlay { left: 50%; top: 46px; }
+      .overlay { left: 100%; top: 4px; }
       .exec-card { min-height: 300px; padding: 14px; }
     }
   </style>
