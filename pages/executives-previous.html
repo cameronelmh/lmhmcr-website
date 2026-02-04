@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Lady Margaret Hall MCR - Executives</title>
+    <link rel="stylesheet" href="../css/lmh.css">
+    
+<!-- ✅ Favicon -->
+  <link rel="icon" href="../favicon.ico" type="image/x-icon">
+
+    <!-- Font Awesome for footer icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <style>
+    /* -------- container/header/nav styles kept from your file (trimmed) -------- */
+    /* ... (you can keep your existing header CSS above; included below are the new card/grid/overlay styles) */
+
+    /* EXEC GRID / GROUPED ROLES */
+    .exec-container {
+      padding: 0 5%;
+      box-sizing: border-box;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .exec-title {
+      font-size: 42px;
+      text-align: center;
+      margin: 80px 0 30px;
+      color: #032a63;
+    }
+
+    /* Each role group */
+    .role-group {
+      margin-bottom: 48px;
+    }
+    .role-heading {
+      font-size: 28px;
+      margin: 16px 0;
+      color: #032a63;
+      border-left: 6px solid #032a63;
+      padding-left: 12px;
+    }
+
+    /* Use CSS grid to layout cards neatly */
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 24px;
+      align-items: start;
+    }
+
+    .exec-card {
+      background: #ffffff;
+      border-radius: 14px;
+      box-shadow: 0 6px 18px rgba(3, 42, 99, 0.06);
+      overflow: hidden;
+      text-align: center;
+      padding: 18px;
+      position: relative;
+      transition: transform 220ms ease, box-shadow 220ms ease;
+      cursor: pointer;
+      min-height: 320px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .exec-card:focus-within,
+    .exec-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 10px 28px rgba(3, 42, 99, 0.12);
+      outline: none;
+    }
+
+    .exec-img-wrapper {
+      width: 180px;
+      height: 180px;
+      border-radius: 12px;
+      overflow: hidden;
+      position: relative;
+      margin-bottom: 14px;
+      flex-shrink: 0;
+      background: #e9e9e9;
+    }
+
+    .exec-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display:block;
+      transition: transform 350ms ease;
+    }
+
+    /* Overlay that appears on hover/focus/tap */
+    .overlay {
+      position: absolute;
+      left: 50%;
+      top: 54px; /* aligns to top of image wrapper (adjust) */
+      transform: translateX(-50%);
+      width: 180px;
+      height: 180px;
+      border-radius: 12px;
+      pointer-events: none;
+      background: rgba(2, 34, 76, 0.55);
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 14px;
+      opacity: 0;
+      transition: opacity 260ms ease, transform 260ms ease;
+      box-sizing: border-box;
+    }
+
+    /* The visible "hover card" state */
+    .exec-card.show-overlay .overlay,
+    .exec-card:hover .overlay,
+    .exec-card:focus-within .overlay {
+      opacity: 1;
+      pointer-events: auto;
+      transform: translateX(-50%) translateY(0);
+    }
+
+    /* Slight image zoom on hover for effect */
+    .exec-card.show-overlay .exec-img,
+    .exec-card:hover .exec-img,
+    .exec-card:focus-within .exec-img {
+      transform: scale(1.06);
+    }
+
+    .exec-name {
+      margin: 6px 0 0;
+      font-size: 20px;
+      font-weight: 600;
+      color: #032a63;
+    }
+
+    .exec-role {
+      margin-top: 6px;
+      font-size: 15px;
+      font-weight: 600;
+      color: #1f4973;
+    }
+
+    .exec-pronoun {
+      margin-top: 6px;
+      font-size: 13px;
+      color: #666;
+    }
+
+    /* Quote inside overlay */
+    .overlay .quote {
+      font-size: 13px;
+      line-height: 1.3;
+      max-height: 100%;
+      overflow: auto;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    /* Link block to previous execs */
+    .prev-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 16px;
+      background: #032a63;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 8px;
+      margin: 18px auto 60px;
+      font-weight: 600;
+      max-width: 340px;
+    }
+
+    /* responsive tweaks */
+    @media (max-width: 700px) {
+      .exec-title { margin-top: 40px; font-size: 36px; }
+      .overlay { left: 50%; top: 46px; }
+      .exec-card { min-height: 300px; padding: 14px; }
+    }
+  </style>
+
+</head>
+<body>
+
+<div class="container">
+    <img src="../assets/images/lmh_crest.png" class="crest-image">
+
+    <a href="../index.html">
+        <button class="menu-button-home">
+            <!-- Full version -->
+            <span class="full-version">
+                <span class="main-title">
+                    <span style="font-size:32px;">L</span>ADY 
+                    <span style="font-size:32px;">M</span>ARGARET 
+                    <span style="font-size:32px;">H</span>ALL
+                </span>
+                <span class="subtitle">
+                    M<span style="font-size:18px;">IDDLE</span> C<span style="font-size:18px;">OMMON</span> R<span style="font-size:18px;">OOM</span>
+                </span>
+            </span>
+
+            <!-- Short version -->
+            <span class="short-version">
+                <span class="main-title">LMH</span>
+                <span class="subtitle">MCR</span>
+            </span>
+        </button>
+    </a>
+
+    <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+
+    <nav>
+        <ul class="menu">
+            <li class="dropdown">Committee
+                <ul class="submenu">
+                    <li><a href="executives.html">Executives</a></li>
+                    <li><a href="representatives.html">Representives</a></li>
+                    <li><a href="constitution.html">Constitution</a></li>
+                </ul>
+            </li>
+            <li class="dropdown">Facilities
+                <ul class="submenu">
+                    <li><a href="mcr.html">MCR</a></li>
+                    <li><a href="tv-room.html">TV Room</a></li>
+                    <li><a href="kitchen.html">Kitchen</a></li>
+                    <li><a href="gym.html">Gym</a></li>
+                </ul>
+            </li>
+            <li class="dropdown">College Life
+                <ul class="submenu">
+                    <li><a href="accomodation.html">Accomodation</a></li>
+                    <li><a href="hall.html">Hall</a></li>
+                    <li><a href="social-events.html">Social Events</a></li>
+                    <li><a href="library.html">Library</a></li>
+                    <li><a href="sports.html">Sports</a></li>
+                </ul>
+            </li>
+            <li class="dropdown">Resources
+                <ul class="submenu">
+                    <li><a href="academicsupport.html">Academic Support</a></li>
+                    <li><a href="mentalhealth.html">Mental Health</a></li>
+                </ul>
+            </li>
+            <li class="dropdown">Events & Info
+                <ul class="submenu">
+                    <li><a href="welcome-events.html">Term Card</a></li>
+                    <li><a href="alternativeguide.html">Alternative Guide</a></li>
+                </ul>
+            </li>
+        </ul>
+    </nav>
+</div>
+
+        <hr>
+
+
+   <!-- ========== Previous Executive Committee ========== -->
+
+<div class="exec-container">
+  <h1 class="exec-title">Previous Executive Committee</h1>
+
+    <section class="role-group" id="presidents">
+      <h2 class="role-heading">Presidents</h2>
+      <div class="cards-grid">
+
+    <!-- Hiba -->
+
+     <article tabindex="0" class="exec-card" data-quote="{N/A}" role="article" aria-label="Luke De Bretton-Gordon — Co-president">
+          <div class="exec-img-wrapper" aria-hidden="true">
+            <img src="../assets/images/2025 committee/hiba.jpeg" alt="Hiba" class="exec-img">
+            <div class="overlay"><div class="quote"></div></div>
+          </div>
+          <h3 class="exec-name">Hiba Sohail</h3>
+          <div class="exec-role">Co-president</div>
+        </article>
+
+    <!-- Syed -->
+    <article tabindex="0" class="exec-card" data-quote="{N/A}" role="article" aria-label="Luke De Bretton-Gordon — Co-president">
+          <div class="exec-img-wrapper" aria-hidden="true">
+            <img src="../assets/images/2025 committee/syed.jpeg" alt="Syed" class="exec-img">
+            <div class="overlay"><div class="quote"></div></div>
+          </div>
+          <h3 class="exec-name">Syed Adil</h3>
+          <div class="exec-role">Co-president</div>
+        </article>
+    </div>
+    </section>
+
+    <section class="role-group" id="welfare">
+      <h2 class="role-heading">Treasurer</h2>
+      <div class="cards-grid">
+    <!-- Connor -->
+    <article tabindex="0" class="exec-card" data-quote="{N/A}" role="article" aria-label="Luke De Bretton-Gordon — Co-president">
+          <div class="exec-img-wrapper" aria-hidden="true">
+            <img src="../assets/images/2025 committee/connor.jpeg" alt="Connor" class="exec-img">
+            <div class="overlay"><div class="quote"></div></div>
+          </div>
+          <h3 class="exec-name">Connor McAllister</h3>
+          <div class="exec-role">Treasurer</div>
+        </article>
+    </div>
+    </section>
+
+    <section class="role-group" id="welfare">
+      <h2 class="role-heading">Secretary</h2>
+      <div class="cards-grid">
+    <!-- Chris -->
+    <article tabindex="0" class="exec-card" data-quote="{N/A}" role="article" aria-label="Luke De Bretton-Gordon — Co-president">
+          <div class="exec-img-wrapper" aria-hidden="true">
+            <img src="../assets/images/2025 committee/chris.jpeg" alt="Chris" class="exec-img">
+            <div class="overlay"><div class="quote"></div></div>
+          </div>
+          <h3 class="exec-name">Chris Warwick</h3>
+          <div class="exec-role">Secretary</div>
+        </article>
+    </div>
+    </section>
+
+    <section class="role-group" id="welfare">
+      <h2 class="role-heading">Social Secretaries</h2>
+      <div class="cards-grid">
+    <!-- Andrei -->
+    <article tabindex="0" class="exec-card" data-quote="{N/A}" role="article" aria-label="Luke De Bretton-Gordon — Co-president">
+          <div class="exec-img-wrapper" aria-hidden="true">
+            <img src="../assets/images/2025 committee/andrei.jpeg" alt="Andrei" class="exec-img">
+            <div class="overlay"><div class="quote"></div></div>
+          </div>
+          <h3 class="exec-name">Andrei Enoae</h3>
+          <div class="exec-role">Social Secretary / Exchange Representative</div>
+        </article>
+
+    <!-- Fabian -->
+    <article tabindex="0" class="exec-card" data-quote="{N/A}" role="article" aria-label="Luke De Bretton-Gordon — Co-president">
+          <div class="exec-img-wrapper" aria-hidden="true">
+            <img src="../assets/images/2025 committee/fabian.jpeg" alt="Fabian" class="exec-img">
+            <div class="overlay"><div class="quote"></div></div>
+          </div>
+          <h3 class="exec-name">Fabian Dopf</h3>
+          <div class="exec-role">Social Secretary</div>
+        </article>
+        </div>
+        </section>
+
+    <section class="role-group" id="welfare">
+      <h2 class="role-heading">Welfare Officers</h2>
+      <div class="cards-grid">
+    <!-- Anna -->
+    <article tabindex="0" class="exec-card" data-quote="{N/A}" role="article" aria-label="Luke De Bretton-Gordon — Co-president">
+          <div class="exec-img-wrapper" aria-hidden="true">
+            <img src="../assets/images/2025 committee/anna.jpeg" alt="Anna" class="exec-img">
+            <div class="overlay"><div class="quote"></div></div>
+          </div>
+          <h3 class="exec-name">Anna Schwarzenbach</h3>
+          <div class="exec-role">Welfare Officer</div>
+        </article>
+
+    <!-- Cameron -->
+    <article tabindex="0" class="exec-card" data-quote="{N/A}" role="article" aria-label="Luke De Bretton-Gordon — Co-president">
+          <div class="exec-img-wrapper" aria-hidden="true">
+            <img src="../assets/images/2025 committee/cameron.png" alt="Cameron" class="exec-img">
+            <div class="overlay"><div class="quote"></div></div>
+          </div>
+          <h3 class="exec-name">Cameron Etherton</h3>
+          <div class="exec-role">Welfare Officer</div>
+        </article>
+
+    <!-- Charlotte -->
+    <article tabindex="0" class="exec-card" data-quote="{N/A}" role="article" aria-label="Luke De Bretton-Gordon — Co-president">
+          <div class="exec-img-wrapper" aria-hidden="true">
+            <img src="../assets/images/2025 committee/charlotte.jpeg" alt="Charlotte" class="exec-img">
+            <div class="overlay"><div class="quote"></div></div>
+          </div>
+          <h3 class="exec-name">Charlotte Evans</h3>
+          <div class="exec-role">Welfare Officer</div>
+        </article>
+
+    <!-- Martje -->
+    <article tabindex="0" class="exec-card" data-quote="{N/A}" role="article" aria-label="Luke De Bretton-Gordon — Co-president">
+          <div class="exec-img-wrapper" aria-hidden="true">
+            <img src="../assets/images/2025 committee/Martje.jpeg" alt="Martje" class="exec-img">
+            <div class="overlay"><div class="quote"></div></div>
+          </div>
+          <h3 class="exec-name">Martje Köppen</h3>
+          <div class="exec-role">Welfare Officer</div>
+        </article>
+        </div>
+        </section>
+  </div>
+</div>
+<!-- EXECUTIVE COMMITTEE SECTION END -->
+        <script>
+            function toggleMenu() {
+                const menu = document.querySelector(".menu");
+                menu.classList.toggle("show");
+            }
+
+            document.addEventListener("DOMContentLoaded", function () {
+                const dropdowns = document.querySelectorAll(".dropdown");
+
+                dropdowns.forEach(dropdown => {
+                    dropdown.addEventListener("click", function () {
+                        this.classList.toggle("active");
+                });
+
+                    // Close the dropdown when clicking outside
+                    document.addEventListener("click", function (event) {
+                        if (!dropdown.contains(event.target)) {
+                            dropdown.classList.remove("active");
+                        }
+                    });
+                });
+            });
+        </script>
+        <!-- ✅ Footer -->
+<footer>
+  <div class="footer-container">
+    <p>&copy; 2025 Lady Margaret Hall MCR | University of Oxford</p>
+    <p>
+      <a href="mailto:secretary-mcr@lmh.ox.ac.uk">secretary-mcr@lmh.ox.ac.uk</a> &nbsp; | &nbsp; 
+      <a href="https://www.instagram.com/lmh_mcr/" target="_blank">
+        <i class="fab fa-instagram"></i> lmh_mcr
+      </a> &nbsp; | &nbsp;
+      <a href="https://www.lmh.ox.ac.uk/" target="_blank">LMH Website</a>
+      
+    </p>
+  </div>
+</footer>
+
+<!-- ✅ Font Awesome (for Instagram icon) -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+<style>
+  footer {
+    background-color: #f8f8f8;
+    border-top: 2px solid #003366; /* LMH/Oxford blue */
+    margin-top: 40px;
+    padding: 20px 10px;
+    text-align: center;
+    font-size: 14px;
+    color: #444;
+  }
+
+  footer a {
+    color: #444;
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+
+  footer a:hover {
+    color: #900; /* LMH red accent */
+  }
+
+  footer i {
+    margin-right: 5px;
+    color: #444;
+  }
+
+  footer a:hover i {
+    color: #900; /* Match hover effect */
+  }
+
+  .footer-container {
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+</style>
+    </body>    
+</html>

@@ -12,272 +12,179 @@
     <!-- Font Awesome for footer icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-    <style>
-        /* ======================== */
-        /* Crest Image & Header */
-        /* ======================== */
-        .crest-image {
-            width: auto;
-            height: 70px;
-            position: relative;
-            z-index: 10;
-            margin-top: 5px;
-            margin-left: 10%;
-        }
+  <style>
+    /* -------- container/header/nav styles kept from your file (trimmed) -------- */
+    /* ... (you can keep your existing header CSS above; included below are the new card/grid/overlay styles) */
 
-        .container {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 1px;
-            width: 90%;
-            background-color: white;
-            margin-top: 10px;
-            padding: 10px 0;
-            flex-wrap: wrap;
-            position: relative;
-            z-index: 10;
-        }
+    /* EXEC GRID / GROUPED ROLES */
+    .exec-container {
+      padding: 0 5%;
+      box-sizing: border-box;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
 
-        .menu-button-home {
-            padding: 10px 10px;
-            border: none;
-            cursor: pointer;
-            font-size: 25px;
-            color: rgb(4, 4, 135);
-            background-color: white;
-            text-align: center;
-            display: inline-block;
-            width: max-content;
-            max-width: 400px;
-            white-space: normal;
-            line-height: 1.2;
-            word-wrap: break-word;
-            font-family: 'Roboto';
-            letter-spacing: 2px;
-            opacity: 0.9;
-        }
+    .exec-title {
+      font-size: 42px;
+      text-align: center;
+      margin: 80px 0 30px;
+      color: #032a63;
+    }
 
-        .menu-button-home:hover,
-        .menu-button-home:active {
-            opacity: 0.3;
-        }
+    /* Each role group */
+    .role-group {
+      margin-bottom: 48px;
+    }
+    .role-heading {
+      font-size: 28px;
+      margin: 16px 0;
+      color: #032a63;
+      border-left: 6px solid #032a63;
+      padding-left: 12px;
+    }
 
-        /* ======================== */
-        /* Hamburger Menu */
-        /* ======================== */
-        .menu-toggle {
-            display: none;
-            background: none;
-            border: none;
-            font-size: 30px;
-            cursor: pointer;
-            color: rgb(4, 4, 135);
-            position: absolute;
-            right: 20px;
-            top: 20px;
-        }
+    /* Use CSS grid to layout cards neatly */
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 24px;
+      align-items: start;
+    }
 
-        /* ======================== */
-        /* Menu & Dropdowns */
-        /* ======================== */
-        .menu {
-            display: flex;
-            gap: 10px;
-            list-style: none;
-            padding-left: 70px;
-            background-color: white;
-            font-family: 'Roboto';
-            margin-left: auto;
-        }
+    .exec-card {
+      background: #ffffff;
+      border-radius: 14px;
+      box-shadow: 0 6px 18px rgba(3, 42, 99, 0.06);
+      overflow: hidden;
+      text-align: center;
+      padding: 18px;
+      position: relative;
+      transition: transform 220ms ease, box-shadow 220ms ease;
+      cursor: pointer;
+      min-height: 320px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .exec-card:focus-within,
+    .exec-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 10px 28px rgba(3, 42, 99, 0.12);
+      outline: none;
+    }
 
-        .menu li {
-            padding: 10px 10px;
-            background-color: white;
-            color: rgb(4, 4, 135);
-            font-size: 18px;
-            border-radius: 5px;
-            transition: background-color 0.3s;
-            cursor: pointer;
-        }
+    .exec-img-wrapper {
+      width: 180px;
+      height: 180px;
+      border-radius: 12px;
+      overflow: hidden;
+      position: relative;
+      margin-bottom: 14px;
+      flex-shrink: 0;
+      background: #e9e9e9;
+    }
 
-        .menu li:hover {
-            opacity: 0.8;
-        }
+    .exec-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display:block;
+  transition: transform 350ms ease;
+  position: relative;
+  z-index: 1;
+}
 
-        .dropdown {
-            position: relative;
-            cursor: pointer;
-            color: rgb(4, 4, 135);
-            z-index: 20;
-        }
+    /* Overlay that appears on hover/focus/tap */
+    .overlay {
+      position: absolute;
+      left: 50%;
+      top: 0px; /* aligns to top of image wrapper (adjust) */
+      
+      width: 180px;
+      height: 180px;
+      border-radius: 12px;
+      pointer-events: none;
+      background: rgba(2, 34, 76, 0.75);
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 14px;
+      opacity: 0;
+      transition: opacity 260ms ease, transform 260ms ease;
+      box-sizing: border-box;
+      z-index:5;
+    }
 
-        .submenu {
-            display: none;
-            position: absolute;
-            top: 100%;
-            left: 0;
-            background-color: white;
-            list-style: none;
-            padding: 0;
-            margin: 0;
-            box-shadow: 0px 4px 6px rgba(0,0,0,0.1);
-            min-width: 180px;
-            border-radius: 5px;
-            z-index: 1000;
-        }
+    /* The visible "hover card" state */
+    .exec-card.show-overlay .overlay,
+    .exec-card:hover .overlay,
+    .exec-card:focus-within .overlay {
+      opacity: 1;
+      pointer-events: auto;
+      transform: translateX(-50%) translateY(0);
+    }
 
-        .submenu li {
-            padding: 10px;
-            font-size: 16px;
-            color: rgb(4, 4, 135);
-            background-color: white;
-            border-bottom: 1px solid rgba(0,0,0,0.1);
-            transition: opacity 0.3s, background-color 0.3s;
-        }
+    /* Slight image zoom on hover for effect */
+    .exec-card.show-overlay .overlay,
+    .exec-card:hover .overlay,
+    .exec-card:focus-within .overlay {
+      opacity: 1;
+      pointer-events: auto;
+    }
+    .exec-name {
+      margin: 6px 0 0;
+      font-size: 20px;
+      font-weight: 600;
+      color: #032a63;
+    }
 
-        .submenu li:hover {
-            background-color: #f1f1f1;
-        }
+    .exec-role {
+      margin-top: 6px;
+      font-size: 15px;
+      font-weight: 600;
+      color: #1f4973;
+    }
 
-        .dropdown.active .submenu {
-            display: block;
-        }
+    .exec-pronoun {
+      margin-top: 6px;
+      font-size: 13px;
+      color: #666;
+    }
 
-        @media (max-width: 1000px) {
-            .menu {
-                display: none;
-                flex-direction: column;
-                position: absolute;
-                top: 70px;
-                right: 10px;
-                background-color: white;
-                width: 90%;
-                max-width: 300px;
-                box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-                padding: 10px 0;
-                border-radius: 5px;
-                z-index: 1000;
-            }
+    /* Quote inside overlay */
+    .overlay .quote {
+      font-size: 13px;
+      line-height: 1.3;
+      max-height: 100%;
+      overflow: auto;
+      -webkit-overflow-scrolling: touch;
+    }
 
-            .menu.show {
-                display: flex;
-            }
+    /* Link block to previous execs */
+    .prev-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 16px;
+      background: #032a63;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 8px;
+      margin: 18px auto 60px;
+      font-weight: 600;
+      max-width: 340px;
+    }
 
-            .menu li {
-                padding: 12px 15px;
-                text-align: left;
-                border-bottom: 1px solid rgba(0,0,0,0.1);
-            }
+    /* responsive tweaks */
+    @media (max-width: 700px) {
+      .exec-title { margin-top: 40px; font-size: 36px; }
+      .overlay { left: 100%; top: 4px; }
+      .exec-card { min-height: 300px; padding: 14px; }
+    }
+  </style>
 
-            .menu li:last-child {
-                border-bottom: none;
-            }
-
-            .submenu {
-                position: static;
-                width: 100%;
-                box-shadow: none;
-                border-radius: 0;
-                padding-left: 15px;
-            }
-
-            .submenu li {
-                padding: 10px 0;
-            }
-
-            .dropdown.active .submenu {
-                display: block;
-            }
-
-            .menu-toggle {
-                display: block;
-            }
-        }
-
-        @media (max-width: 600px) {
-            .menu li, .submenu li {
-                font-size: 14px;
-                padding: 8px 12px;
-            }
-
-            .menu-button-home {
-                font-size: 22px;
-                max-width: 200px;
-            }
-        }
-
-        /* ======================== */
-        /* Short / Full header switch */
-        .menu-button-home .short-version {
-            display: none;
-        }
-
-        @media (max-width: 600px) {
-            .menu-button-home .full-version {
-                display: none;
-            }
-            .menu-button-home .short-version {
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                text-align: center;
-            }
-            .menu-button-home .short-version .main-title {
-                font-size: 28px;
-                line-height: 1.2;
-            }
-            .menu-button-home .short-version .subtitle {
-                font-size: 18px;
-                opacity: 0.6;
-                line-height: 1.2;
-            }
-        }
-
-        /* ======================== */
-        /* Divider */
-        hr {
-            color: rgb(4, 4, 135);
-            background-color: rgb(4, 4, 135);
-            height: 1px;
-        }
-
-        /* ======================== */
-        /* Footer */
-        footer {
-            background-color: #f8f8f8;
-            border-top: 2px solid #003366;
-            margin-top: 40px;
-            padding: 20px 10px;
-            text-align: center;
-            font-size: 14px;
-            color: #444;
-        }
-
-        footer a {
-            color: #444;
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-
-        footer a:hover {
-            color: #900;
-        }
-
-        footer i {
-            margin-right: 5px;
-            color: #444;
-        }
-
-        footer a:hover i {
-            color: #900;
-        }
-
-        .footer-container {
-            max-width: 1000px;
-            margin: 0 auto;
-        }
-    </style>
 </head>
 <body>
 
@@ -351,351 +258,177 @@
 </div>
 
         <hr>
-<!-- EXECUTIVE COMMITTEE SECTION START --><!-- EXECUTIVE COMMITTEE SECTION START -->
-<style>
-  .exec-container {
-    padding: 0 5%;
-    box-sizing: border-box;
-  }
-
-  .exec-title {
-    font-size: 42px;
-    text-align: center;
-    margin: 100px 0 60px 0;
-  }
-
-  .exec-grid {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 40px;
-    justify-content: space-between;
-  }
-
-  .exec-card {
-    flex: 1 1 30%;
-    min-width: 280px;
-    background-color: #f5f5f5;
-    padding: 20px;
-    border-radius: 20px;
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .exec-img-wrapper {
-    width: 200px;
-    height: 200px;
-    background-color: #ddd;
-    border-radius: 20px;
-    overflow: hidden;
-    margin-bottom: 20px;
-  }
-
-  .exec-img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: 20px;
-  }
-
-  .exec-name {
-    margin: 0;
-    font-size: 28px;
-  }
-
-  .exec-role {
-    margin-top: 8px;
-    font-size: 22px;
-    font-weight: bold;
-  }
-
-  .exec-pronoun {
-    margin-top: 8px;
-    font-size: 18px;
-    font-weight: bold;
-  }
 
 
-  @media (max-width: 768px) {
-    .exec-grid {
-      flex-direction: column;
-      gap: 20px;
-    }
+   <!-- ========== Current Executive Committee ========== -->
+  <div class="exec-container">
+    <h1 class="exec-title">Executive Committee 2026</h1>
 
-    .exec-card {
-      flex: 1 1 100%;
-    }
-  }
-</style>
+    <!-- Presidents -->
+    <section class="role-group" id="presidents">
+      <h2 class="role-heading">Presidents</h2>
+      <div class="cards-grid">
+        <!-- Luke -->
+        <article tabindex="0" class="exec-card" data-quote="Heya I'm Luke, I'm a first year DPhil student in Cancer Sciences and your co president for this year!" role="article" aria-label="Luke De Bretton-Gordon — Co-president">
+          <div class="exec-img-wrapper" aria-hidden="true">
+            <img src="../assets/images/2026 committee/Luke.png" alt="Luke De Bretton-Gordon" class="exec-img">
+            <div class="overlay"><div class="quote"></div></div>
+          </div>
+          <h3 class="exec-name">Luke De Bretton-Gordon</h3>
+          <div class="exec-role">Co-president</div>
+          <div class="exec-pronoun">He/Him</div>
+        </article>
 
-<div class="exec-container">
-  <h1 class="exec-title">Executive Committee 2026</h1>
-
-  <div class="exec-grid">
-
-    <!-- Prezzes -->
-
-    <!-- Luke -->
-    <div class="exec-card">
-      <div class="exec-img-wrapper">
-        <img src="../assets/images/2026 committee/Luke.png" alt="Luke DeBG" class="exec-img">
+        <!-- Sean -->
+        <article tabindex="0" class="exec-card" data-quote="CSean Beggan, Co-Pres" role="article" aria-label="Sean Beggan — Co-president">
+          <div class="exec-img-wrapper" aria-hidden="true">
+            <img src="../assets/images/2026 committee/mystery profile.png" alt="Sean Beggan" class="exec-img">
+            <div class="overlay"><div class="quote"></div></div>
+          </div>
+          <h3 class="exec-name">Sean Beggan</h3>
+          <div class="exec-role">Co-president</div>
+        </article>
       </div>
-      <h3 class="exec-name">Luke De Bretton-Gordon</h3>
-      <p class="exec-role">Co-president</p>
-      <p class="exec-pronoun">He/Him</p>
-    </div>
-
-    <!-- Sean -->
-    <div class="exec-card">
-      <div class="exec-img-wrapper">
-        <img src="../assets/images/2026 committee/mystery profile.png" alt="Sean Begaan" class="exec-img">
-      </div>
-      <h3 class="exec-name">Sean Beggan</h3>
-      <p class="exec-role">Co-president</p>
-      
-    </div>
-
-    <!-- Treasurer -->
-
-    <!-- Debolina -->
-    <div class="exec-card">
-      <div class="exec-img-wrapper">
-        <img src="../assets/images/2026 committee/deb.jpeg" alt="Debolina Paul" class="exec-img">
-      </div>
-      <h3 class="exec-name">Debolina Paul</h3>
-      <p class="exec-role">Treasurer</p>
-      <p class="exec-pronoun">x/x</p>
-    </div>
+    </section>
 
     <!-- Secretaries -->
+    <section class="role-group" id="secretaries">
+      <h2 class="role-heading">Secretaries</h2>
+      <div class="cards-grid">
+        <article tabindex="0" class="exec-card" data-quote="Haashir is currently pursuing the MSc in Mathematical Sciences at Oxford with a focus on infinite-dimensional geometry and its applications." role="article" aria-label="Haashir — Co-secretary">
+          <div class="exec-img-wrapper"><img src="../assets/images/2026 committee/Haashir.jpg" alt="Haashir" class="exec-img"><div class="overlay"><div class="quote"></div></div></div>
+          <h3 class="exec-name">Haashir</h3>
+          <div class="exec-role">Co-secretary</div>
+          <div class="exec-pronoun">He/Him</div>
+        </article>
 
-    <!-- Haashir -->
-    <div class="exec-card">
-      <div class="exec-img-wrapper">
-        <img src="../assets/images/2026 committee/Haashir.jpg" alt="Haashir" class="exec-img">
+        <article tabindex="0" class="exec-card" data-quote="Hi, I'm Kaal - first year CS DPhil student and handle all the web/tech things :)" role="article" aria-label="Kaalkidan Sahele — Co-Secretary">
+          <div class="exec-img-wrapper"><img src="../assets/images/2026 committee/Kaal.png" alt="Kaalkidan Sahele" class="exec-img"><div class="overlay"><div class="quote"></div></div></div>
+          <h3 class="exec-name">Kaalkidan (Kaal) Sahele</h3>
+          <div class="exec-role">Co-Secretary (Web Officer)</div>
+        </article>
       </div>
-      <h3 class="exec-name">Haashir</h3>
-      <p class="exec-role">Co-secretary</p>
-      <p class="exec-pronoun">He/Him</p>
+    </section>
+
+    <!-- Going to convert the rest into grouped sections -->
+
+    <!-- Treasurer -->
+    <section class="role-group" id="treasurer">
+      <h2 class="role-heading">Treasurer</h2>
+      <div class="cards-grid">
+        <article tabindex="0" class="exec-card" data-quote="Debolina, Treasurer">
+          <div class="exec-img-wrapper"><img src="../assets/images/2026 committee/deb.jpeg" alt="Debolina Paul" class="exec-img"><div class="overlay"><div class="quote"></div></div></div>
+          <h3 class="exec-name">Debolina Paul</h3>
+          <div class="exec-role">Treasurer</div>
+          <div class="exec-pronoun">She/Her</div>
+        </article>
+      </div>
+    </section>
+
+    <!-- Social Secretaries (example - multiple people) -->
+    <section class="role-group" id="social-secretaries">
+      <h2 class="role-heading">Social Secretaries</h2>
+      <div class="cards-grid">
+        <!-- Lhori -->
+        <article tabindex="0" class="exec-card" data-quote="Lhori, Social Sec">
+          <div class="exec-img-wrapper"><img src="../assets/images/2026 committee/Lhori.jpeg" alt="Lhori Webster" class="exec-img"><div class="overlay"><div class="quote"></div></div></div>
+          <h3 class="exec-name">Lhori Webster</h3>
+          <div class="exec-role">Social Secretary</div>
+          <div class="exec-pronoun">She/Her</div>
+        </article>
+
+        <!-- Charlotte -->
+        <article tabindex="0" class="exec-card" data-quote="I'm studying MJur/BCL (Law) and part of the social sec team this year!">
+          <div class="exec-img-wrapper"><img src="../assets/images/2026 committee/charlotte_gehl.jpeg" alt="Charlotte Gehl" class="exec-img"><div class="overlay"><div class="quote"></div></div></div>
+          <h3 class="exec-name">Charlotte Gehl</h3>
+          <div class="exec-role">Social Secretary</div>
+          <div class="exec-pronoun">She/Her</div>
+        </article>
+
+        <!-- Sarah Eggen -->
+        <article tabindex="0" class="exec-card" data-quote="Hi, I’m Sarah! I’m reading for the Magister Juris and will be serving as social secretary this year. I’m looking forward to help organise warm & welcoming events">
+          <div class="exec-img-wrapper"><img src="../assets/images/2026 committee/Sarah_Eggen.jpg" alt="Sarah Eggen" class="exec-img"><div class="overlay"><div class="quote"></div></div></div>
+          <h3 class="exec-name">Sarah Eggen</h3>
+          <div class="exec-role">Social Secretary</div>
+          <div class="exec-pronoun">She/Her</div>
+        </article>
+
+        <!-- Lovel Lisac -->
+        <article tabindex="0" class="exec-card" data-quote="Lovel, Social Sec">
+          <div class="exec-img-wrapper"><img src="../assets/images/2026 committee/mystery profile.png" alt="Lovel Lisac" class="exec-img"><div class="overlay"><div class="quote"></div></div></div>
+          <h3 class="exec-name">Lovel Lisac</h3>
+          <div class="exec-role">Social Secretary</div>
+          <div class="exec-pronoun">X/X</div>
+        </article>
+
+        <!-- Finn -->
+        <article tabindex="0" class="exec-card" data-quote="Finn, Social Sec">
+          <div class="exec-img-wrapper"><img src="../assets/images/2026 committee/mystery profile.png" alt="Finn" class="exec-img"><div class="overlay"><div class="quote"></div></div></div>
+          <h3 class="exec-name">Finian Smyth</h3>
+          <div class="exec-role">Social Secretary</div>
+          <div class="exec-pronoun">X/X</div>
+        </article>
+              </div>
+    </section>
+
+    <!-- Welfare Officers -->
+    <section class="role-group" id="welfare">
+      <h2 class="role-heading">Welfare Officers</h2>
+      <div class="cards-grid">
+
+        <!-- Sophia -->
+        <article tabindex="0" class="exec-card" data-quote="DPhil candidate in Social Intervention and Policy Evaluation, researching AI and equity in Education">
+          <div class="exec-img-wrapper"><img src="../assets/images/2026 committee/Sophia_Andresen.jpeg" alt="Sophia Andresen" class="exec-img"><div class="overlay"><div class="quote"></div></div></div>
+          <h3 class="exec-name">Sophia Mai Andresen</h3>
+          <div class="exec-role">Welfare Officer</div>
+          <div class="exec-pronoun">She/Her</div>
+        </article>
+
+        <!-- Natasha -->
+        <article tabindex="0" class="exec-card" data-quote="Hi, I’m Tash! I’m studying English and will be on the welfare team. I can’t wait to continue planning exciting events and meeting more LMH-ers!">
+          <div class="exec-img-wrapper"><img src="../assets/images/2026 committee/natasha.jpeg" alt="Natasha O'Reilly" class="exec-img"><div class="overlay"><div class="quote"></div></div></div>
+          <h3 class="exec-name">Natasha O'Reilly</h3>
+          <div class="exec-role">Welfare Officer</div>
+          <div class="exec-pronoun">She/Her</div>
+        </article>
+
+        <!-- Nuria -->
+        <article tabindex="0" class="exec-card" data-quote="I’m studying a DPhil in Clinical Epidemiology and Medical Statistics. In my free time, I enjoy sports, spending time with friends, and any plan that involves nature (when it's sunny!) 🌱🌞">
+          <div class="exec-img-wrapper"><img src="../assets/images/2026 committee/nuria.jpeg" alt="Nuria Mercade Besora" class="exec-img"><div class="overlay"><div class="quote"></div></div></div>
+          <h3 class="exec-name">Nuria Mercade Besora</h3>
+          <div class="exec-role">Welfare Officer</div>
+          <div class="exec-pronoun">She/Her</div>
+        </article>
+
+        <!-- Farzana -->
+        <article tabindex="0" class="exec-card" data-quote="Currently, I am reading for an MSc in Education (Comparative and International Education). I am excited to work with the other Welfare Officers this year to plan and deliver inclusive events that can be enjoyed by all members of the LMH MCR community.">
+          <div class="exec-img-wrapper"><img src="../assets/images/2026 committee/Farzana.jpeg" alt="Farzana Chowdhury" class="exec-img"><div class="overlay"><div class="quote"></div></div></div>
+          <h3 class="exec-name">Farzana Chowdhury</h3>
+          <div class="exec-role">Welfare Officer</div>
+          <div class="exec-pronoun">She/Her</div>
+        </article>
+
+        <!-- Michelle -->
+        <article tabindex="0" class="exec-card" data-quote="Michelle, Welfare Officer">
+          <div class="exec-img-wrapper"><img src="../assets/images/2026 committee/mystery profile.png" alt="Michelle Quinones Guzman" class="exec-img"><div class="overlay"><div class="quote"></div></div></div>
+          <h3 class="exec-name">Michelle Quinones Guzman</h3>
+          <div class="exec-role">Welfare Officer</div>
+          <div class="exec-pronoun">X/X</div>
+        </article>
+        
+      </div>
+    </section>
+
+    <!-- Link to previous committee page (replaces the old listing) -->
+    <div style="text-align:center;">
+      <a class="prev-link" href="executives-previous.html" title="See previous Executive Committee">
+        <i class="fa-solid fa-people-group"></i> View Previous Executive Committee
+      </a>
     </div>
 
-    <!-- Kaal -->
-    <div class="exec-card">
-      <div class="exec-img-wrapper">
-        <img src="../assets/images/2026 committee/Kaal.png" alt="Kaal" class="exec-img">
-      </div>
-      <h3 class="exec-name">Kaalkidan (Kaal) Sahele</h3>
-      <p class="exec-role">Co-Secretary (Web Officer)</p>
-    </div>
+  </div> <!-- end exec-container --> 
 
-    <!-- Social Secs-->
 
-    <!-- Lhori -->
-    <div class="exec-card">
-      <div class="exec-img-wrapper">
-        <img src="../assets/images/2026 committee/Lhori.jpeg" alt="Lhori" class="exec-img">
-      </div>
-      <h3 class="exec-name">Lhori Webster</h3>
-      <p class="exec-role">Social Secretary</p>
-      <p class="exec-pronoun">She/Her</p>
-    </div>
-
-    <!-- Charlotte -->
-    <div class="exec-card">
-      <div class="exec-img-wrapper">
-        <img src="../assets/images/2026 committee/charlotte_gehl.jpeg" alt="Charlotte Gehl" class="exec-img">
-      </div>
-      <h3 class="exec-name">Charlotte Gehl</h3>
-      <p class="exec-role">Social Secretary</p>
-      <p class="exec-pronoun">She/Her</p>
-    </div>
-
-    <!-- Sarah Eggen -->
-    <div class="exec-card">
-      <div class="exec-img-wrapper">
-        <img src="../assets/images/2026 committee/Sarah_Eggen.jpg" alt="Sarah Eggen" class="exec-img">
-      </div>
-      <h3 class="exec-name">Sarah Eggen</h3>
-      <p class="exec-role">Social Secretary</p>
-      <p class="exec-pronoun">She/Her</p>
-    </div>
-
-    <!-- Lovel Isaac -->
-    <div class="exec-card">
-      <div class="exec-img-wrapper">
-        <img src="../assets/images/2026 committee/mystery profile.png" alt="Lovel Lisac" class="exec-img">
-      </div>
-      <h3 class="exec-name">Lovel Lisac</h3>
-      <p class="exec-role">Social Secretary</p>
-    </div>
-
-    <!-- Finn  -->
-    <div class="exec-card">
-      <div class="exec-img-wrapper">
-        <img src="../assets/images/2026 committee/mystery profile.png" alt="Finian Smyth" class="exec-img">
-      </div>
-      <h3 class="exec-name">Finian Smyth</h3>
-      <p class="exec-role">Social Secretary</p>
-
-    </div>
-
-    <!-- Welfare -->
-
-    <!-- Sophia -->
-    <div class="exec-card">
-      <div class="exec-img-wrapper">
-        <img src="../assets/images/2026 committee/Sophia_Andresen.jpeg" alt="Sophia Andresen" class="exec-img">
-      </div>
-      <h3 class="exec-name">Sophia Andresen</h3>
-      <p class="exec-role">Welfare Officer</p>
-      <p class="exec-pronoun">She/Her</p>
-    </div>
-
-    <!-- Natasha -->
-
-    <div class="exec-card">
-      <div class="exec-img-wrapper">
-        <img src="../assets/images/2026 committee/natasha.jpeg" alt="Natasha O'Reilly" class="exec-img">
-      </div>
-      <h3 class="exec-name">Natasha O'Reilly</h3>
-      <p class="exec-role">Welfare Officer</p>
-      <p class="exec-pronoun">She/Her</p>
-    </div>
-
-    <!-- Nuria -->
-
-    <div class="exec-card">
-      <div class="exec-img-wrapper">
-        <img src="../assets/images/2026 committee/nuria.jpeg" alt="Nuria Mercade Besora" class="exec-img">
-      </div>
-      <h3 class="exec-name">Nuria Mercade Besora</h3>
-      <p class="exec-role">Welfare Officer</p>
-      <p class="exec-pronoun">She/Her</p>
-    </div>
-
-    <!-- Farzana -->
-     
-    <div class="exec-card">
-      <div class="exec-img-wrapper">
-        <img src="../assets/images/2026 committee/Farzana.jpeg" alt="Farzana Chowdhury" class="exec-img">
-      </div>
-      <h3 class="exec-name">Farzana Chowdhury</h3>
-      <p class="exec-role">Welfare Officer</p>
-      <p class="exec-pronoun">She/Her</p>
-    </div>
-
-    <!-- Michelle -->
-     
-    <div class="exec-card">
-      <div class="exec-img-wrapper">
-        <img src="../assets/images/2026 committee/mystery profile.png" alt="Michelle Quinones Guzman" class="exec-img">
-      </div>
-      <h3 class="exec-name">Michelle Quinones Guzman</h3>
-      <p class="exec-role">Welfare Officer</p>
-      
-    </div>
-
-  </div>
-</div>
-
-<div class="exec-container">
-  <h1 class="exec-title">Previous Executive Committee</h1>
-
-  <div class="exec-grid">
-
-    <!-- Hiba -->
-    <div class="exec-card">
-      <div class="exec-img-wrapper">
-        <img src="../assets/images/hiba.jpeg" alt="Hiba Sohail" class="exec-img">
-      </div>
-      <h3 class="exec-name">Hiba Sohail</h3>
-      <p class="exec-role">Co-president</p>
-    </div>
-
-    <!-- Syed -->
-    <div class="exec-card">
-      <div class="exec-img-wrapper">
-        <img src="../assets/images/syed.jpeg" alt="Syed Adil" class="exec-img">
-      </div>
-      <h3 class="exec-name">Syed Adil</h3>
-      <p class="exec-role">Co-president</p>
-    </div>
-
-    <!-- Connor -->
-    <div class="exec-card">
-      <div class="exec-img-wrapper">
-        <img src="../assets/images/connor.jpeg" alt="Connor McAllister" class="exec-img">
-      </div>
-      <h3 class="exec-name">Connor McAllister</h3>
-      <p class="exec-role">Treasurer</p>
-    </div>
-
-    <!-- Chris -->
-    <div class="exec-card">
-      <div class="exec-img-wrapper">
-        <img src="../assets/images/chris.jpeg" alt="Chris Warwick" class="exec-img">
-      </div>
-      <h3 class="exec-name">Chris Warwick</h3>
-      <p class="exec-role">Secretary</p>
-    </div>
-
-    <!-- Andrei -->
-    <div class="exec-card">
-      <div class="exec-img-wrapper">
-        <img src="../assets/images/andrei.jpeg" alt="Andrei Enoae" class="exec-img">
-      </div>
-      <h3 class="exec-name">Andrei Enoae</h3>
-      <p class="exec-role">Social Secretary / Exchange Representative</p>
-    </div>
-
-    <!-- Fabian -->
-    <div class="exec-card">
-      <div class="exec-img-wrapper">
-        <img src="../assets/images/fabian.jpeg" alt="Fabian Dopf" class="exec-img">
-      </div>
-      <h3 class="exec-name">Fabian Dopf</h3>
-      <p class="exec-role">Social Secretary</p>
-    </div>
-
-    <!-- Anna -->
-    <div class="exec-card">
-      <div class="exec-img-wrapper">
-        <img src="../assets/images/anna.jpeg" alt="Anna Schwarzenbach" class="exec-img">
-      </div>
-      <h3 class="exec-name">Anna Schwarzenbach</h3>
-      <p class="exec-role">Welfare Officer</p>
-    </div>
-
-    <!-- Cameron -->
-    <div class="exec-card">
-      <div class="exec-img-wrapper">
-        <img src="../assets/images/cameron.png" alt="Cameron Etherton" class="exec-img">
-      </div>
-      <h3 class="exec-name">Cameron Etherton</h3>
-      <p class="exec-role">Welfare Officer</p>
-    </div>
-
-    <!-- Charlotte -->
-    <div class="exec-card">
-      <div class="exec-img-wrapper">
-        <img src="../assets/images/charlotte.jpeg" alt="Charlotte Evans" class="exec-img">
-      </div>
-      <h3 class="exec-name">Charlotte Evans</h3>
-      <p class="exec-role">Welfare Officer</p>
-    </div>
-
-    <!-- Martje -->
-    <div class="exec-card">
-      <div class="exec-img-wrapper">
-        <img src="../assets/images/Martje.jpeg" alt="Martje Köppen" class="exec-img">
-      </div>
-      <h3 class="exec-name">Martje Köppen</h3>
-      <p class="exec-role">Welfare Officer</p>
-    </div>
-
-  </div>
-</div>
 <!-- EXECUTIVE COMMITTEE SECTION END -->
         <script>
             function toggleMenu() {
@@ -719,6 +452,59 @@
                     });
                 });
             });
+
+        document.addEventListener('DOMContentLoaded', function () {
+          // small HTML-escape helper
+          function escapeHtml(str) {
+            return String(str).replace(/[&<>"']/g, function (m) {
+              return ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'})[m];
+            });
+          }
+
+          document.querySelectorAll('.exec-card').forEach((card, idx) => {
+            const quoteText = (card.getAttribute('data-quote') || '').trim();
+            const quoteBox = card.querySelector('.overlay .quote');
+
+            // Debug: prints to console so you can verify data-quote exists
+            console.log(`[exec-card ${idx}]`, card.querySelector('.exec-name')?.textContent?.trim() || '(no name)', 'quote present?', !!quoteText);
+
+            if (quoteBox) {
+              if (quoteText) {
+                // convert newline to <br> and escape HTML
+                quoteBox.innerHTML = escapeHtml(quoteText).replace(/\n/g, '<br>');
+              } else {
+                quoteBox.innerHTML = '<em>No quote provided</em>';
+              }
+            } else {
+              // if overlay markup structure is not as expected, log it for debugging
+              console.warn('[exec-card] .overlay .quote not found for', card);
+            }
+
+            // toggle overlay on click/tap (ignore links)
+            card.addEventListener('click', function (e) {
+              if (e.target.closest('a')) return;
+              card.classList.toggle('show-overlay');
+            });
+
+            // close overlay on outside click
+            document.addEventListener('click', function (ev) {
+              if (!card.contains(ev.target)) card.classList.remove('show-overlay');
+            });
+
+            // keyboard toggle for accessibility
+            card.addEventListener('keydown', function (ev) {
+              if (ev.key === 'Enter' || ev.key === ' ') {
+                ev.preventDefault();
+                card.classList.toggle('show-overlay');
+              }
+              if (ev.key === 'Escape') {
+                card.classList.remove('show-overlay');
+              }
+            });
+          });
+        });
+
+
         </script>
         <!-- ✅ Footer -->
 <footer>
