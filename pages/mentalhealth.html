@@ -242,6 +242,58 @@
             height: 1px;
         }
 
+         /* ======================== */
+        /* Mental Health Intro */
+        /* ======================== */
+        .mental-health-section {
+            max-width: 900px;
+            margin: 60px auto 40px;
+            padding: 0 5%;
+        }
+
+        .mental-health-title {
+            font-size: 38px;
+            color: rgb(4, 4, 135);
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .mental-health-card {
+            background: #ffffff;
+            border-radius: 14px;
+            padding: 22px 26px;
+            margin-bottom: 28px;
+            box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+        }
+
+        .mental-health-card h2 {
+            margin-top: 0;
+            font-size: 22px;
+            color: rgb(4, 4, 135);
+        }
+
+        .mental-health-card p,
+        .mental-health-card li {
+            font-size: 16px;
+            line-height: 1.5;
+            color: #333;
+        }
+
+        .mental-health-card ul {
+            padding-left: 18px;
+            margin: 10px 0 0;
+        }
+
+        .mental-health-card a {
+            color: rgb(4, 4, 135);
+            text-decoration: none;
+        }
+
+        .mental-health-card a:hover {
+            text-decoration: underline;
+        }
+
+
         /* ======================== */
         /* Footer */
         footer {
@@ -351,9 +403,61 @@
 </div>
 
         <hr>
+
+<!-- ======================== -->
+<!-- Mental Health Content -->
+<!-- ======================== -->
+<section class="mental-health-section">
+    <h1 class="mental-health-title">Mental Health & Wellbeing</h1>
+
+    <div class="mental-health-card">
+        <h2>College Wellbeing Team</h2>
+        <p>
+            If you have wellbeing concerns, you can get in touch with
+            Lizzie and Erin at:
+        </p>
+        <p>
+            <a href="mailto:wellbeing@lmh.ox.ac.uk">wellbeing@lmh.ox.ac.uk</a>
+        </p>
+        <p>
+            You can also contact the College Nurse if medical support is needed.
+        </p>
+    </div>
+
+    <div class="mental-health-card">
+        <h2>Additional Mental Health Resources</h2>
+        <ul>
+            <li>
+                <a href="https://web.archive.org/web/20230606131043/http://www.lmh.ox.ac.uk/wellbeing" target="_blank">
+                    Mental Health Support (LMH – archived)
+                </a>
+            </li>
+            <li>
+                <a href="https://www.lmh.ox.ac.uk/wellbeing/mental-health-and-wellbeing" target="_blank">
+                    General Wellbeing Support (LMH)
+                </a>
+            </li>
+        </ul>
+    </div>
+
+    <div class="mental-health-card">
+        <h2>Not sure who to contact?</h2>
+        <p>
+            If you’re unsure who to reach out to, refer to the flowchart below.
+            You can also scan the QR code to find contact details for the
+            appropriate person or service.
+        </p>
+    </div>
+</section>
+
+<!-- Flowchart image -->
 <div style="display: flex; justify-content: center; width: 100%; margin-top: 30px;">
-    <img src="../assets/images/wellbeing_support_XGE.png" alt="Hilary Term Timetable" style="width: 80%; max-width: 1100px; height: auto; border-radius: 35px;">
+    <img src="../assets/images/wellbeing_support_XGE.png"
+         alt="LMH wellbeing support flowchart"
+         style="width: 80%; max-width: 1100px; height: auto; border-radius: 35px;">
 </div>
+
+
         <script>
             function toggleMenu() {
                 const menu = document.querySelector(".menu");

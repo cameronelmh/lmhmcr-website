@@ -1,284 +1,175 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Lady Margaret Hall MCR - Academic Support</title>
-    <link rel="stylesheet" href="../css/lmh.css">
-
-    <!-- ✅ Favicon -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Lady Margaret Hall MCR - Academic Support</title>
+  <link rel="stylesheet" href="../css/lmh.css">
   <link rel="icon" href="../favicon.ico" type="image/x-icon">
-    
-    <!-- Font Awesome for footer icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-    <style>
-        /* ======================== */
-        /* Crest Image & Header */
-        /* ======================== */
-        .crest-image {
-            width: auto;
-            height: 70px;
-            position: relative;
-            z-index: 10;
-            margin-top: 5px;
-            margin-left: 10%;
-        }
+  <style>
+    /* ======================== */
+    /* Header & Navigation */
+    /* ======================== */
+    .crest-image {
+      height: 70px;
+      margin-top: 5px;
+      margin-left: 10%;
+    }
 
-        .container {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 1px;
-            width: 90%;
-            background-color: white;
-            margin-top: 10px;
-            padding: 10px 0;
-            flex-wrap: wrap;
-            position: relative;
-            z-index: 10;
-        }
+    .container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 90%;
+      margin-top: 10px;
+      padding: 10px 0;
+      position: relative;
+    }
 
-        .menu-button-home {
-            padding: 10px 10px;
-            border: none;
-            cursor: pointer;
-            font-size: 25px;
-            color: rgb(4, 4, 135);
-            background-color: white;
-            text-align: center;
-            display: inline-block;
-            width: max-content;
-            max-width: 400px;
-            white-space: normal;
-            line-height: 1.2;
-            word-wrap: break-word;
-            font-family: 'Roboto';
-            letter-spacing: 2px;
-            opacity: 0.9;
-        }
+    .menu-button-home {
+      font-size: 25px;
+      color: rgb(4,4,135);
+      background: white;
+      border: none;
+      cursor: pointer;
+      font-family: 'Roboto';
+      letter-spacing: 2px;
+    }
 
-        .menu-button-home:hover,
-        .menu-button-home:active {
-            opacity: 0.3;
-        }
+    .menu-toggle {
+      display: none;
+      font-size: 30px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      color: rgb(4,4,135);
+      position: absolute;
+      right: 20px;
+      top: 20px;
+    }
 
-        /* ======================== */
-        /* Hamburger Menu */
-        /* ======================== */
-        .menu-toggle {
-            display: none;
-            background: none;
-            border: none;
-            font-size: 30px;
-            cursor: pointer;
-            color: rgb(4, 4, 135);
-            position: absolute;
-            right: 20px;
-            top: 20px;
-        }
+    .menu {
+      display: flex;
+      gap: 10px;
+      list-style: none;
+      margin-left: auto;
+      font-family: 'Roboto';
+    }
 
-        /* ======================== */
-        /* Menu & Dropdowns */
-        /* ======================== */
-        .menu {
-            display: flex;
-            gap: 10px;
-            list-style: none;
-            padding-left: 70px;
-            background-color: white;
-            font-family: 'Roboto';
-            margin-left: auto;
-        }
+    .menu li {
+      padding: 10px;
+      font-size: 18px;
+      cursor: pointer;
+    }
 
-        .menu li {
-            padding: 10px 10px;
-            background-color: white;
-            color: rgb(4, 4, 135);
-            font-size: 18px;
-            border-radius: 5px;
-            transition: background-color 0.3s;
-            cursor: pointer;
-        }
+    .dropdown {
+      position: relative;
+    }
 
-        .menu li:hover {
-            opacity: 0.8;
-        }
+    .submenu {
+      display: none;
+      position: absolute;
+      top: 100%;
+      background: white;
+      list-style: none;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+      min-width: 180px;
+      z-index: 1000;
+    }
 
-        .dropdown {
-            position: relative;
-            cursor: pointer;
-            color: rgb(4, 4, 135);
-            z-index: 20;
-        }
+    .dropdown.active .submenu {
+      display: block;
+    }
 
-        .submenu {
-            display: none;
-            position: absolute;
-            top: 100%;
-            left: 0;
-            background-color: white;
-            list-style: none;
-            padding: 0;
-            margin: 0;
-            box-shadow: 0px 4px 6px rgba(0,0,0,0.1);
-            min-width: 180px;
-            border-radius: 5px;
-            z-index: 1000;
-        }
+    @media (max-width: 1000px) {
+      .menu { display: none; flex-direction: column; }
+      .menu.show { display: flex; }
+      .menu-toggle { display: block; }
+    }
 
-        .submenu li {
-            padding: 10px;
-            font-size: 16px;
-            color: rgb(4, 4, 135);
-            background-color: white;
-            border-bottom: 1px solid rgba(0,0,0,0.1);
-            transition: opacity 0.3s, background-color 0.3s;
-        }
+    hr {
+      background: rgb(4,4,135);
+      height: 1px;
+      border: none;
+    }
 
-        .submenu li:hover {
-            background-color: #f1f1f1;
-        }
+    /* ======================== */
+    /* Academic Support Content */
+    /* ======================== */
+    .academic-section {
+      max-width: 900px;
+      margin: 60px auto;
+      padding: 0 5%;
+    }
 
-        .dropdown.active .submenu {
-            display: block;
-        }
+    .academic-title {
+      font-size: 38px;
+      text-align: center;
+      color: rgb(4,4,135);
+      margin-bottom: 40px;
+    }
 
-        @media (max-width: 1000px) {
-            .menu {
-                display: none;
-                flex-direction: column;
-                position: absolute;
-                top: 70px;
-                right: 10px;
-                background-color: white;
-                width: 90%;
-                max-width: 300px;
-                box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-                padding: 10px 0;
-                border-radius: 5px;
-                z-index: 1000;
-            }
+    .academic-card {
+      background: #fff;
+      border-radius: 14px;
+      padding: 24px;
+      margin-bottom: 28px;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+    }
 
-            .menu.show {
-                display: flex;
-            }
+    .academic-card h2 {
+      margin-top: 0;
+      font-size: 22px;
+      color: rgb(4,4,135);
+    }
 
-            .menu li {
-                padding: 12px 15px;
-                text-align: left;
-                border-bottom: 1px solid rgba(0,0,0,0.1);
-            }
+    .academic-card p {
+      font-size: 16px;
+      line-height: 1.5;
+      color: #333;
+    }
 
-            .menu li:last-child {
-                border-bottom: none;
-            }
+    .academic-card a {
+      color: rgb(4,4,135);
+      text-decoration: none;
+    }
 
-            .submenu {
-                position: static;
-                width: 100%;
-                box-shadow: none;
-                border-radius: 0;
-                padding-left: 15px;
-            }
+    .academic-card a:hover {
+      text-decoration: underline;
+    }
 
-            .submenu li {
-                padding: 10px 0;
-            }
+    .academic-note {
+      font-size: 14px;
+      opacity: 0.75;
+    }
 
-            .dropdown.active .submenu {
-                display: block;
-            }
+    /* ======================== */
+    /* Footer */
+    /* ======================== */
+    footer {
+      background-color: #f8f8f8;
+      border-top: 2px solid #003366;
+      margin-top: 40px;
+      padding: 20px 10px;
+      text-align: center;
+      font-size: 14px;
+      color: #444;
+    }
 
-            .menu-toggle {
-                display: block;
-            }
-        }
+    footer a {
+      color: #444;
+      text-decoration: none;
+    }
 
-        @media (max-width: 600px) {
-            .menu li, .submenu li {
-                font-size: 14px;
-                padding: 8px 12px;
-            }
-
-            .menu-button-home {
-                font-size: 22px;
-                max-width: 200px;
-            }
-        }
-
-        /* ======================== */
-        /* Short / Full header switch */
-        .menu-button-home .short-version {
-            display: none;
-        }
-
-        @media (max-width: 600px) {
-            .menu-button-home .full-version {
-                display: none;
-            }
-            .menu-button-home .short-version {
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                text-align: center;
-            }
-            .menu-button-home .short-version .main-title {
-                font-size: 28px;
-                line-height: 1.2;
-            }
-            .menu-button-home .short-version .subtitle {
-                font-size: 18px;
-                opacity: 0.6;
-                line-height: 1.2;
-            }
-        }
-
-        /* ======================== */
-        /* Divider */
-        hr {
-            color: rgb(4, 4, 135);
-            background-color: rgb(4, 4, 135);
-            height: 1px;
-        }
-
-        /* ======================== */
-        /* Footer */
-        footer {
-            background-color: #f8f8f8;
-            border-top: 2px solid #003366;
-            margin-top: 40px;
-            padding: 20px 10px;
-            text-align: center;
-            font-size: 14px;
-            color: #444;
-        }
-
-        footer a {
-            color: #444;
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-
-        footer a:hover {
-            color: #900;
-        }
-
-        footer i {
-            margin-right: 5px;
-            color: #444;
-        }
-
-        footer a:hover i {
-            color: #900;
-        }
-
-        .footer-container {
-            max-width: 1000px;
-            margin: 0 auto;
-        }
-    </style>
+    .footer-container {
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+  </style>
 </head>
+
 <body>
 
 <div class="container">
@@ -349,32 +240,65 @@
         </ul>
     </nav>
 </div>
-        <hr>
-<p>Coming soon.</p>
-        <script>
-            function toggleMenu() {
-                const menu = document.querySelector(".menu");
-                menu.classList.toggle("show");
-            }
 
-            document.addEventListener("DOMContentLoaded", function () {
-                const dropdowns = document.querySelectorAll(".dropdown");
+<hr>
 
-                dropdowns.forEach(dropdown => {
-                    dropdown.addEventListener("click", function () {
-                        this.classList.toggle("active");
-                });
+<!-- ======================== -->
+<!-- Academic Support Content -->
+<!-- ======================== -->
+<section class="academic-section">
+  <h1 class="academic-title">Academic Support & Resources</h1>
 
-                    // Close the dropdown when clicking outside
-                    document.addEventListener("click", function (event) {
-                        if (!dropdown.contains(event.target)) {
-                            dropdown.classList.remove("active");
-                        }
-                    });
-                });
-            });
-        </script>
-        <!-- ✅ Footer -->
+  <div class="academic-card">
+    <h2>College Academic Advisor</h2>
+    <p>
+      All students should have been allocated a college academic advisor.
+      If you have not been assigned one, please contact the Academic Office.
+    </p>
+    <p>
+      Your advisor can help with academic planning, coursework concerns,
+      exam queries, and any other study-related matters.
+    </p>
+  </div>
+
+  <div class="academic-card">
+    <h2>Contact the Academic Office</h2>
+    <p>
+      <strong>Advisor allocation & general queries:</strong><br>
+      <a href="mailto:academic.office@lmh.ox.ac.uk">academic.office@lmh.ox.ac.uk</a>
+    </p>
+    <p>
+      <strong>Registrar / academic administration:</strong><br>
+      <a href="mailto:academic.registrar@lmh.ox.ac.uk">academic.registrar@lmh.ox.ac.uk</a>
+    </p>
+    <p class="academic-note">
+      Please include your full name, course, and year in any email.
+    </p>
+  </div>
+
+  <div class="academic-card">
+    <h2>Paid Invigilation Opportunities</h2>
+    <p>
+      LMH runs undergraduate collections in 0th week of each term.
+      Graduate students can apply to invigilate for these exams.
+    </p>
+    <p> <br>
+      <em>Latest Update:</em> <br><br></p>
+      <p>
+      Hilary term collections have now finished.
+      Keep an eye out for Trinity term opportunities.
+    </p>
+  </div>
+
+  <div class="academic-card">
+    <h2>Talks & Events at LMH</h2>
+    <p>
+      LMH hosts a wide range of talks, seminars, and guest lectures.
+      Stay tuned via college emails and the MCR Instagram for announcements.
+    </p>
+  </div>
+</section>
+
 <footer>
   <div class="footer-container">
     <p>&copy; 2025 Lady Margaret Hall MCR | University of Oxford</p>
@@ -388,6 +312,31 @@
     </p>
   </div>
 </footer>
+
+
+<script>
+            function toggleMenu() {
+                const menu = document.querySelector(".menu");
+                menu.classList.toggle("show");
+            }
+
+            document.addEventListener("DOMContentLoaded", function () {
+                const dropdowns = document.querySelectorAll(".dropdown");
+
+                dropdowns.forEach(dropdown => {
+                    dropdown.addEventListener("click", function () {
+                        this.classList.toggle("active");
+                    });
+
+                    document.addEventListener("click", function (event) {
+                        if (!dropdown.contains(event.target)) {
+                            dropdown.classList.remove("active");
+                        }
+                    });
+                });
+            });
+        </script>
+
 
 <!-- ✅ Font Awesome (for Instagram icon) -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -427,5 +376,5 @@
     margin: 0 auto;
   }
 </style>
-    </body>    
+</body>
 </html>
