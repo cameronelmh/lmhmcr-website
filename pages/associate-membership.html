@@ -3,19 +3,12 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Lady Margaret Hall MCR - Welcome Events</title>
+    <title>Lady Margaret Hall MCR - Social Events</title>
     <link rel="stylesheet" href="../css/lmh.css">
-    
-    <!-- ✅ Favicon -->
     <link rel="icon" href="../favicon.ico" type="image/x-icon">
-
-    <!-- Font Awesome for footer icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <style>
-        /* ======================== */
-        /* Crest Image & Header */
-        /* ======================== */
         .crest-image {
             width: auto;
             height: 70px;
@@ -138,6 +131,116 @@
             display: block;
         }
 
+        .menu-button-home .short-version {
+            display: none;
+        }
+
+        hr {
+            color: rgb(4, 4, 135);
+            background-color: rgb(4, 4, 135);
+            height: 1px;
+        }
+
+        .page-content {
+            padding: 0 5%;
+            box-sizing: border-box;
+        }
+
+        .intro-text {
+            max-width: 900px;
+            margin: 0 auto 60px auto;
+            text-align: center;
+            font-size: 18px;
+            line-height: 1.7;
+        }
+
+        .events-layout {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: flex-start;
+            gap: 40px;
+        }
+
+        .events-text {
+            flex: 1 1 300px;
+            min-width: 300px;
+            text-align: left;
+            font-size: 18px;
+            line-height: 1.7;
+        }
+
+        .events-image {
+            flex: 1 1 300px;
+            min-width: 300px;
+            margin-top: 40px;
+        }
+
+        .events-image img {
+            width: 100%;
+            height: auto;
+            border-radius: 35px;
+        }
+
+        .garden-party-section {
+            margin-top: 90px;
+            text-align: center;
+        }
+
+        .garden-party-section h2 {
+            font-size: 32px;
+            margin-bottom: 20px;
+            color: rgb(4, 4, 135);
+        }
+
+        .garden-party-section p {
+            max-width: 900px;
+            margin: 20px auto 40px auto;
+            font-size: 18px;
+            line-height: 1.7;
+        }
+
+        .garden-party-section img {
+            max-width: 900px;
+            width: 100%;
+            height: auto;
+            border-radius: 20px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+
+        footer {
+            background-color: #f8f8f8;
+            border-top: 2px solid #003366;
+            margin-top: 40px;
+            padding: 20px 10px;
+            text-align: center;
+            font-size: 14px;
+            color: #444;
+        }
+
+        footer a {
+            color: #444;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        footer a:hover {
+            color: #900;
+        }
+
+        footer i {
+            margin-right: 5px;
+            color: #444;
+        }
+
+        footer a:hover i {
+            color: #900;
+        }
+
+        .footer-container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
         @media (max-width: 1000px) {
             .menu {
                 display: none;
@@ -180,10 +283,6 @@
                 padding: 10px 0;
             }
 
-            .dropdown.active .submenu {
-                display: block;
-            }
-
             .menu-toggle {
                 display: block;
             }
@@ -199,79 +298,36 @@
                 font-size: 22px;
                 max-width: 200px;
             }
-        }
 
-        .menu-button-home .short-version {
-            display: none;
-        }
-
-        @media (max-width: 600px) {
             .menu-button-home .full-version {
                 display: none;
             }
+
             .menu-button-home .short-version {
                 display: flex;
                 flex-direction: column;
                 align-items: center;
                 text-align: center;
             }
+
             .menu-button-home .short-version .main-title {
                 font-size: 28px;
                 line-height: 1.2;
             }
+
             .menu-button-home .short-version .subtitle {
                 font-size: 18px;
                 opacity: 0.6;
                 line-height: 1.2;
             }
         }
-
-        hr {
-            color: rgb(4, 4, 135);
-            background-color: rgb(4, 4, 135);
-            height: 1px;
-        }
-
-        footer {
-            background-color: #f8f8f8;
-            border-top: 2px solid #003366;
-            margin-top: 40px;
-            padding: 20px 10px;
-            text-align: center;
-            font-size: 14px;
-            color: #444;
-        }
-
-        footer a {
-            color: #444;
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-
-        footer a:hover {
-            color: #900;
-        }
-
-        footer i {
-            margin-right: 5px;
-            color: #444;
-        }
-
-        footer a:hover i {
-            color: #900;
-        }
-
-        .footer-container {
-            max-width: 1000px;
-            margin: 0 auto;
-        }
     </style>
 </head>
+
 <body>
 
-<!-- ✅ Header and Navigation -->
 <div class="container">
-    <img src="../assets/images/lmh_crest.png" class="crest-image">
+    <img src="../assets/images/lmh_crest.png" class="crest-image" alt="LMH Crest">
 
     <a href="../index.html">
         <button class="menu-button-home">
@@ -314,7 +370,7 @@
             </li>
             <li class="dropdown">College Life
                 <ul class="submenu">
-                    <li><a href="accomodation.html">Accommodation</a></li>
+                    <li><a href="accomodation.html">Accomodation</a></li>
                     <li><a href="hall.html">Hall</a></li>
                     <li><a href="social-events.html">Social Events</a></li>
                     <li><a href="library.html">Library</a></li>
@@ -340,10 +396,128 @@
 
 <hr>
 
-<!-- ✅ Centered Image -->
-<div style="display: flex; justify-content: center; width: 100%; margin-top: 30px;">
-    <img src="../assets/images/LMH Social Calendar - Hilary.png" alt="Hilary Term Timetable" style="width: 80%; max-width: 1100px; height: auto; border-radius: 35px;">
+
+<div class="page-content">
+
+    <h1 style="font-size: 42px; text-align: center; margin: 100px 0 40px 0;">
+        Associate Membership
+    </h1>
+
+    <p class="intro-text">
+        Associate Membership allows eligible members of the wider LMH community
+        to participate in MCR life, attend events, receive MCR communications,
+        and access selected MCR facilities, subject to College and MCR regulations.
+    </p>
+
+    <div class="events-layout">
+
+        <div class="events-text">
+
+            <h2 style="font-size: 24px; margin-bottom: 24px;">
+                Who is Associate Membership for?
+            </h2>
+
+            <p>
+                Associate Membership may be available to members of the wider LMH
+                community who are not automatically members of the MCR. This can
+                include visiting students, partners of current members, associates,
+                and others approved through the MCR and College process.
+            </p>
+
+            <h2 style="font-size: 24px; margin-bottom: 24px;">
+                Benefits
+            </h2>
+
+            <p>
+                Associate Members are able to participate in many aspects of MCR
+                life, including social and welfare events, MCR communications,
+                and access to the MCR common room once the application process has
+                been completed.
+            </p>
+
+            <h2 style="font-size: 24px; margin-bottom: 24px;">
+                Membership Fees
+            </h2>
+
+            <p>
+                Associate Membership currently costs £20 per term or £40 for the
+                full academic year.
+            </p>
+
+            <h2 style="font-size: 24px; margin-bottom: 24px;">
+                How to Apply
+            </h2>
+
+            <p>
+                Prospective Associate Members should contact the MCR Secretary at
+                <a href="mailto:secretary-mcr@lmh.ox.ac.uk">
+                    secretary-mcr@lmh.ox.ac.uk
+                </a>.
+                The Secretary will provide information about the application process,
+                membership fees, and any required documentation.
+            </p>
+
+            <h2 style="font-size: 24px; margin-bottom: 24px;">
+                College Access
+            </h2>
+
+            <p>
+                Associate Members may be issued with a College access fob following
+                completion of the application process. A refundable deposit may be
+                required by the College. Further details will be provided as part
+                of the application process.
+            </p>
+
+            <h2 style="font-size: 24px; margin-bottom: 24px;">
+                Dining and Formal Hall
+            </h2>
+
+            <p>
+                Associate Members may register a Bod card for dining in Hall and
+                may attend Formal Hall when booked in accordance with College
+                regulations. Information on dining and bookings will be provided
+                once membership has been approved.
+            </p>
+
+            <h2 style="font-size: 24px; margin-bottom: 24px;">
+                Questions?
+            </h2>
+
+            <p>
+                If you have any questions regarding eligibility, fees, or the
+                application process, please contact the MCR Secretary who will be
+                happy to help.
+            </p>
+
+        </div>
+
+        <div class="events-image">
+            <img
+                src="../assets/images/mcr.jpeg"
+                alt="LMH MCR"
+                style="width: 100%; height: auto; border-radius: 35px;"
+            >
+        </div>
+
+    </div>
+
 </div>
+
+
+<footer>
+    <div class="footer-container">
+        <p>&copy; 2025 Lady Margaret Hall MCR | University of Oxford</p>
+        <p>
+            <a href="mailto:secretary-mcr@lmh.ox.ac.uk">secretary-mcr@lmh.ox.ac.uk</a>
+            &nbsp; | &nbsp;
+            <a href="https://www.instagram.com/lmh_mcr/" target="_blank">
+                <i class="fab fa-instagram"></i> lmh_mcr
+            </a>
+            &nbsp; | &nbsp;
+            <a href="https://www.lmh.ox.ac.uk/" target="_blank">LMH Website</a>
+        </p>
+    </div>
+</footer>
 
 <script>
     function toggleMenu() {
@@ -355,32 +529,19 @@
         const dropdowns = document.querySelectorAll(".dropdown");
 
         dropdowns.forEach(dropdown => {
-            dropdown.addEventListener("click", function () {
+            dropdown.addEventListener("click", function (event) {
+                event.stopPropagation();
                 this.classList.toggle("active");
             });
+        });
 
-            document.addEventListener("click", function (event) {
-                if (!dropdown.contains(event.target)) {
-                    dropdown.classList.remove("active");
-                }
+        document.addEventListener("click", function () {
+            dropdowns.forEach(dropdown => {
+                dropdown.classList.remove("active");
             });
         });
     });
 </script>
-
-<!-- ✅ Footer -->
-<footer>
-    <div class="footer-container">
-        <p>&copy; 2025 Lady Margaret Hall MCR | University of Oxford</p>
-        <p>
-            <a href="mailto:secretary-mcr@lmh.ox.ac.uk">secretary-mcr@lmh.ox.ac.uk</a> &nbsp; | &nbsp; 
-            <a href="https://www.instagram.com/lmh_mcr/" target="_blank">
-                <i class="fab fa-instagram"></i> lmh_mcr
-            </a> &nbsp; | &nbsp;
-            <a href="https://www.lmh.ox.ac.uk/" target="_blank">LMH Website</a>
-        </p>
-    </div>
-</footer>
 
 </body>
 </html>
