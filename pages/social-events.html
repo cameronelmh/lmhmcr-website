@@ -5,17 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Lady Margaret Hall MCR - Social Events</title>
     <link rel="stylesheet" href="../css/lmh.css">
-    
-<!-- ✅ Favicon -->
-  <link rel="icon" href="../favicon.ico" type="image/x-icon">
-
-    <!-- Font Awesome for footer icons -->
+    <link rel="icon" href="../favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <style>
-        /* ======================== */
-        /* Crest Image & Header */
-        /* ======================== */
         .crest-image {
             width: auto;
             height: 70px;
@@ -63,9 +56,6 @@
             opacity: 0.3;
         }
 
-        /* ======================== */
-        /* Hamburger Menu */
-        /* ======================== */
         .menu-toggle {
             display: none;
             background: none;
@@ -78,9 +68,6 @@
             top: 20px;
         }
 
-        /* ======================== */
-        /* Menu & Dropdowns */
-        /* ======================== */
         .menu {
             display: flex;
             gap: 10px;
@@ -144,6 +131,116 @@
             display: block;
         }
 
+        .menu-button-home .short-version {
+            display: none;
+        }
+
+        hr {
+            color: rgb(4, 4, 135);
+            background-color: rgb(4, 4, 135);
+            height: 1px;
+        }
+
+        .page-content {
+            padding: 0 5%;
+            box-sizing: border-box;
+        }
+
+        .intro-text {
+            max-width: 900px;
+            margin: 0 auto 60px auto;
+            text-align: center;
+            font-size: 18px;
+            line-height: 1.7;
+        }
+
+        .events-layout {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: flex-start;
+            gap: 40px;
+        }
+
+        .events-text {
+            flex: 1 1 300px;
+            min-width: 300px;
+            text-align: left;
+            font-size: 18px;
+            line-height: 1.7;
+        }
+
+        .events-image {
+            flex: 1 1 300px;
+            min-width: 300px;
+            margin-top: 40px;
+        }
+
+        .events-image img {
+            width: 100%;
+            height: auto;
+            border-radius: 35px;
+        }
+
+        .garden-party-section {
+            margin-top: 90px;
+            text-align: center;
+        }
+
+        .garden-party-section h2 {
+            font-size: 32px;
+            margin-bottom: 20px;
+            color: rgb(4, 4, 135);
+        }
+
+        .garden-party-section p {
+            max-width: 900px;
+            margin: 20px auto 40px auto;
+            font-size: 18px;
+            line-height: 1.7;
+        }
+
+        .garden-party-section img {
+            max-width: 900px;
+            width: 100%;
+            height: auto;
+            border-radius: 20px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+
+        footer {
+            background-color: #f8f8f8;
+            border-top: 2px solid #003366;
+            margin-top: 40px;
+            padding: 20px 10px;
+            text-align: center;
+            font-size: 14px;
+            color: #444;
+        }
+
+        footer a {
+            color: #444;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        footer a:hover {
+            color: #900;
+        }
+
+        footer i {
+            margin-right: 5px;
+            color: #444;
+        }
+
+        footer a:hover i {
+            color: #900;
+        }
+
+        .footer-container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
         @media (max-width: 1000px) {
             .menu {
                 display: none;
@@ -186,10 +283,6 @@
                 padding: 10px 0;
             }
 
-            .dropdown.active .submenu {
-                display: block;
-            }
-
             .menu-toggle {
                 display: block;
             }
@@ -205,88 +298,39 @@
                 font-size: 22px;
                 max-width: 200px;
             }
-        }
 
-        /* ======================== */
-        /* Short / Full header switch */
-        .menu-button-home .short-version {
-            display: none;
-        }
-
-        @media (max-width: 600px) {
             .menu-button-home .full-version {
                 display: none;
             }
+
             .menu-button-home .short-version {
                 display: flex;
                 flex-direction: column;
                 align-items: center;
                 text-align: center;
             }
+
             .menu-button-home .short-version .main-title {
                 font-size: 28px;
                 line-height: 1.2;
             }
+
             .menu-button-home .short-version .subtitle {
                 font-size: 18px;
                 opacity: 0.6;
                 line-height: 1.2;
             }
         }
-
-        /* ======================== */
-        /* Divider */
-        hr {
-            color: rgb(4, 4, 135);
-            background-color: rgb(4, 4, 135);
-            height: 1px;
-        }
-
-        /* ======================== */
-        /* Footer */
-        footer {
-            background-color: #f8f8f8;
-            border-top: 2px solid #003366;
-            margin-top: 40px;
-            padding: 20px 10px;
-            text-align: center;
-            font-size: 14px;
-            color: #444;
-        }
-
-        footer a {
-            color: #444;
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-
-        footer a:hover {
-            color: #900;
-        }
-
-        footer i {
-            margin-right: 5px;
-            color: #444;
-        }
-
-        footer a:hover i {
-            color: #900;
-        }
-
-        .footer-container {
-            max-width: 1000px;
-            margin: 0 auto;
-        }
     </style>
 </head>
+
 <body>
 
 <div class="container">
-    <img src="../assets/images/lmh_crest.png" class="crest-image">
+    <img src="../assets/images/lmh_crest.png" class="crest-image" alt="LMH Crest">
 
     <a href="../index.html">
         <button class="menu-button-home">
-            <!-- Full version -->
             <span class="full-version">
                 <span class="main-title">
                     <span style="font-size:32px;">L</span>ADY 
@@ -298,7 +342,6 @@
                 </span>
             </span>
 
-            <!-- Short version -->
             <span class="short-version">
                 <span class="main-title">LMH</span>
                 <span class="subtitle">MCR</span>
@@ -313,7 +356,7 @@
             <li class="dropdown">Committee
                 <ul class="submenu">
                     <li><a href="executives.html">Executives</a></li>
-                    <li><a href="representatives.html">Representives</a></li>
+                    <li><a href="representatives.html">Representatives</a></li>
                     <li><a href="constitution.html">Constitution</a></li>
                 </ul>
             </li>
@@ -352,44 +395,86 @@
 
 <hr>
 
-<div style="padding: 0 5%; box-sizing: border-box;">
-  <h1 style="font-size: 42px; text-align: center; margin: 100px 0;">Social Events</h1>
+<div class="page-content">
+    <h1 style="font-size: 42px; text-align: center; margin: 100px 0 40px 0;">Social Events</h1>
 
-  <div style="display: flex; flex-wrap: wrap; align-items: flex-start; gap: 40px;">
-    <div style="flex: 1 1 300px; min-width: 300px; text-align: left; font-size: 18px; line-height: 1.7;">
+    <p class="intro-text">
+        The MCR runs a wide range of social events throughout the year, from relaxed welfare brunches
+        and pub trips to formal exchanges, parties, and flagship annual celebrations. These events are a
+        great way to meet fellow graduates, make friends across disciplines, and become part of the LMH
+        community.
+    </p>
 
-      <h2 style="font-size: 24px; margin-bottom: 24px;">BOPs</h2>
-      <p style="margin: 0 0 16px 0; text-align: left;">
-        BOPs (Big Organised Parties) are the MCR’s main parties of the term. They usually take place in the MCR or college grounds, bringing together students from across the college. Expect music, drinks, and a lively atmosphere.
-      </p>
+    <div class="events-layout">
+        <div class="events-text">
 
-      <h2 style="font-size: 24px; margin-bottom: 24px;">Formal Exchanges</h2>
-      <p style="margin: 0 0 16px 0; text-align: left;">
-        Formal Exchanges are structured dinners with other colleges. Attendees dress smartly and enjoy a three-course, waiter served meal with drinks. 
-      </p>
+            <h2>BOPs</h2>
+            <p>
+                BOPs (Big Organised Parties) are the MCR’s main parties of the term. They usually take
+                place in the MCR or college grounds, bringing together students from across the college.
+                Expect music, drinks, and a lively atmosphere.
+            </p>
 
-      <h2 style="font-size: 24px; margin-bottom: 24px;">Wine & Cheese</h2>
-      <p style="margin: 0 0 16px 0; text-align: left;">
-        Wine & Cheese evenings are semi-formal gatherings designed for conversation and socialising.
-      </p>
+            <h2>Formal Exchanges</h2>
+            <p>
+                Formal Exchanges are structured dinners with other colleges. Attendees dress smartly and
+                enjoy a three-course, waiter-served meal with drinks.
+            </p>
 
-      <h2 style="font-size: 24px; margin-bottom: 24px;">Pub Crawls</h2>
-      <p style="margin: 0 0 16px 0; text-align: left;">
-        Pub Crawls are organised trips to local pubs with other students. They are casual events, perfect for exploring Oxford’s nightlife in a safe, group setting. They offer a fun way to socialise outside college, while discovering some of the city’s favourite pubs.
-      </p>
+            <h2>Wine & Cheese</h2>
+            <p>
+                Wine & Cheese evenings are semi-formal gatherings designed for conversation and socialising.
+            </p>
 
-      <h2 style="font-size: 24px; margin-bottom: 24px;">Welfare Brunches and Tea & Desserts</h2>
-      <p style="margin: 0 0 16px 0; text-align: left;">
-        Welfare Brunches and Tea & Desserts events take place on weekends, offering food and refreshments in a calm environment. They are focused on wellbeing, providing an opportunity to rest and socialise at a slower pace.
-      </p>
+            <h2>Pub Crawls</h2>
+            <p>
+                Pub Crawls are organised trips to local pubs with other students. They are casual events,
+                perfect for exploring Oxford’s nightlife in a safe, group setting. They offer a fun way to
+                socialise outside college, while discovering some of the city’s favourite pubs.
+            </p>
 
+            <h2>Welfare Brunches and Tea & Desserts</h2>
+            <p>
+                Welfare Brunches and Tea & Desserts events take place on weekends, offering food and
+                refreshments in a calm environment. They are focused on wellbeing, providing an opportunity
+                to rest and socialise at a slower pace.
+            </p>
+
+        </div>
+
+        <div class="events-image">
+            <img src="../assets/images/bop.jpeg" alt="MCR social event">
+        </div>
     </div>
 
-    <div style="flex: 1 1 300px; min-width: 300px; margin-top: 40px;">
-      <img src="../assets/images/bop.jpeg" alt="Social Event" style="width: 100%; height: auto; border-radius: 35px;">
-    </div>
-  </div>
+    <section class="garden-party-section">
+        <h2>End of Year LMH Garden Party 2026</h2>
+
+        <p>
+            The LMH Garden Party is one of the highlights of the college calendar. Held in the beautiful
+            LMH gardens, it brings together students, fellows, alumni, and guests for food, drinks,
+            entertainment, and live music. It is a fantastic opportunity to celebrate the end of the
+            academic year and enjoy the college grounds at their best.
+        </p>
+
+        <img src="../assets/images/LMH Garden Party 2026.jpeg" alt="LMH Garden Party infographic">
+    </section>
 </div>
+
+<footer>
+    <div class="footer-container">
+        <p>&copy; 2025 Lady Margaret Hall MCR | University of Oxford</p>
+        <p>
+            <a href="mailto:secretary-mcr@lmh.ox.ac.uk">secretary-mcr@lmh.ox.ac.uk</a>
+            &nbsp; | &nbsp;
+            <a href="https://www.instagram.com/lmh_mcr/" target="_blank">
+                <i class="fab fa-instagram"></i> lmh_mcr
+            </a>
+            &nbsp; | &nbsp;
+            <a href="https://www.lmh.ox.ac.uk/" target="_blank">LMH Website</a>
+        </p>
+    </div>
+</footer>
 
 <script>
     function toggleMenu() {
@@ -401,70 +486,19 @@
         const dropdowns = document.querySelectorAll(".dropdown");
 
         dropdowns.forEach(dropdown => {
-            dropdown.addEventListener("click", function () {
+            dropdown.addEventListener("click", function (event) {
+                event.stopPropagation();
                 this.classList.toggle("active");
             });
+        });
 
-            document.addEventListener("click", function (event) {
-                if (!dropdown.contains(event.target)) {
-                    dropdown.classList.remove("active");
-                }
+        document.addEventListener("click", function () {
+            dropdowns.forEach(dropdown => {
+                dropdown.classList.remove("active");
             });
         });
     });
 </script>
-<!-- ✅ Footer -->
-<footer>
-  <div class="footer-container">
-    <p>&copy; 2025 Lady Margaret Hall MCR | University of Oxford</p>
-    <p>
-      <a href="mailto:secretary-mcr@lmh.ox.ac.uk">secretary-mcr@lmh.ox.ac.uk</a> &nbsp; | &nbsp; 
-      <a href="https://www.instagram.com/lmh_mcr/" target="_blank">
-        <i class="fab fa-instagram"></i> lmh_mcr
-      </a> &nbsp; | &nbsp;
-      <a href="https://www.lmh.ox.ac.uk/" target="_blank">LMH Website</a>
-      
-    </p>
-  </div>
-</footer>
 
-<!-- ✅ Font Awesome (for Instagram icon) -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
-<style>
-  footer {
-    background-color: #f8f8f8;
-    border-top: 2px solid #003366; /* LMH/Oxford blue */
-    margin-top: 40px;
-    padding: 20px 10px;
-    text-align: center;
-    font-size: 14px;
-    color: #444;
-  }
-
-  footer a {
-    color: #444;
-    text-decoration: none;
-    transition: color 0.3s ease;
-  }
-
-  footer a:hover {
-    color: #900; /* LMH red accent */
-  }
-
-  footer i {
-    margin-right: 5px;
-    color: #444;
-  }
-
-  footer a:hover i {
-    color: #900; /* Match hover effect */
-  }
-
-  .footer-container {
-    max-width: 1000px;
-    margin: 0 auto;
-  }
-</style>
 </body>
 </html>
