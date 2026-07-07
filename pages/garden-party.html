@@ -5,31 +5,354 @@
 
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-
-<title>LMH MCR | 2026 Garden Party</title>
-
+<title>Lady Margaret Hall MCR - Social Events</title>
 <link rel="stylesheet" href="../css/lmh.css">
+<link rel="icon" href="../favicon.ico" type="image/x-icon">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-<link rel="icon" href="../favicon.ico">
-
-<link rel="stylesheet"
-href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
 <style>
 
 /**************************************************/
+/* NAV BAR STUFF. DO NOT TOUCH. */    
+/**************************************************/
+
+.crest-image {
+            width: auto;
+            height: 70px;
+            position: relative;
+            z-index: 10;
+            margin-top: 5px;
+            margin-left: 10%;
+        }
+
+        .container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1px;
+            width: 100%;
+            background-color: white;
+            margin-top: 10px;
+            padding: 10px 0;
+            flex-wrap: wrap;
+            position: relative;
+            z-index: 10;
+            box-sizing: border-box;
+        }
+
+        .menu-button-home {
+            padding: 10px 10px;
+            border: none;
+            cursor: pointer;
+            font-size: 25px;
+            color: rgb(4, 4, 135);
+            background-color: white;
+            text-align: center;
+            display: inline-block;
+            width: max-content;
+            max-width: 400px;
+            white-space: normal;
+            line-height: 1.2;
+            word-wrap: break-word;
+            font-family: 'Roboto';
+            letter-spacing: 2px;
+            opacity: 0.9;
+        }
+
+        .menu-button-home:hover,
+        .menu-button-home:active {
+            opacity: 0.3;
+        }
+
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 30px;
+            cursor: pointer;
+            color: rgb(4, 4, 135);
+            position: absolute;
+            right: 20px;
+            top: 20px;
+        }
+
+        .menu {
+            display: flex;
+            gap: 10px;
+            list-style: none;
+            padding-left: 70px;
+            background-color: white;
+            font-family: 'Roboto';
+            margin-left: auto;
+        }
+
+        .menu li {
+            padding: 10px 10px;
+            background-color: white;
+            color: rgb(4, 4, 135);
+            font-size: 18px;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+            cursor: pointer;
+        }
+
+        .menu li:hover {
+            opacity: 0.8;
+        }
+
+        .dropdown {
+            position: relative;
+            cursor: pointer;
+            color: rgb(4, 4, 135);
+            z-index: 20;
+        }
+
+        .submenu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: white;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            box-shadow: 0px 4px 6px rgba(0,0,0,0.1);
+            min-width: 180px;
+            border-radius: 5px;
+            z-index: 1000;
+        }
+
+        .submenu li {
+            padding: 10px;
+            font-size: 16px;
+            color: rgb(4, 4, 135);
+            background-color: white;
+            border-bottom: 1px solid rgba(0,0,0,0.1);
+            transition: opacity 0.3s, background-color 0.3s;
+        }
+
+        .submenu li:hover {
+            background-color: #f1f1f1;
+        }
+
+        .dropdown.active .submenu {
+            display: block;
+        }
+
+        .menu-button-home .short-version {
+            display: none;
+        }
+
+        hr {
+            color: rgb(4, 4, 135);
+            background-color: rgb(4, 4, 135);
+            height: 1px;
+        }
+
+        .page-content {
+            padding: 0 5%;
+            box-sizing: border-box;
+        }
+
+        .intro-text {
+            max-width: 900px;
+            margin: 0 auto 60px auto;
+            text-align: center;
+            font-size: 18px;
+            line-height: 1.7;
+        }
+
+        .events-layout {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: flex-start;
+            gap: 40px;
+        }
+
+        .events-text {
+            flex: 1 1 300px;
+            min-width: 300px;
+            text-align: left;
+            font-size: 18px;
+            line-height: 1.7;
+        }
+
+        .events-image {
+            flex: 1 1 300px;
+            min-width: 300px;
+            margin-top: 40px;
+        }
+
+        .events-image img {
+            width: 100%;
+            height: auto;
+            border-radius: 35px;
+        }
+
+        .garden-party-section {
+            margin-top: 90px;
+    
+        }
+
+        .garden-party-section h2 {
+            font-size: 32px;
+            margin-bottom: 20px;
+            color: rgb(4, 4, 135);
+        }
+
+        .garden-party-section p {
+            max-width: 900px;
+            margin: 20px auto 40px auto;
+            font-size: 18px;
+            line-height: 1.7;
+        }
+
+        .garden-party-section img {
+            max-width: 900px;
+            width: 100%;
+            height: auto;
+            border-radius: 20px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+
+        footer {
+            background-color: #f8f8f8;
+            border-top: 2px solid #003366;
+            margin-top: 40px;
+            padding: 20px 10px;
+            text-align: center;
+            font-size: 14px;
+            color: #444;
+        }
+
+        footer a {
+            color: #444;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        footer a:hover {
+            color: #900;
+        }
+
+        footer i {
+            margin-right: 5px;
+            color: #444;
+        }
+
+        footer a:hover i {
+            color: #900;
+        }
+
+        .footer-container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        @media (max-width: 1000px) {
+            .menu {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 70px;
+                right: 10px;
+                background-color: white;
+                width: 90%;
+                max-width: 300px;
+                box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+                padding: 10px 0;
+                border-radius: 5px;
+                z-index: 1000;
+            }
+
+            .menu.show {
+                display: flex;
+            }
+
+            .menu li {
+                padding: 12px 15px;
+                text-align: left;
+                border-bottom: 1px solid rgba(0,0,0,0.1);
+            }
+
+            .menu li:last-child {
+                border-bottom: none;
+            }
+
+            .submenu {
+                position: static;
+                width: 100%;
+                box-shadow: none;
+                border-radius: 0;
+                padding-left: 15px;
+            }
+
+            .submenu li {
+                padding: 10px 0;
+            }
+
+            .menu-toggle {
+                display: block;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .menu li, .submenu li {
+                font-size: 14px;
+                padding: 8px 12px;
+            }
+
+            .menu-button-home {
+                font-size: 22px;
+                max-width: 200px;
+            }
+
+            .menu-button-home .full-version {
+                display: none;
+            }
+
+            .menu-button-home .short-version {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+
+            .menu-button-home .short-version .main-title {
+                font-size: 28px;
+                line-height: 1.2;
+            }
+
+            .menu-button-home .short-version .subtitle {
+                font-size: 18px;
+                opacity: 0.6;
+                line-height: 1.2;
+            }
+        }
+
+/**************************************************/
 /* PAGE */
+/* The following can be edited. It should be fairly self explanatory. */
 /**************************************************/
 
 body{
 
     margin:0;
-    background:#efe8d8;
-    background-image:
-        radial-gradient(circle at 25% 25%, rgba(255,255,255,.35) 0%, transparent 50%),
-        radial-gradient(circle at 75% 70%, rgba(255,255,255,.2) 0%, transparent 45%);
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.95) 0%, rgba(232, 220, 200, 0.85) 30%, rgba(223, 208, 184, 0.5) 100%), url('../assets/images/2026 Garden Party/scrapbook paper.png');
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
     font-family:Roboto,sans-serif;
     overflow:hidden;
+}
+
+.navbar-wrapper {
+    width: 100%;
+    background-color: white;
+    position: relative;
+    z-index: 10;
 }
 
 .gallery-header{
@@ -44,7 +367,7 @@ body{
     z-index:100;
     background:linear-gradient(to bottom, #efe8d8 95%, rgba(239,232,216,0));
     padding:15px 20px;
-    display:flex;
+    display:none;
     align-items:center;
     justify-content:center;
     gap:15px;
@@ -83,21 +406,22 @@ body{
 
 .scrapbook{
     display:grid;
-    grid-template-columns:repeat(93, 360px);
+    grid-template-columns:repeat(94, 360px);
     grid-auto-rows: 400px;
     gap:45px;
-    padding:225px 50px 30px 45px;
+    padding:20px 30px 30px 45px;
     width:100%;
-    height:calc(100vh - 130px);
+    height:calc(100vh - 80px);
     overflow-x:scroll;
     overflow-y:hidden;
     scroll-snap-type:x mandatory;
     scroll-behavior:smooth;
     min-width:0;
     grid-auto-flow:row;
-    max-height:calc(100vh - 130px);
+    max-height:calc(100vh - 80px);
     position:relative;
     z-index:100;
+    margin-top:20px;
 }
 
 .photo{
@@ -307,6 +631,41 @@ display:none;
 }
 
 /**************************************************/
+/* TITLE CARD */
+/**************************************************/
+
+.title-card {
+    grid-column: span 1;
+    grid-row: span 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, #e6e6fa 0%, #fffdd0 100%);
+    padding: 40px 20px;
+    border-radius: 8px;
+    box-shadow: 0 14px 30px rgba(0,0,0,.18), 0 2px 6px rgba(0,0,0,.08);
+    text-align: center;
+    font-family: 'Roboto', sans-serif;
+}
+
+.title-card h1 {
+    color: rgb(4, 4, 135);
+    font-size: 36px;
+    margin: 0 0 15px 0;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.title-card p {
+    color: #555;
+    font-size: 16px;
+    line-height: 1.6;
+    margin: 0;
+    max-width: 200px;
+}
+
+/**************************************************/
 /* DECORATIVE GRAPHICS */
 /**************************************************/
 
@@ -320,11 +679,88 @@ display:none;
 </style>
 </head>
 <body>
-<div class="gallery-header">
-    <img src="../assets/images/lmh_crest.png" alt="LMH Crest">
-    <h1>2026 Garden Party</h1>
-    <p>A collection of memories from our summer garden party</p>
+
+
+<!-- *************************************************/
+/* NAV BAR STUFF, PLEASE DON'T TOUCH */
+/**************************************************/--> 
+
+<div class="navbar-wrapper">
+    <div class="container">
+        <img src="../assets/images/lmh_crest.png" class="crest-image" alt="LMH Crest">
+
+        <a href="../index.html">
+            <button class="menu-button-home">
+                <span class="full-version">
+                    <span class="main-title">
+                        <span style="font-size:32px;">L</span>ADY 
+                        <span style="font-size:32px;">M</span>ARGARET 
+                        <span style="font-size:32px;">H</span>ALL
+                    </span>
+                    <span class="subtitle">
+                        M<span style="font-size:18px;">IDDLE</span> C<span style="font-size:18px;">OMMON</span> R<span style="font-size:18px;">OOM</span>
+                    </span>
+                </span>
+
+                <span class="short-version">
+                    <span class="main-title">LMH</span>
+                    <span class="subtitle">MCR</span>
+                </span>
+            </button>
+        </a>
+
+        <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+
+        <nav>
+            <ul class="menu">
+                <li class="dropdown">Committee
+                    <ul class="submenu">
+                        <li><a href="executives.html">Executives</a></li>
+                        <li><a href="representatives.html">Representatives</a></li>
+                        <li><a href="constitution.html">Constitution</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">Facilities
+                    <ul class="submenu">
+                        <li><a href="mcr.html">MCR</a></li>
+                        <li><a href="tv-room.html">TV Room</a></li>
+                        <li><a href="kitchen.html">Kitchen</a></li>
+                        <li><a href="gym.html">Gym</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">College Life
+                    <ul class="submenu">
+                        <li><a href="accomodation.html">Accomodation</a></li>
+                        <li><a href="hall.html">Hall</a></li>
+                        <li><a href="social-events.html">Social Events</a></li>
+                        <li><a href="library.html">Library</a></li>
+                        <li><a href="sports.html">Sports</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">Resources
+                    <ul class="submenu">
+                        <li><a href="academicsupport.html">Academic Support</a></li>
+                        <li><a href="mentalhealth.html">Mental Health</a></li>
+                        <li><a href="associate-membership.html">Associate Membership</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">Events & Info
+                    <ul class="submenu">
+                        <li><a href="welcome-events.html">Term Card</a></li>
+                        <li><a href="alternativeguide.html">Alternative Guide</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+    </div>
+
+    <hr>
 </div>
+
+<!-- /**************************************************/
+/* PAGE CONTENT */
+/**************************************************/ -->
+
 
 <div class="scrapbook" id="scrapbook">
     <div id="decorative-graphics"></div>
@@ -395,6 +831,15 @@ function getRandomColor() {
     const colors = ['bg-white', 'bg-cream', 'bg-peach', 'bg-pink', 'bg-mint', 'bg-lavender', 'bg-lightyellow'];
     return colors[Math.floor(Math.random() * colors.length)];
 }
+
+// Create and add title card as first element
+const titleCard = document.createElement('div');
+titleCard.className = 'title-card';
+titleCard.innerHTML = `
+    <h1>2026 Garden Party</h1>
+    <p>A collection of memories from our summer celebration</p>
+`;
+scrapbook.appendChild(titleCard);
 
 // creating photo elements here
 // aim is to have different padding for landscape and portrait images, and to have a random rotation for each image
@@ -498,8 +943,49 @@ decorativeGraphics.forEach((graphic) => {
         graphicsContainer.appendChild(img);
     }
 });
-
 </script>
+
+// *************************** PAGE ENDS HERE. THE NEXT BIT OF JAVASCRIPT IS FOR THE NAV BAR. DO NOT TOUCH.
+
+<footer>
+    <div class="footer-container">
+        <p>&copy; 2025 Lady Margaret Hall MCR | University of Oxford</p>
+        <p>
+            <a href="mailto:secretary-mcr@lmh.ox.ac.uk">secretary-mcr@lmh.ox.ac.uk</a>
+            &nbsp; | &nbsp;
+            <a href="https://www.instagram.com/lmh_mcr/" target="_blank">
+                <i class="fab fa-instagram"></i> lmh_mcr
+            </a>
+            &nbsp; | &nbsp;
+            <a href="https://www.lmh.ox.ac.uk/" target="_blank">LMH Website</a>
+        </p>
+    </div>
+</footer>
+
+<script>
+    function toggleMenu() {
+        const menu = document.querySelector(".menu");
+        menu.classList.toggle("show");
+    }
+
+    document.addEventListener("DOMContentLoaded", function () {
+        const dropdowns = document.querySelectorAll(".dropdown");
+
+        dropdowns.forEach(dropdown => {
+            dropdown.addEventListener("click", function (event) {
+                event.stopPropagation();
+                this.classList.toggle("active");
+            });
+        });
+
+        document.addEventListener("click", function () {
+            dropdowns.forEach(dropdown => {
+                dropdown.classList.remove("active");
+            });
+        });
+    });
+</script>
+
 
 </body>
 
