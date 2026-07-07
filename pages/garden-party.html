@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>LMH MCR | 2026 Garden Party</title>
+
+<link rel="stylesheet" href="../css/lmh.css">
+
+<link rel="icon" href="../favicon.ico">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+<style>
+
+/**************************************************/
+/* PAGE */
+/**************************************************/
+
+body{
+
+    margin:0;
+    background:#efe8d8;
+    background-image:
+        radial-gradient(circle at 25% 25%, rgba(255,255,255,.35) 0%, transparent 50%),
+        radial-gradient(circle at 75% 70%, rgba(255,255,255,.2) 0%, transparent 45%);
+    font-family:Roboto,sans-serif;
+    overflow:hidden;
+}
+
+.gallery-header{
+
+    max-width:1000px;
+    text-align:center;
+    padding:0 20px;
+    position:fixed;
+    top:0;
+    left:50%;
+    transform:translateX(-50%);
+    z-index:100;
+    background:linear-gradient(to bottom, #efe8d8 95%, rgba(239,232,216,0));
+    padding:15px 20px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:15px;
+    flex-direction:column;
+    width:100%;
+
+}
+
+.gallery-header img{
+    height:50px;
+    width:auto;
+}
+
+.gallery-header h1{
+    color:rgb(4,4,135);
+    font-size:36px;
+    margin:0;
+    padding:0;
+}
+
+.gallery-header p{
+    color:#555;
+    font-size:14px;
+    line-height:1.6;
+    margin:0;
+    padding:0;
+
+}
+
+/**************************************************/
+/* SCRAPBOOK */
+/* aim is to have a horizontal scrollable area with photos arranged in a grid, with some random rotation and padding to give it a scrapbook feel */
+/* ideally, this would all go in the css file */
+/* putting it all here for now*/
+/**************************************************/
+
+.scrapbook{
+    display:grid;
+    grid-template-columns:repeat(93, 360px);
+    grid-auto-rows: 400px;
+    gap:45px;
+    padding:225px 50px 30px 45px;
+    width:100%;
+    height:calc(100vh - 130px);
+    overflow-x:scroll;
+    overflow-y:hidden;
+    scroll-snap-type:x mandatory;
+    scroll-behavior:smooth;
+    min-width:0;
+    grid-auto-flow:row;
+    max-height:calc(100vh - 130px);
+    position:relative;
+    z-index:100;
+}
+
+.photo{
+    position:relative;
+    background:white;
+    padding:1px;
+    box-shadow:
+        0 14px 30px rgba(0,0,0,.18),
+        0 2px 6px rgba(0,0,0,.08);
+    transform:rotate(var(--rotation));
+    transition:
+        .35s,
+        box-shadow .35s;
+    cursor:pointer;
+    flex-shrink:0;
+    width:280px;
+    height:360px;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    scroll-snap-align:start;
+}
+
+.photo.vertical{
+    width:280px;
+    height:360px;
+    grid-column:span 1;
+    grid-row:span 1;
+}
+
+/* having to make a separate class for horizontal photos because the padding is different, and the aspect ratio is different */
+/* for some reason, trying to put them in the same class causes issues, likely because of overwriting*/
+
+.photo.horizontal{
+    width:360px;
+    height:280px;
+    grid-column:span 1;
+    grid-row:span 1;
+}
+
+/**************************************************/
+/* PHOTO BACKGROUND COLORS */
+/* just a few pastel colours to give the scrapbook a more playful feel, and to make the photos stand out more */
+/**************************************************/
+
+.photo.bg-white{
+    background:#ffffff;
+}
+
+.photo.bg-cream{
+    background:#fffdd0;
+}
+
+.photo.bg-peach{
+    background:#fddfc5;
+}
+
+.photo.bg-pink{
+    background:#f8d5db;
+}
+
+.photo.bg-mint{
+    background:#e0f8f7;
+}
+
+.photo.bg-lavender{
+    background:#e6e6fa;
+}
+
+.photo.bg-lightyellow{
+    background:#ffffe0;
+}
+
+.photo:hover{
+    transform:
+        scale(1.06)
+        rotate(0deg);
+    z-index:999;
+    box-shadow:
+        0 24px 55px rgba(0,0,0,.28);
+}
+
+.photo img{
+    width:100%;
+    height:100%;
+    display:block;
+    object-fit:contain;
+    border-radius:2px;
+
+}
+
+/**************************************************/
+/* RANDOM SIZES */
+/* not sure if these need to be css but they are here for now */
+/**************************************************/
+
+.large{
+    display:none;
+}
+
+.wide{
+    display:none;
+}
+
+.tall{
+    display:none;
+}
+
+/**************************************************/
+/* MASKING TAPE */
+/* aim is to have a small piece of masking tape at the top of some photos, with a slight rotation, and a semi-transparent background */
+/**************************************************/
+
+.photo::before{
+    content:"";
+    position:absolute;
+    width:90px;
+    height:24px;
+    top:-12px;
+    left:50%;
+    transform:
+        translateX(-50%)
+        rotate(-6deg);
+    background:
+        rgba(248,236,170,.75);
+    backdrop-filter:blur(1px);
+    box-shadow:
+        inset 0 0 5px rgba(255,255,255,.6);
+
+}
+
+/**************************************************/
+
+.photo:nth-child(4n)::before{
+    left:20%;
+    transform:rotate(9deg);
+}
+
+.photo:nth-child(6n)::before{
+    left:70%;
+    transform:rotate(-12deg);
+}
+
+.photo:nth-child(5n)::before{
+    display:none;
+}
+
+/**************************************************/
+
+@media(max-width:900px){
+
+.large{
+display:none;
+}
+
+.wide{
+    display:none;
+}
+
+.tall{
+    display:none;
+}
+
+.gallery-header h1{
+    font-size:34px;
+}
+
+.gallery-header p{
+    font-size:18px;
+}
+
+.photo{
+    width:240px;
+    height:310px;
+}
+
+.scrapbook{
+    padding:120px 20px 30px 20px;
+    gap:30px;
+}
+
+}
+
+/**************************************************/
+/* LIGHTBOX */
+/* aim of this is to have a full screen overlay with the image in the center, and clicking anywhere closes it */
+/**************************************************/
+
+#lightbox{
+    display:none;
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.88);
+    justify-content:center;
+    align-items:center;
+    z-index:9999;
+    cursor:pointer;
+
+}
+
+#lightbox img{
+    max-width:92vw;
+    max-height:92vh;
+    border-radius:8px;
+    box-shadow:0 0 40px black;
+}
+
+/**************************************************/
+/* DECORATIVE GRAPHICS */
+/**************************************************/
+
+.scrapbook-graphics{
+    position:absolute;
+    pointer-events:none;
+    z-index:0;
+    opacity:0.6;
+}
+
+</style>
+</head>
+<body>
+<div class="gallery-header">
+    <img src="../assets/images/lmh_crest.png" alt="LMH Crest">
+    <h1>2026 Garden Party</h1>
+    <p>A collection of memories from our summer garden party</p>
+</div>
+
+<div class="scrapbook" id="scrapbook">
+    <div id="decorative-graphics"></div>
+</div>
+
+<div id="lightbox">
+    <img id="lightbox-img" src="" alt="">
+</div>
+
+<script>
+
+const images = [
+    '17030001.JPG', '17030002.JPG', '17030003.JPG', '17030004.JPG', '17030005.JPG',
+    '17030006.JPG', '17030007.JPG', '17030008.JPG', '17030009.JPG', '17030011.JPG',
+    '17030012.JPG', '17030013.JPG', '17030014.JPG', '17030015.JPG', '17030016.JPG',
+    '17030017.JPG', '17030018.JPG', '17030019.JPG', '17030020.JPG', '17030021.JPG',
+    '17030022.JPG', '17030023.JPG', '17030024.JPG', '17030025.JPG', '17030026.JPG',
+    '17030027.JPG', '17030028.JPG', '17040001.JPG', '17040002.JPG', '17040003.JPG',
+    '17040004.JPG', '17040005.JPG', '17040006.JPG', '17040007.JPG', '17040008.JPG',
+    '17040009.JPG', '17040010.JPG', '17040011.JPG', '17040012.JPG', '17040013.JPG',
+    '17040014.JPG', '17040015.JPG', '17040016.JPG', '17040017.JPG', '17040018.JPG',
+    '17040021.JPG', '17040022.JPG', '17040023.JPG', '17040024.JPG', '17040025.JPG',
+    '17040026.JPG', '17070001.JPG', '17070002.JPG', '17070003.JPG', '17070004.JPG',
+    '17070005.JPG', '17070006.JPG', '17070007.JPG', '17070008.JPG', '17070009.JPG',
+    '17070010.JPG', '17070011.JPG', '17070012.JPG', '17070013.JPG', '17070014.JPG',
+    '17070015.JPG', '17070016.JPG', '17070017.JPG', '17070018.JPG', '17070019.JPG',
+    '17070020.JPG', '17070021.JPG', '17070022.JPG', '17070023.JPG', '17070024.JPG',
+    '17070025.JPG', '17070026.JPG', '17070027.JPG', '17080001.JPG', '17080002.JPG',
+    '17080003.JPG', '17080004.JPG', '17080005.JPG', '17080006.JPG', '17080007.JPG',
+    '17080008.JPG', '17080009.JPG', '17080010.JPG', '17080011.JPG', '17080012.JPG',
+    '17080013.JPG', '17080014.JPG', '17080015.JPG', '17080016.JPG', '17080017.JPG',
+    '17080018.JPG', '17080019.JPG', '17080020.JPG', '17080021.JPG', '17080022.JPG',
+    '17080023.JPG', '17080024.JPG', '17080025.JPG', '17080026.JPG', '17080027.JPG',
+    '17100001.JPG', '17100002.JPG', '17100004.JPG', '17100005.JPG', '17100006.JPG',
+    '17100007.JPG', '17100008.JPG', '17100009.JPG', '17100010.JPG', '17100011.JPG',
+    '17100012.JPG', '17100013.JPG', '17100014.JPG', '17100015.JPG', '17100016.JPG',
+    '17100017.JPG', '17100018.JPG', '17100019.JPG', '17100020.JPG', '17100021.JPG',
+    '17100022.JPG', '17100023.JPG', '17100024.JPG', '17100025.JPG', '17100026.JPG',
+    '17100027.JPG', '17100028.JPG', '17110001.JPG', '17110002.JPG', '17110003.JPG',
+    '17110004.JPG', '17110005.JPG', '17110006.JPG', '17110007.JPG', '17110008.JPG',
+    '17110009.JPG', '17110010.JPG', '17110011.JPG', '17110012.JPG', '17110013.JPG',
+    '17110014.JPG', '17110015.JPG', '17110016.JPG', '17110017.JPG', '17110018.JPG',
+    '17110019.JPG', '17110020.JPG', '17110021.JPG', '17110022.JPG', '17110023.JPG',
+    '17110024.JPG', '17110025.JPG', '17110026.JPG', '17110027.JPG', '17120001.JPG',
+    '17120002.JPG', '17120003.JPG', '17120004.JPG', '17120005.JPG', '17120006.JPG',
+    '17120007.JPG', '17120008.JPG', '17120009.JPG', '17120010.JPG', '17120011.JPG',
+    '17120012.JPG', '17120013.JPG', '17120014.JPG', '17120015.JPG', '17120016.JPG',
+    '17120017.JPG', '17120018.JPG', '17120019.JPG', '17120020.JPG', '17120021.JPG',
+    '17120022.JPG', '17120023.JPG', '17120024.JPG', '17120025.JPG', '17120026.JPG',
+    '17120027.JPG'
+];
+
+const basePath = '../assets/images/2026 Garden Party/';
+const scrapbook = document.getElementById('scrapbook');
+const lightbox = document.getElementById('lightbox');
+const lightboxImg = document.getElementById('lightbox-img');
+
+// size variation classes for visual interest
+const sizeClasses = ['', '', '', 'large', '', '', '', 'wide', '', '', 'tall', ''];
+
+function getRandomRotation() {
+    // mini rotation to give scrapbook feel
+    return (Math.random() * 6 - 3);
+}
+
+function getRandomColor() {
+    // pick random colour class for background
+    const colors = ['bg-white', 'bg-cream', 'bg-peach', 'bg-pink', 'bg-mint', 'bg-lavender', 'bg-lightyellow'];
+    return colors[Math.floor(Math.random() * colors.length)];
+}
+
+// creating photo elements here
+// aim is to have different padding for landscape and portrait images, and to have a random rotation for each image
+images.forEach((image, index) => {
+    const photoDiv = document.createElement('div');
+    photoDiv.className = 'photo ' + getRandomColor();
+    photoDiv.style.setProperty('--rotation', getRandomRotation() + 'deg');
+    
+    const img = document.createElement('img');
+    img.src = basePath + image;
+    img.alt = 'Garden Party Photo ' + (index + 1);
+    img.loading = 'lazy';
+    
+    // Apply different padding and class based on aspect ratio when image loads
+    img.onload = () => {
+        const aspectRatio = img.naturalWidth / img.naturalHeight;
+        
+        if (aspectRatio > 1.2) {
+            // Landscape: add horizontal class and wider left/right padding
+            photoDiv.classList.add('horizontal');
+            photoDiv.style.padding = '10px 10px 50px 10px';
+        } else if (aspectRatio < 0.85) {
+            // Portrait: add vertical class and wider top/bottom padding
+            photoDiv.classList.add('vertical');
+            photoDiv.style.padding = '10px 10px 50px 10px';
+        } else {
+            // Square-ish: uniform padding
+            photoDiv.style.padding = '12px';
+        }
+    };
+    
+    photoDiv.appendChild(img);
+    
+    // should open a photo in full whne clicked on
+    photoDiv.addEventListener('click', () => {
+        lightboxImg.src = basePath + image;
+        lightboxImg.alt = 'Garden Party Photo ' + (index + 1);
+        lightbox.style.display = 'flex';
+    });
+    
+    scrapbook.appendChild(photoDiv);
+});
+
+// close lightbox on click
+lightbox.addEventListener('click', () => {
+    lightbox.style.display = 'none';
+});
+
+// close lightbox on Escape key
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+        lightbox.style.display = 'none';
+    }
+});
+
+// horizontal scroll
+scrapbook.addEventListener('wheel', (e) => {
+    if (e.deltaY !== 0) {
+        e.preventDefault();
+        scrapbook.scrollLeft += e.deltaY * 2;
+    }
+}, { passive: false });
+
+// the graphics can also be found in the same place as the photos
+const decorativeGraphics = [
+    'white dove.png',
+    'champagne glasses.png',
+    'flower.png',
+    'flower 2.png'
+];
+
+const graphicsContainer = document.getElementById('decorative-graphics');
+const scrapbookRect = scrapbook.getBoundingClientRect();
+
+
+decorativeGraphics.forEach((graphic) => {
+    // duplicating the graphics so they can appear multiple times
+    const instanceCount = Math.floor(Math.random() * 3) + 25;
+    
+    for (let i = 0; i < instanceCount; i++) {
+        const img = document.createElement('img');
+        img.src = basePath + graphic;
+        img.alt = graphic;
+        img.className = 'scrapbook-graphics';
+        
+        // Set random size (100px to 150px)
+        const size = Math.random() * 100 + 50; // Minimum size of 50px
+        img.style.width = size + 'px';
+        img.style.height = 'auto';
+        
+        // random posthroughout the entire scroll area
+        const randomX = Math.random() * 20000; // Spread across the long scroll area
+        const randomY = Math.random() * 600;
+        
+        img.style.left = randomX + 'px';
+        img.style.top = randomY + 'px';
+        
+        // Random rotation
+        img.style.transform = 'rotate(' + (Math.random() * 30 - 15) + 'deg)';
+        
+        graphicsContainer.appendChild(img);
+    }
+});
+
+</script>
+
+</body>
+
+</html>
