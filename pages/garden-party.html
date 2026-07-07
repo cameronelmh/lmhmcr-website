@@ -105,7 +105,11 @@
             position: relative;
             cursor: pointer;
             color: rgb(4, 4, 135);
-            z-index: 20;
+            z-index: 99999;
+        }
+
+        .dropdown:hover .submenu {
+            display: block;
         }
 
         .submenu {
@@ -120,7 +124,7 @@
             box-shadow: 0px 4px 6px rgba(0,0,0,0.1);
             min-width: 180px;
             border-radius: 5px;
-            z-index: 1000;
+            z-index: 999999;
         }
 
         .submenu li {
@@ -420,7 +424,7 @@ body{
     grid-auto-flow:row;
     max-height:calc(100vh - 80px);
     position:relative;
-    z-index:100;
+    z-index:1;
     margin-top:20px;
 }
 
@@ -595,13 +599,132 @@ display:none;
 }
 
 .photo{
-    width:240px;
-    height:310px;
+    width:200px;
+    height:260px;
 }
 
 .scrapbook{
-    padding:120px 20px 30px 20px;
-    gap:30px;
+    display:grid;
+    grid-template-columns:repeat(93, 220px);
+    grid-auto-rows: 300px;
+    gap:25px;
+    padding:15px 20px 30px 20px;
+    height:calc(100vh - 80px);
+    margin-top:10px;
+}
+
+.title-card {
+    padding: 30px 15px;
+}
+
+.title-card h1 {
+    font-size: 28px;
+    margin: 0 0 10px 0;
+}
+
+.title-card p {
+    font-size: 14px;
+    max-width: 160px;
+}
+
+}
+
+@media(max-width:600px){
+
+.scrapbook{
+    display:grid;
+    grid-template-columns:repeat(188, 160px);
+    grid-auto-rows: 220px;
+    gap:15px;
+    padding:10px 15px 20px 15px;
+    height:calc(100vh - 80px);
+    margin-top:5px;
+}
+
+.photo{
+    width:150px;
+    height:195px;
+}
+
+.photo.vertical{
+    width:150px;
+    height:195px;
+}
+
+.photo.horizontal{
+    width:195px;
+    height:150px;
+}
+
+.title-card {
+    grid-column: span 1;
+    padding: 20px 10px;
+}
+
+.title-card h1 {
+    font-size: 22px;
+    margin: 0 0 8px 0;
+}
+
+.title-card p {
+    font-size: 12px;
+    max-width: 120px;
+}
+
+.photo::before {
+    width: 70px;
+    height: 18px;
+    top: -8px;
+}
+
+}
+
+@media(max-width:400px){
+
+.scrapbook{
+    display:grid;
+    grid-template-columns:repeat(188, 120px);
+    grid-auto-rows: 160px;
+    gap:10px;
+    padding:8px 10px 15px 10px;
+    height:calc(100vh - 80px);
+    margin-top:5px;
+}
+
+.photo{
+    width:110px;
+    height:145px;
+}
+
+.photo.vertical{
+    width:110px;
+    height:145px;
+}
+
+.photo.horizontal{
+    width:145px;
+    height:110px;
+}
+
+.title-card {
+    padding: 15px 8px;
+}
+
+.title-card h1 {
+    font-size: 18px;
+    margin: 0 0 5px 0;
+}
+
+.title-card p {
+    font-size: 11px;
+    max-width: 100px;
+    line-height: 1.4;
+}
+
+.photo::before {
+    width: 60px;
+    height: 16px;
+    top: -6px;
 }
 
 }
