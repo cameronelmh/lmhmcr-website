@@ -576,6 +576,41 @@ body{
 }
 
 /**************************************************/
+/* TITLE CARD */
+/**************************************************/
+
+.title-card {
+    grid-column: span 1;
+    grid-row: span 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, #e6e6fa 0%, #fffdd0 100%);
+    padding: 40px 20px;
+    border-radius: 8px;
+    box-shadow: 0 14px 30px rgba(0,0,0,.18), 0 2px 6px rgba(0,0,0,.08);
+    text-align: center;
+    font-family: 'Roboto', sans-serif;
+}
+
+.title-card h1 {
+    color: rgb(4, 4, 135);
+    font-size: clamp(18px, 5vw, 36px);
+    margin: 0 0 15px 0;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.title-card p {
+    color: #555;
+    font-size: clamp(11px, 2.5vw, 16px);
+    line-height: 1.6;
+    margin: 0;
+    max-width: 200px;
+}
+
+/**************************************************/
 
 @media(max-width:900px){
 
@@ -659,17 +694,17 @@ display:none;
 
 .title-card {
     grid-column: span 1;
-    padding: 25px 15px;
+    padding: 20px 12px;
 }
 
 .title-card h1 {
-    font-size: 24px;
-    margin: 0 0 10px 0;
+    font-size: 18px;
+    margin: 0 0 8px 0;
 }
 
 .title-card p {
-    font-size: 14px;
-    max-width: 180px;
+    font-size: 11px;
+    max-width: 140px;
 }
 
 .photo::before {
