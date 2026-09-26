@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Lady Margaret Hall MCR - Executives</title>
     <link rel="stylesheet" href="../css/lmh.css">
-    
+
 <!-- ✅ Favicon -->
   <link rel="icon" href="../favicon.ico" type="image/x-icon">
 
@@ -30,6 +30,38 @@
       margin: 80px 0 30px;
       color: #032a63;
     }
+
+    /* Year tabs */
+    .year-tabs {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin: 0 0 40px;
+    }
+    .year-tab {
+      appearance: none;
+      border: 2px solid #032a63;
+      background: #fff;
+      color: #032a63;
+      font-size: 17px;
+      font-weight: 600;
+      padding: 10px 22px;
+      border-radius: 999px;
+      cursor: pointer;
+      transition: background 200ms ease, color 200ms ease, box-shadow 200ms ease;
+    }
+    .year-tab:hover {
+      box-shadow: 0 4px 12px rgba(3, 42, 99, 0.15);
+    }
+    .year-tab.active {
+      background: #032a63;
+      color: #fff;
+    }
+
+    /* Tab panels */
+    .year-panel { display: none; }
+    .year-panel.active { display: block; }
 
     /* Each role group */
     .role-group {
@@ -99,7 +131,7 @@
       position: absolute;
       left: 50%;
       top: 0px; /* aligns to top of image wrapper (adjust) */
-      
+
       width: 180px;
       height: 180px;
       border-radius: 12px;
@@ -196,8 +228,8 @@
             <!-- Full version -->
             <span class="full-version">
                 <span class="main-title">
-                    <span style="font-size:32px;">L</span>ADY 
-                    <span style="font-size:32px;">M</span>ARGARET 
+                    <span style="font-size:32px;">L</span>ADY
+                    <span style="font-size:32px;">M</span>ARGARET
                     <span style="font-size:32px;">H</span>ALL
                 </span>
                 <span class="subtitle">
@@ -261,18 +293,135 @@
         <hr>
 
 
-   <!-- ========== Previous Executive Committee ========== -->
+   <!-- ========== Previous Executive Committees ========== -->
 
 <div class="exec-container">
-  <h1 class="exec-title">Previous Executive Committee</h1>
+  <h1 class="exec-title">Previous Executive Committees</h1>
 
-    <section class="role-group" id="presidents">
+  <!-- Year tabs -->
+  <div class="year-tabs" role="tablist" aria-label="Previous committees by academic year">
+    <button class="year-tab active" role="tab" aria-selected="true" aria-controls="year-2025-2026" id="tab-2025-2026">2025&ndash;2026</button>
+    <button class="year-tab" role="tab" aria-selected="false" aria-controls="year-2024-2025" id="tab-2024-2025">2024&ndash;2025</button>
+  </div>
+
+  <!-- ========== 2025–2026 ========== -->
+  <div class="year-panel active" id="year-2025-2026" role="tabpanel" aria-labelledby="tab-2025-2026">
+
+    <!-- Presidents -->
+    <section class="role-group">
+      <h2 class="role-heading">Presidents</h2>
+      <div class="cards-grid">
+        <!-- Luke -->
+        <article tabindex="0" class="exec-card" data-quote="Heya I'm Luke, I'm a first year DPhil student in Cancer Sciences and your co president for this year!" role="article" aria-label="Luke De Bretton-Gordon — Co-president">
+          <div class="exec-img-wrapper" aria-hidden="true">
+            <img src="../assets/images/2026 committee/Luke.png" alt="Luke De Bretton-Gordon" class="exec-img">
+            <div class="overlay"><div class="quote"></div></div>
+          </div>
+          <h3 class="exec-name">Luke De Bretton-Gordon</h3>
+          <div class="exec-role">Co-president</div>
+          <div class="exec-pronoun">He/Him</div>
+        </article>
+
+        <!-- Sean -->
+        <article tabindex="0" class="exec-card" data-quote="Sean Beggan, Co-Pres" role="article" aria-label="Sean Beggan — Co-president">
+          <div class="exec-img-wrapper" aria-hidden="true">
+            <img src="../assets/images/2026 committee/mystery profile.png" alt="Sean Beggan" class="exec-img">
+            <div class="overlay"><div class="quote"></div></div>
+          </div>
+          <h3 class="exec-name">Sean Beggan</h3>
+          <div class="exec-role">Co-president</div>
+        </article>
+      </div>
+    </section>
+
+    <!-- Secretaries -->
+    <section class="role-group">
+      <h2 class="role-heading">Secretaries</h2>
+      <div class="cards-grid">
+        <article tabindex="0" class="exec-card" data-quote="Haashir is currently pursuing the MSc in Mathematical Sciences at Oxford with a focus on infinite-dimensional geometry and its applications." role="article" aria-label="Haashir — Co-secretary">
+          <div class="exec-img-wrapper"><img src="../assets/images/2026 committee/Haashir.jpg" alt="Haashir" class="exec-img"><div class="overlay"><div class="quote"></div></div></div>
+          <h3 class="exec-name">Haashir</h3>
+          <div class="exec-role">Co-secretary</div>
+          <div class="exec-pronoun">He/Him</div>
+        </article>
+
+        <article tabindex="0" class="exec-card" data-quote="Hi, I'm Kaal - first year CS DPhil student and handle all the web/tech things :)" role="article" aria-label="Kaalkidan Sahele — Co-Secretary">
+          <div class="exec-img-wrapper"><img src="../assets/images/2026 committee/Kaal.png" alt="Kaalkidan Sahele" class="exec-img"><div class="overlay"><div class="quote"></div></div></div>
+          <h3 class="exec-name">Kaalkidan (Kaal) Sahele</h3>
+          <div class="exec-role">Co-Secretary (Web Officer)</div>
+          <div class="exec-pronoun">She/Her</div>
+        </article>
+      </div>
+    </section>
+
+    <!-- Treasurer -->
+    <section class="role-group">
+      <h2 class="role-heading">Treasurer</h2>
+      <div class="cards-grid">
+        <article tabindex="0" class="exec-card" data-quote="Debolina, Treasurer">
+          <div class="exec-img-wrapper"><img src="../assets/images/2026 committee/deb.jpeg" alt="Debolina Paul" class="exec-img"><div class="overlay"><div class="quote"></div></div></div>
+          <h3 class="exec-name">Debolina Paul</h3>
+          <div class="exec-role">Treasurer</div>
+          <div class="exec-pronoun">She/Her</div>
+        </article>
+      </div>
+    </section>
+
+    <!-- Social Secretaries -->
+    <section class="role-group">
+      <h2 class="role-heading">Social Secretaries</h2>
+      <div class="cards-grid">
+        <!-- Capps -->
+        <article tabindex="0" class="exec-card" data-quote="...">
+          <div class="exec-img-wrapper"><img src="../assets/images/2026 committee/mystery profile.png" alt="Capps" class="exec-img"><div class="overlay"><div class="quote"></div></div></div>
+          <h3 class="exec-name">Capps</h3>
+          <div class="exec-role">Social Secretary</div>
+          <div class="exec-pronoun"> </div>
+        </article>
+
+        <!-- Jon -->
+        <article tabindex="0" class="exec-card" data-quote="...">
+          <div class="exec-img-wrapper"><img src="../assets/images/2026 committee/mystery profile.png" alt="Jon" class="exec-img"><div class="overlay"><div class="quote"></div></div></div>
+          <h3 class="exec-name">Jon</h3>
+          <div class="exec-role">Social Secretary</div>
+          <div class="exec-pronoun"> </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- Welfare Officers -->
+    <section class="role-group">
+      <h2 class="role-heading">Welfare Officers</h2>
+      <div class="cards-grid">
+        <!-- Sophia -->
+        <article tabindex="0" class="exec-card" data-quote="DPhil candidate in Social Intervention and Policy Evaluation, researching AI and equity in Education">
+          <div class="exec-img-wrapper"><img src="../assets/images/2026 committee/Sophia_Andresen.jpeg" alt="Sophia Andresen" class="exec-img"><div class="overlay"><div class="quote"></div></div></div>
+          <h3 class="exec-name">Sophia Mai Andresen</h3>
+          <div class="exec-role">Welfare Officer</div>
+          <div class="exec-pronoun">She/Her</div>
+        </article>
+
+        <!-- Michelle -->
+        <article tabindex="0" class="exec-card" data-quote="I am studying a DPhil in Migration Studies. In my spare time, I enjoy running, reading fiction, and exploring new libraries and cafés in Oxford.">
+          <div class="exec-img-wrapper"><img src="../assets/images/2026 committee/michelle.jpg" alt="Michelle Quinones Guzman" class="exec-img"><div class="overlay"><div class="quote"></div></div></div>
+          <h3 class="exec-name">Michelle Quinones Guzman</h3>
+          <div class="exec-role">Welfare Officer</div>
+          <div class="exec-pronoun"> </div>
+        </article>
+      </div>
+    </section>
+
+  </div> <!-- end 2025–2026 panel -->
+
+  <!-- ========== 2024–2025 ========== -->
+  <div class="year-panel" id="year-2024-2025" role="tabpanel" aria-labelledby="tab-2024-2025" hidden>
+
+    <section class="role-group">
       <h2 class="role-heading">Presidents</h2>
       <div class="cards-grid">
 
     <!-- Hiba -->
-
-     <article tabindex="0" class="exec-card" data-quote="{N/A}" role="article" aria-label="Luke De Bretton-Gordon — Co-president">
+     <article tabindex="0" class="exec-card" data-quote="{N/A}" role="article" aria-label="Hiba Sohail — Co-president">
           <div class="exec-img-wrapper" aria-hidden="true">
             <img src="../assets/images/2025 committee/hiba.jpeg" alt="Hiba" class="exec-img">
             <div class="overlay"><div class="quote"></div></div>
@@ -282,7 +431,7 @@
         </article>
 
     <!-- Syed -->
-    <article tabindex="0" class="exec-card" data-quote="{N/A}" role="article" aria-label="Luke De Bretton-Gordon — Co-president">
+    <article tabindex="0" class="exec-card" data-quote="{N/A}" role="article" aria-label="Syed Adil — Co-president">
           <div class="exec-img-wrapper" aria-hidden="true">
             <img src="../assets/images/2025 committee/syed.jpeg" alt="Syed" class="exec-img">
             <div class="overlay"><div class="quote"></div></div>
@@ -293,11 +442,11 @@
     </div>
     </section>
 
-    <section class="role-group" id="welfare">
+    <section class="role-group">
       <h2 class="role-heading">Treasurer</h2>
       <div class="cards-grid">
     <!-- Connor -->
-    <article tabindex="0" class="exec-card" data-quote="{N/A}" role="article" aria-label="Luke De Bretton-Gordon — Co-president">
+    <article tabindex="0" class="exec-card" data-quote="{N/A}" role="article" aria-label="Connor McAllister — Treasurer">
           <div class="exec-img-wrapper" aria-hidden="true">
             <img src="../assets/images/2025 committee/connor.jpeg" alt="Connor" class="exec-img">
             <div class="overlay"><div class="quote"></div></div>
@@ -308,11 +457,11 @@
     </div>
     </section>
 
-    <section class="role-group" id="welfare">
+    <section class="role-group">
       <h2 class="role-heading">Secretary</h2>
       <div class="cards-grid">
     <!-- Chris -->
-    <article tabindex="0" class="exec-card" data-quote="{N/A}" role="article" aria-label="Luke De Bretton-Gordon — Co-president">
+    <article tabindex="0" class="exec-card" data-quote="{N/A}" role="article" aria-label="Chris Warwick — Secretary">
           <div class="exec-img-wrapper" aria-hidden="true">
             <img src="../assets/images/2025 committee/chris.jpeg" alt="Chris" class="exec-img">
             <div class="overlay"><div class="quote"></div></div>
@@ -323,11 +472,11 @@
     </div>
     </section>
 
-    <section class="role-group" id="welfare">
+    <section class="role-group">
       <h2 class="role-heading">Social Secretaries</h2>
       <div class="cards-grid">
     <!-- Andrei -->
-    <article tabindex="0" class="exec-card" data-quote="{N/A}" role="article" aria-label="Luke De Bretton-Gordon — Co-president">
+    <article tabindex="0" class="exec-card" data-quote="{N/A}" role="article" aria-label="Andrei Enoae — Social Secretary">
           <div class="exec-img-wrapper" aria-hidden="true">
             <img src="../assets/images/2025 committee/andrei.jpeg" alt="Andrei" class="exec-img">
             <div class="overlay"><div class="quote"></div></div>
@@ -337,7 +486,7 @@
         </article>
 
     <!-- Fabian -->
-    <article tabindex="0" class="exec-card" data-quote="{N/A}" role="article" aria-label="Luke De Bretton-Gordon — Co-president">
+    <article tabindex="0" class="exec-card" data-quote="{N/A}" role="article" aria-label="Fabian Dopf — Social Secretary">
           <div class="exec-img-wrapper" aria-hidden="true">
             <img src="../assets/images/2025 committee/fabian.jpeg" alt="Fabian" class="exec-img">
             <div class="overlay"><div class="quote"></div></div>
@@ -348,11 +497,11 @@
         </div>
         </section>
 
-    <section class="role-group" id="welfare">
+    <section class="role-group">
       <h2 class="role-heading">Welfare Officers</h2>
       <div class="cards-grid">
     <!-- Anna -->
-    <article tabindex="0" class="exec-card" data-quote="{N/A}" role="article" aria-label="Luke De Bretton-Gordon — Co-president">
+    <article tabindex="0" class="exec-card" data-quote="{N/A}" role="article" aria-label="Anna Schwarzenbach — Welfare Officer">
           <div class="exec-img-wrapper" aria-hidden="true">
             <img src="../assets/images/2025 committee/anna.jpeg" alt="Anna" class="exec-img">
             <div class="overlay"><div class="quote"></div></div>
@@ -362,7 +511,7 @@
         </article>
 
     <!-- Cameron -->
-    <article tabindex="0" class="exec-card" data-quote="{N/A}" role="article" aria-label="Luke De Bretton-Gordon — Co-president">
+    <article tabindex="0" class="exec-card" data-quote="{N/A}" role="article" aria-label="Cameron Etherton — Welfare Officer">
           <div class="exec-img-wrapper" aria-hidden="true">
             <img src="../assets/images/2025 committee/cameron.png" alt="Cameron" class="exec-img">
             <div class="overlay"><div class="quote"></div></div>
@@ -372,7 +521,7 @@
         </article>
 
     <!-- Charlotte -->
-    <article tabindex="0" class="exec-card" data-quote="{N/A}" role="article" aria-label="Luke De Bretton-Gordon — Co-president">
+    <article tabindex="0" class="exec-card" data-quote="{N/A}" role="article" aria-label="Charlotte Evans — Welfare Officer">
           <div class="exec-img-wrapper" aria-hidden="true">
             <img src="../assets/images/2025 committee/charlotte.jpeg" alt="Charlotte" class="exec-img">
             <div class="overlay"><div class="quote"></div></div>
@@ -382,7 +531,7 @@
         </article>
 
     <!-- Martje -->
-    <article tabindex="0" class="exec-card" data-quote="{N/A}" role="article" aria-label="Luke De Bretton-Gordon — Co-president">
+    <article tabindex="0" class="exec-card" data-quote="{N/A}" role="article" aria-label="Martje Köppen — Welfare Officer">
           <div class="exec-img-wrapper" aria-hidden="true">
             <img src="../assets/images/2025 committee/Martje.jpeg" alt="Martje" class="exec-img">
             <div class="overlay"><div class="quote"></div></div>
@@ -392,7 +541,16 @@
         </article>
         </div>
         </section>
+
+  </div> <!-- end 2024–2025 panel -->
+
+  <!-- Back to current committee -->
+  <div style="text-align:center;">
+    <a class="prev-link" href="executives.html" title="See current Executive Committee">
+      <i class="fa-solid fa-people-group"></i> View Current Executive Committee
+    </a>
   </div>
+
 </div>
 <!-- EXECUTIVE COMMITTEE SECTION END -->
         <script>
@@ -417,18 +575,92 @@
                     });
                 });
             });
+
+        // ----- Year tab switching -----
+        document.addEventListener('DOMContentLoaded', function () {
+          const tabs = document.querySelectorAll('.year-tab');
+          const panels = document.querySelectorAll('.year-panel');
+
+          tabs.forEach(tab => {
+            tab.addEventListener('click', function () {
+              const targetId = tab.getAttribute('aria-controls');
+
+              tabs.forEach(t => {
+                const selected = t === tab;
+                t.classList.toggle('active', selected);
+                t.setAttribute('aria-selected', selected ? 'true' : 'false');
+              });
+
+              panels.forEach(panel => {
+                const show = panel.id === targetId;
+                panel.classList.toggle('active', show);
+                if (show) {
+                  panel.removeAttribute('hidden');
+                } else {
+                  panel.setAttribute('hidden', '');
+                }
+              });
+            });
+          });
+        });
+
+        // ----- Overlay quotes + tap/keyboard toggling -----
+        document.addEventListener('DOMContentLoaded', function () {
+          // small HTML-escape helper
+          function escapeHtml(str) {
+            return String(str).replace(/[&<>"']/g, function (m) {
+              return ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'})[m];
+            });
+          }
+
+          document.querySelectorAll('.exec-card').forEach((card) => {
+            const quoteText = (card.getAttribute('data-quote') || '').trim();
+            const quoteBox = card.querySelector('.overlay .quote');
+
+            if (quoteBox) {
+              if (quoteText && quoteText !== '{N/A}' && quoteText !== '...') {
+                // convert newline to <br> and escape HTML
+                quoteBox.innerHTML = escapeHtml(quoteText).replace(/\n/g, '<br>');
+              } else {
+                quoteBox.innerHTML = '<em>No quote provided</em>';
+              }
+            }
+
+            // toggle overlay on click/tap (ignore links)
+            card.addEventListener('click', function (e) {
+              if (e.target.closest('a')) return;
+              card.classList.toggle('show-overlay');
+            });
+
+            // close overlay on outside click
+            document.addEventListener('click', function (ev) {
+              if (!card.contains(ev.target)) card.classList.remove('show-overlay');
+            });
+
+            // keyboard toggle for accessibility
+            card.addEventListener('keydown', function (ev) {
+              if (ev.key === 'Enter' || ev.key === ' ') {
+                ev.preventDefault();
+                card.classList.toggle('show-overlay');
+              }
+              if (ev.key === 'Escape') {
+                card.classList.remove('show-overlay');
+              }
+            });
+          });
+        });
         </script>
         <!-- ✅ Footer -->
 <footer>
   <div class="footer-container">
     <p>&copy; 2025 Lady Margaret Hall MCR | University of Oxford</p>
     <p>
-      <a href="mailto:secretary-mcr@lmh.ox.ac.uk">secretary-mcr@lmh.ox.ac.uk</a> &nbsp; | &nbsp; 
+      <a href="mailto:secretary-mcr@lmh.ox.ac.uk">secretary-mcr@lmh.ox.ac.uk</a> &nbsp; | &nbsp;
       <a href="https://www.instagram.com/lmh_mcr/" target="_blank">
         <i class="fab fa-instagram"></i> lmh_mcr
       </a> &nbsp; | &nbsp;
       <a href="https://www.lmh.ox.ac.uk/" target="_blank">LMH Website</a>
-      
+
     </p>
   </div>
 </footer>
@@ -471,5 +703,5 @@
     margin: 0 auto;
   }
 </style>
-    </body>    
+    </body>
 </html>
