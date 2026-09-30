@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Lady Margaret Hall MCR - Welcome Events</title>
     <link rel="stylesheet" href="../css/lmh.css">
-    
+
     <!-- ✅ Favicon -->
     <link rel="icon" href="../favicon.ico" type="image/x-icon">
 
@@ -115,7 +116,7 @@
             list-style: none;
             padding: 0;
             margin: 0;
-            box-shadow: 0px 4px 6px rgba(0,0,0,0.1);
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
             min-width: 180px;
             border-radius: 5px;
             z-index: 1000;
@@ -126,7 +127,7 @@
             font-size: 16px;
             color: rgb(4, 4, 135);
             background-color: white;
-            border-bottom: 1px solid rgba(0,0,0,0.1);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
             transition: opacity 0.3s, background-color 0.3s;
         }
 
@@ -148,7 +149,7 @@
                 background-color: white;
                 width: 90%;
                 max-width: 300px;
-                box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
                 padding: 10px 0;
                 border-radius: 5px;
                 z-index: 1000;
@@ -161,7 +162,7 @@
             .menu li {
                 padding: 12px 15px;
                 text-align: left;
-                border-bottom: 1px solid rgba(0,0,0,0.1);
+                border-bottom: 1px solid rgba(0, 0, 0, 0.1);
             }
 
             .menu li:last-child {
@@ -190,7 +191,9 @@
         }
 
         @media (max-width: 600px) {
-            .menu li, .submenu li {
+
+            .menu li,
+            .submenu li {
                 font-size: 14px;
                 padding: 8px 12px;
             }
@@ -209,16 +212,19 @@
             .menu-button-home .full-version {
                 display: none;
             }
+
             .menu-button-home .short-version {
                 display: flex;
                 flex-direction: column;
                 align-items: center;
                 text-align: center;
             }
+
             .menu-button-home .short-version .main-title {
                 font-size: 28px;
                 line-height: 1.2;
             }
+
             .menu-button-home .short-version .subtitle {
                 font-size: 18px;
                 opacity: 0.6;
@@ -267,122 +273,123 @@
         }
     </style>
 </head>
+
 <body>
 
-<!-- ✅ Header and Navigation -->
-<div class="container">
-    <img src="../assets/images/lmh_crest.png" class="crest-image">
+    <!-- ✅ Header and Navigation -->
+    <div class="container">
+        <img src="../assets/images/lmh_crest.png" class="crest-image">
 
-    <a href="../index.html">
-        <button class="menu-button-home">
-            <span class="full-version">
-                <span class="main-title">
-                    <span style="font-size:32px;">L</span>ADY 
-                    <span style="font-size:32px;">M</span>ARGARET 
-                    <span style="font-size:32px;">H</span>ALL
+        <a href="../index.html">
+            <button class="menu-button-home">
+                <span class="full-version">
+                    <span class="main-title">
+                        <span style="font-size:32px;">L</span>ADY
+                        <span style="font-size:32px;">M</span>ARGARET
+                        <span style="font-size:32px;">H</span>ALL
+                    </span>
+                    <span class="subtitle">
+                        M<span style="font-size:18px;">IDDLE</span> C<span style="font-size:18px;">OMMON</span> R<span
+                            style="font-size:18px;">OOM</span>
+                    </span>
                 </span>
-                <span class="subtitle">
-                    M<span style="font-size:18px;">IDDLE</span> C<span style="font-size:18px;">OMMON</span> R<span style="font-size:18px;">OOM</span>
+
+                <span class="short-version">
+                    <span class="main-title">LMH</span>
+                    <span class="subtitle">MCR</span>
                 </span>
-            </span>
+            </button>
+        </a>
 
-            <span class="short-version">
-                <span class="main-title">LMH</span>
-                <span class="subtitle">MCR</span>
-            </span>
-        </button>
-    </a>
+        <button class="menu-toggle" onclick="toggleMenu()">☰</button>
 
-    <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+        <nav>
+            <ul class="menu">
+                <li class="dropdown">Committee
+                    <ul class="submenu">
+                        <li><a href="executives.html">Executives</a></li>
+                        <li><a href="representatives.html">Representatives</a></li>
+                        <li><a href="constitution.html">Constitution</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">Facilities
+                    <ul class="submenu">
+                        <li><a href="mcr.html">MCR</a></li>
+                        <li><a href="tv-room.html">TV Room</a></li>
+                        <li><a href="kitchen.html">Kitchen</a></li>
+                        <li><a href="gym.html">Gym</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">College Life
+                    <ul class="submenu">
+                        <li><a href="accomodation.html">Accommodation</a></li>
+                        <li><a href="hall.html">Hall</a></li>
+                        <li><a href="social-events.html">Social Events</a></li>
+                        <li><a href="library.html">Library</a></li>
+                        <li><a href="sports.html">Sports</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">Resources
+                    <ul class="submenu">
+                        <li><a href="academicsupport.html">Academic Support</a></li>
+                        <li><a href="mentalhealth.html">Mental Health</a></li>
+                        <li><a href="associate-membership.html">Associate Membership</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">Events & Info
+                    <ul class="submenu">
+                        <li><a href="garden-party.html">Trinity Garden Party</a></li>
+                        <li><a href="alternativeguide.html">Alternative Guide</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+    </div>
 
-    <nav>
-        <ul class="menu">
-            <li class="dropdown">Committee
-                <ul class="submenu">
-                    <li><a href="executives.html">Executives</a></li>
-                    <li><a href="representatives.html">Representatives</a></li>
-                    <li><a href="constitution.html">Constitution</a></li>
-                </ul>
-            </li>
-            <li class="dropdown">Facilities
-                <ul class="submenu">
-                    <li><a href="mcr.html">MCR</a></li>
-                    <li><a href="tv-room.html">TV Room</a></li>
-                    <li><a href="kitchen.html">Kitchen</a></li>
-                    <li><a href="gym.html">Gym</a></li>
-                </ul>
-            </li>
-            <li class="dropdown">College Life
-                <ul class="submenu">
-                    <li><a href="accomodation.html">Accommodation</a></li>
-                    <li><a href="hall.html">Hall</a></li>
-                    <li><a href="social-events.html">Social Events</a></li>
-                    <li><a href="library.html">Library</a></li>
-                    <li><a href="sports.html">Sports</a></li>
-                </ul>
-            </li>
-            <li class="dropdown">Resources
-                <ul class="submenu">
-                    <li><a href="academicsupport.html">Academic Support</a></li>
-                    <li><a href="mentalhealth.html">Mental Health</a></li>
-                    <li><a href="associate-membership.html">Associate Membership</a></li>
-                </ul>
-            </li>
-            <li class="dropdown">Events & Info
-                <ul class="submenu">
-                    <li><a href="garden-party.html">Trinity Garden Party</a></li>
-                    <li><a href="alternativeguide.html">Alternative Guide</a></li>
-                </ul>
-            </li>
-        </ul>
-    </nav>
-</div>
+    <hr>
 
-<hr>
+    <!-- ✅ Full Page Freshers Week Calendar Image -->
+    <div style="display: flex; justify-content: center; align-items: center; width: 90%;">
+        <img src="../assets/images/LMH Freshers Week Calendar.png" alt="LMH Freshers Week Calendar" style="width: 90%; height: auto; display: block;">
+    </div>
 
-<!--  Coming Soon Message -->
-<div style="display: flex; justify-content: center; align-items: center; width: 100%; margin-top: 60px; margin-bottom: 60px; text-align: center;">
-    <p style="font-family: 'Roboto'; font-size: 36px; font-weight: bold; color: rgb(4, 4, 135); max-width: 800px; line-height: 1.4;">
-        2026 Freshers Events Coming Soon! Keep Your Eyes Peeled!
-    </p>
-</div>
+    <script>
+        function toggleMenu() {
+            const menu = document.querySelector(".menu");
+            menu.classList.toggle("show");
+        }
 
-<script>
-    function toggleMenu() {
-        const menu = document.querySelector(".menu");
-        menu.classList.toggle("show");
-    }
+        document.addEventListener("DOMContentLoaded", function () {
+            const dropdowns = document.querySelectorAll(".dropdown");
 
-    document.addEventListener("DOMContentLoaded", function () {
-        const dropdowns = document.querySelectorAll(".dropdown");
+            dropdowns.forEach(dropdown => {
+                dropdown.addEventListener("click", function () {
+                    this.classList.toggle("active");
+                });
 
-        dropdowns.forEach(dropdown => {
-            dropdown.addEventListener("click", function () {
-                this.classList.toggle("active");
-            });
-
-            document.addEventListener("click", function (event) {
-                if (!dropdown.contains(event.target)) {
-                    dropdown.classList.remove("active");
-                }
+                document.addEventListener("click", function (event) {
+                    if (!dropdown.contains(event.target)) {
+                        dropdown.classList.remove("active");
+                    }
+                });
             });
         });
-    });
-</script>
+    </script>
 
-<!-- ✅ Footer -->
-<footer>
-    <div class="footer-container">
-        <p>&copy; 2026 Lady Margaret Hall MCR | University of Oxford</p>
-        <p>
-            <a href="mailto:secretary-mcr@lmh.ox.ac.uk">secretary-mcr@lmh.ox.ac.uk</a> &nbsp; | &nbsp; 
-            <a href="https://www.instagram.com/lmh_mcr/" target="_blank">
-                <i class="fab fa-instagram"></i> lmh_mcr
-            </a> &nbsp; | &nbsp;
-            <a href="https://www.lmh.ox.ac.uk/" target="_blank">LMH Website</a>
-        </p>
-    </div>
-</footer>
+    <!-- ✅ Footer -->
+    <footer>
+        <div class="footer-container">
+            <p>&copy; 2026 Lady Margaret Hall MCR | University of Oxford</p>
+            <p>
+                <a href="mailto:secretary-mcr@lmh.ox.ac.uk">secretary-mcr@lmh.ox.ac.uk</a> &nbsp; | &nbsp;
+                <a href="https://www.instagram.com/lmh_mcr/" target="_blank">
+                    <i class="fab fa-instagram"></i> lmh_mcr
+                </a> &nbsp; | &nbsp;
+                <a href="https://www.lmh.ox.ac.uk/" target="_blank">LMH Website</a>
+            </p>
+        </div>
+    </footer>
 
 </body>
+
 </html>
