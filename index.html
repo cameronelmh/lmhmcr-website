@@ -312,6 +312,53 @@
     }
 
     /* ======================== */
+    /* Newsletter Card */
+    .newsletter-card {
+        display: block;
+        max-width: 600px;
+        margin: 30px auto 0;
+        padding: 20px 24px;
+        border: 1px solid rgba(4, 4, 135, 0.25);
+        border-radius: 12px;
+        font-family: 'Roboto';
+        text-align: center;
+        transition: box-shadow 0.3s, border-color 0.3s;
+    }
+
+    .newsletter-card:hover {
+        border-color: rgb(4, 4, 135);
+        box-shadow: 0 4px 12px rgba(4, 4, 135, 0.12);
+    }
+
+    .newsletter-card span {
+        display: block;
+    }
+
+    .newsletter-card-label {
+        color: #777;
+        font-size: 13px;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+    }
+
+    .newsletter-card-title {
+        color: rgb(4, 4, 135);
+        font-size: 22px;
+        margin: 6px 0;
+    }
+
+    .newsletter-card-text {
+        color: #333;
+        font-size: 16px;
+    }
+
+    @media (max-width: 600px) {
+        .newsletter-card {
+            margin: 24px 16px 0;
+        }
+    }
+
+    /* ======================== */
     /* Footer */
     footer {
         background-color: #f8f8f8;
@@ -415,6 +462,7 @@
                     <li><a href="pages/garden-party.html">Trinity Garden Party</a></li>
                     <li><a href="pages/welcome-events.html">Welcome Events MT26</a></li>
                     <li><a href="pages/alternativeguide.html">Alternative Guide</a></li>
+                    <li><a href="pages/newsletter.html">Weekly Newsletter</a></li>
                 </ul>
             </li>
         </ul>
