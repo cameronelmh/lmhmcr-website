@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Lady Margaret Hall MCR - Weekly Newsletter</title>
+    <link rel="stylesheet" href="../css/lmh.css">
+
+    <!-- ✅ Favicon -->
+    <link rel="icon" href="../favicon.ico" type="image/x-icon">
+
+    <!-- Font Awesome for footer icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        /* ======================== */
+        /* Crest Image & Header */
+        /* ======================== */
+        .crest-image {
+            width: auto;
+            height: 70px;
+            position: relative;
+            z-index: 10;
+            margin-top: 5px;
+            margin-left: 10%;
+        }
+
+        .container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1px;
+            width: 90%;
+            background-color: white;
+            margin-top: 10px;
+            padding: 10px 0;
+            flex-wrap: wrap;
+            position: relative;
+            z-index: 10;
+        }
+
+        .menu-button-home {
+            padding: 10px 10px;
+            border: none;
+            cursor: pointer;
+            font-size: 25px;
+            color: rgb(4, 4, 135);
+            background-color: white;
+            text-align: center;
+            display: inline-block;
+            width: max-content;
+            max-width: 400px;
+            white-space: normal;
+            line-height: 1.2;
+            word-wrap: break-word;
+            font-family: 'Roboto';
+            letter-spacing: 2px;
+            opacity: 0.9;
+        }
+
+        .menu-button-home:hover,
+        .menu-button-home:active {
+            opacity: 0.3;
+        }
+
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 30px;
+            cursor: pointer;
+            color: rgb(4, 4, 135);
+            position: absolute;
+            right: 20px;
+            top: 20px;
+        }
+
+        .menu {
+            display: flex;
+            gap: 10px;
+            list-style: none;
+            padding-left: 70px;
+            background-color: white;
+            font-family: 'Roboto';
+            margin-left: auto;
+        }
+
+        .menu li {
+            padding: 10px 10px;
+            background-color: white;
+            color: rgb(4, 4, 135);
+            font-size: 18px;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+            cursor: pointer;
+        }
+
+        .menu li:hover {
+            opacity: 0.8;
+        }
+
+        .dropdown {
+            position: relative;
+            cursor: pointer;
+            color: rgb(4, 4, 135);
+            z-index: 20;
+        }
+
+        .submenu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: white;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+            min-width: 180px;
+            border-radius: 5px;
+            z-index: 1000;
+        }
+
+        .submenu li {
+            padding: 10px;
+            font-size: 16px;
+            color: rgb(4, 4, 135);
+            background-color: white;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+            transition: opacity 0.3s, background-color 0.3s;
+        }
+
+        .submenu li:hover {
+            background-color: #f1f1f1;
+        }
+
+        .dropdown.active .submenu {
+            display: block;
+        }
+
+        @media (max-width: 1000px) {
+            .menu {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 70px;
+                right: 10px;
+                background-color: white;
+                width: 90%;
+                max-width: 300px;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+                padding: 10px 0;
+                border-radius: 5px;
+                z-index: 1000;
+            }
+
+            .menu.show {
+                display: flex;
+            }
+
+            .menu li {
+                padding: 12px 15px;
+                text-align: left;
+                border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+            }
+
+            .menu li:last-child {
+                border-bottom: none;
+            }
+
+            .submenu {
+                position: static;
+                width: 100%;
+                box-shadow: none;
+                border-radius: 0;
+                padding-left: 15px;
+            }
+
+            .submenu li {
+                padding: 10px 0;
+            }
+
+            .dropdown.active .submenu {
+                display: block;
+            }
+
+            .menu-toggle {
+                display: block;
+            }
+        }
+
+        @media (max-width: 600px) {
+
+            .menu li,
+            .submenu li {
+                font-size: 14px;
+                padding: 8px 12px;
+            }
+
+            .menu-button-home {
+                font-size: 22px;
+                max-width: 200px;
+            }
+        }
+
+        .menu-button-home .short-version {
+            display: none;
+        }
+
+        @media (max-width: 600px) {
+            .menu-button-home .full-version {
+                display: none;
+            }
+
+            .menu-button-home .short-version {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+
+            .menu-button-home .short-version .main-title {
+                font-size: 28px;
+                line-height: 1.2;
+            }
+
+            .menu-button-home .short-version .subtitle {
+                font-size: 18px;
+                opacity: 0.6;
+                line-height: 1.2;
+            }
+        }
+
+        hr {
+            color: rgb(4, 4, 135);
+            background-color: rgb(4, 4, 135);
+            height: 1px;
+        }
+
+        footer {
+            background-color: #f8f8f8;
+            border-top: 2px solid #003366;
+            margin-top: 40px;
+            padding: 20px 10px;
+            text-align: center;
+            font-size: 14px;
+            color: #444;
+        }
+
+        footer a {
+            color: #444;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        footer a:hover {
+            color: #900;
+        }
+
+        footer i {
+            margin-right: 5px;
+            color: #444;
+        }
+
+        footer a:hover i {
+            color: #900;
+        }
+
+        .footer-container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        /* ======================== */
+        /* Newsletter */
+        /* ======================== */
+        .newsletter {
+            max-width: 760px;
+            margin: 30px auto 0;
+            padding: 0 16px;
+            font-family: 'Roboto';
+            color: #222;
+        }
+
+        /* Undo the site-wide centred flex styling on p and h1 */
+        .newsletter p,
+        .newsletter h1 {
+            display: block;
+            margin-left: 0;
+            margin-right: 0;
+            text-align: left;
+        }
+
+        .newsletter h1 {
+            color: rgb(4, 4, 135);
+            font-size: 30px;
+            margin-bottom: 4px;
+        }
+
+        .newsletter .intro {
+            color: #555;
+            font-size: 16px;
+            margin-top: 0;
+        }
+
+        .newsletter h2 {
+            color: rgb(4, 4, 135);
+            font-size: 22px;
+            margin: 0 0 4px;
+        }
+
+        .newsletter h3 {
+            color: rgb(4, 4, 135);
+            font-size: 18px;
+            margin: 24px 0 6px;
+        }
+
+        .newsletter p,
+        .newsletter li {
+            font-size: 17px;
+            line-height: 1.6;
+        }
+
+        .newsletter a {
+            color: rgb(4, 4, 135);
+            text-decoration: underline;
+        }
+
+        .issue-date {
+            color: #777;
+            font-size: 15px;
+            margin: 0 0 12px;
+        }
+
+        .latest-issue {
+            border: 1px solid rgba(4, 4, 135, 0.2);
+            border-radius: 12px;
+            padding: 24px;
+            margin: 20px 0 40px;
+        }
+
+        .latest-label {
+            display: inline-block;
+            background-color: rgb(4, 4, 135);
+            color: white;
+            font-size: 12px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            padding: 3px 10px;
+            border-radius: 20px;
+            margin-bottom: 10px;
+        }
+
+        .archive-heading {
+            border-top: 1px solid rgba(4, 4, 135, 0.2);
+            padding-top: 24px;
+        }
+
+        .newsletter details {
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+            padding: 12px 0;
+        }
+
+        .newsletter summary {
+            cursor: pointer;
+            color: rgb(4, 4, 135);
+            font-size: 18px;
+        }
+
+        .newsletter summary .issue-date {
+            display: inline;
+            margin-left: 8px;
+        }
+
+        .newsletter details[open] summary {
+            margin-bottom: 8px;
+        }
+
+        @media (max-width: 600px) {
+            .latest-issue {
+                padding: 16px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- ✅ Header and Navigation -->
+    <div class="container">
+        <img src="../assets/images/lmh_crest.png" class="crest-image">
+
+        <a href="../index.html">
+            <button class="menu-button-home">
+                <span class="full-version">
+                    <span class="main-title">
+                        <span style="font-size:32px;">L</span>ADY
+                        <span style="font-size:32px;">M</span>ARGARET
+                        <span style="font-size:32px;">H</span>ALL
+                    </span>
+                    <span class="subtitle">
+                        M<span style="font-size:18px;">IDDLE</span> C<span style="font-size:18px;">OMMON</span> R<span
+                            style="font-size:18px;">OOM</span>
+                    </span>
+                </span>
+
+                <span class="short-version">
+                    <span class="main-title">LMH</span>
+                    <span class="subtitle">MCR</span>
+                </span>
+            </button>
+        </a>
+
+        <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+
+        <nav>
+            <ul class="menu">
+                <li class="dropdown">Committee
+                    <ul class="submenu">
+                        <li><a href="executives.html">Executives</a></li>
+                        <li><a href="representatives.html">Representatives</a></li>
+                        <li><a href="constitution.html">Constitution</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">Facilities
+                    <ul class="submenu">
+                        <li><a href="mcr.html">MCR</a></li>
+                        <li><a href="tv-room.html">TV Room</a></li>
+                        <li><a href="kitchen.html">Kitchen</a></li>
+                        <li><a href="gym.html">Gym</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">College Life
+                    <ul class="submenu">
+                        <li><a href="accomodation.html">Accommodation</a></li>
+                        <li><a href="hall.html">Hall</a></li>
+                        <li><a href="social-events.html">Social Events</a></li>
+                        <li><a href="library.html">Library</a></li>
+                        <li><a href="sports.html">Sports</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">Resources
+                    <ul class="submenu">
+                        <li><a href="academicsupport.html">Academic Support</a></li>
+                        <li><a href="mentalhealth.html">Mental Health</a></li>
+                        <li><a href="associate-membership.html">Associate Membership</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">Events & Info
+                    <ul class="submenu">
+                        <li><a href="garden-party.html">TT26 Garden Party</a></li>
+                        <li><a href="welcome-events.html">Welcome Events MT26</a></li>
+                        <li><a href="alternativeguide.html">Alternative Guide</a></li>
+                        <li><a href="newsletter.html">Weekly Newsletter</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+    </div>
+
+    <hr>
+
+    <!-- ✅ Weekly Newsletter -->
+    <!--
+        HOW TO ADD A NEW ISSUE EACH WEEK
+        1. Move the current issue out of "latest-issue" into the archive below:
+           wrap it in <details><summary>...</summary> ... </details> (copy an
+           existing archive entry) and put it at the TOP of the archive list.
+        2. Paste the new email into "latest-issue" and update the title and date.
+        3. Update the date and teaser on the home page card (index.html).
+        Before posting, remove anything members-only: personal phone numbers or
+        emails, door/room codes, internal sign-up links, info about named students.
+    -->
+    <main class="newsletter">
+        <h1>Weekly Newsletter</h1>
+        <p class="intro">
+            The MCR's weekly email, posted here too. Members get it in their inbox every week;
+            to be added to the mailing list, email
+            <a href="mailto:secretary-mcr@lmh.ox.ac.uk">secretary-mcr@lmh.ox.ac.uk</a>.
+        </p>
+
+        <!-- ===== LATEST ISSUE ===== -->
+        <article class="latest-issue" id="latest">
+            <span class="latest-label">Latest</span>
+            <h2>MT26 Week 3</h2>
+            <p class="issue-date">Week of 26 October 2026</p>
+
+            <p>Hello everyone,</p>
+            <p>
+                Going to put the text from each newsletter in something like this
+            </p>
+
+            <h3>This week's events</h3>
+            <ul>
+                <li><strong>Day, time</strong> – BOP, somewhere in LMH</li>
+                <li><strong>Day, time</strong> –Welfare Brunch, also somewhere in LMH</li>
+            </ul>
+
+            <h3>Announcements</h3>
+            <p>Important annoucements e.g. stash drop.</p>
+
+            <p>Best wishes,<br>The MCR Committee</p>
+        </article>
+
+        <!-- ===== PAST ISSUES (newest first) ===== -->
+        <h2 class="archive-heading">Past issues</h2>
+
+        <!-- Example archive entry: copy this block for each old issue.
+        <details>
+            <summary>MT26 Week 2 <span class="issue-date">Week of 19 October 2026</span></summary>
+            <p>Hello everyone,</p>
+            ...
+        </details>
+        -->
+
+        <p>Past issues will appear here.</p>
+    </main>
+
+
+    <script>
+        function toggleMenu() {
+            const menu = document.querySelector(".menu");
+            menu.classList.toggle("show");
+        }
+
+        document.addEventListener("DOMContentLoaded", function () {
+            const dropdowns = document.querySelectorAll(".dropdown");
+
+            dropdowns.forEach(dropdown => {
+                dropdown.addEventListener("click", function () {
+                    this.classList.toggle("active");
+                });
+
+                document.addEventListener("click", function (event) {
+                    if (!dropdown.contains(event.target)) {
+                        dropdown.classList.remove("active");
+                    }
+                });
+            });
+        });
+    </script>
+
+    <!-- ✅ Footer -->
+    <footer>
+        <div class="footer-container">
+            <p>&copy; 2026 Lady Margaret Hall MCR | University of Oxford</p>
+            <p>
+                <a href="mailto:secretary-mcr@lmh.ox.ac.uk">secretary-mcr@lmh.ox.ac.uk</a> &nbsp; | &nbsp;
+                <a href="https://www.instagram.com/lmh_mcr/" target="_blank">
+                    <i class="fab fa-instagram"></i> lmh_mcr
+                </a> &nbsp; | &nbsp;
+                <a href="https://www.lmh.ox.ac.uk/" target="_blank">LMH Website</a>
+            </p>
+        </div>
+    </footer>
+
+</body>
+
+</html>
